@@ -1,0 +1,22 @@
+snippet ginfn "gin controller" b
+func $1 (c *gin.Context) \{
+	$0
+\}
+endsnippet
+
+snippet cjson "c.JSON()"
+c.JSON(${1:400}, gin.H\{"${2:message}": $3\})
+return
+endsnippet
+
+snippet ginimp "Import gin" b
+import (
+	"github.com/gin-gonic/gin"
+)
+endsnippet
+
+snippet iferr "if err != nil" b
+if $1 != nil \{
+	$0
+\}
+endsnippet

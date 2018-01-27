@@ -1,0 +1,81 @@
+snippet imf "import from" b
+import ${2:\{ $0 \}} from '$1'
+endsnippet
+
+snippet crf "create react function" b
+import React from 'react'
+
+const $1 = () => (
+	$0
+)
+
+export default $1
+endsnippet
+
+snippet ptimp "propt-types import" b
+import PropTypes from 'prop-types'
+endsnippet
+
+snippet ptdef "PropTypes definition" b
+$1.propTypes = \{
+	$0
+\}
+endsnippet
+
+snippet pts "PropTypes string" 
+PropTypes.string${1:.isRequired}
+endsnippet
+
+snippet ptf "PropTypes function" 
+PropTypes.func${1:.isRequired}
+endsnippet
+
+snippet ptb "PropTypes bool" 
+PropTypes.bool${1:.isRequired}
+endsnippet
+
+snippet pto "PropTypes object"
+PropTypes.object${1:.isRequired}
+endsnippet
+
+snippet ptn "propTypes number" 
+PropTypes.number${1:.isRequired}
+endsnippet
+
+snippet rcc "React create class" b
+import React from 'react'
+
+class $1 extends React.Component \{
+  state = \{
+
+  \}
+
+  render () \{
+    return (
+      $0
+    )
+  \}
+\}
+
+export default $1
+endsnippet
+
+snippet tss "this.setState"
+this.setState(\{ $1 \})$0
+endsnippet
+
+snippet cl "console.log()"
+console.log($0)
+endsnippet
+
+snippet tryc "try catch wrapper"
+try {
+	${VISUAL: inside}
+} catch (err) {
+	$0
+}
+endsnippet
+
+snippet nreq "node require"
+const $0 = require('$1')
+endsnippet
