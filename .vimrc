@@ -5,28 +5,28 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'                   "Add functionality for surrounding stuff
-"Plug 'scrooloose/syntastic'                 " Syntax checker
 Plug 'w0rp/ale'                             "Anynchronous lint engine
 Plug 'bling/vim-airline'                    " Nice colorized status bar an the bottom
+
 Plug 'altercation/vim-colors-solarized'     " Just a theme
+
 Plug 'tpope/vim-fugitive'                   "for git
 Plug 'scrooloose/nerdcommenter'             "Commenting tool
 
 "Auto completion
 Plug 'jiangmiao/auto-pairs'                 "Auto insert pairs for '{]
 Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 3
-Plug 'ervandew/supertab'                    " use <Tab> for all your insert completion needs
+"Plug 'ervandew/supertab'                    " use <Tab> for all your insert completion needs
 Plug 'ctrlpvim/ctrlp.vim'                   "for searching files by <C-p>
 Plug 'sirver/ultisnips'                     " snippets
 Plug 'honza/vim-snippets'                   " for snippets too
 Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'               "Show git diff
-"Plug 'marijnh/tern_for_vim'                " auto complete for js TODO: how it works??
 
 "Code hightlighting
 Plug 'fatih/vim-go'                         "For golang
-"Plug 'othree/yajs.vim'
-Plug 'pangloss/vim-javascript'              "Indentation and highlighting
+Plug 'othree/yajs.vim'
+"Plug 'pangloss/vim-javascript'              "Indentation and highlighting
 Plug 'mxw/vim-jsx'
 call plug#end()
 
@@ -94,7 +94,10 @@ colorscheme solarized
 "--------------------------------------------//
 
 "Disable highlighting search result on Enter key
-nnoremap <silent> <cr> :nohlsearch<cr><cr>
+"nnoremap <silent> <cr> :nohlsearch<cr><cr>
+set hlsearch
+set incsearch
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 set ignorecase "Ingore case while search
 set incsearch "Live search. Show pattern while typing
@@ -170,8 +173,8 @@ nnoremap j gj
 nnoremap k gk
 
 " Use tab to jump between blocks, because it's easier
-nnoremap <tab> %
-vnoremap <tab> %
+"nnoremap <tab> %
+"vnoremap <tab> %
 
 """ SYSTEM CLIPBOARD COPY & PASTE SUPPORT
 set pastetoggle=<F2> "F2 before pasting to preserve indentation
