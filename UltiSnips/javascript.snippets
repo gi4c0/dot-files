@@ -1,5 +1,5 @@
 snippet imf "import from" b
-import ${2:\{ $0 \}} from '$1'
+import ${2:\{ $0 \}} from '$1';
 endsnippet
 
 snippet crf "create react function" b
@@ -69,13 +69,26 @@ console.log($0)
 endsnippet
 
 snippet tryc "try catch wrapper"
-try {
-	${VISUAL: inside}
-} catch (err) {
-	$0
-}
+try \{
+	${VISUAL: inside}$0
+\} catch (err) \{
+	${1:next(err);}
+\}
 endsnippet
 
 snippet nreq "node require"
 const $0 = require('$1')
+endsnippet
+
+snippet makroute "Define makeen route" b
+  router.$1(
+    '$2',
+    async (req, res, next) => \{
+      try \{
+				$0
+      \} catch (err) \{
+        next(err);
+      \}
+    \},
+  );
 endsnippet

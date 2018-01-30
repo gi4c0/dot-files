@@ -25,8 +25,8 @@ Plug 'airblade/vim-gitgutter'               "Show git diff
 
 "Code hightlighting
 Plug 'fatih/vim-go'                         "For golang
-Plug 'othree/yajs.vim'
-"Plug 'pangloss/vim-javascript'              "Indentation and highlighting
+"Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'              "Indentation and highlighting
 Plug 'mxw/vim-jsx'
 call plug#end()
 
@@ -196,3 +196,5 @@ nnoremap <silent> <Down> :resize -5<cr>
 " Save whenever switching windows or leaving vim. This is useful when running
 " the tests inside vim without having to save all files first.
 au FocusLost,WinLeave * :silent! wa
+
+nnoremap <C-F> :grep -R --exclude-dir=node_modules '
