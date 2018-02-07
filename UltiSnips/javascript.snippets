@@ -81,14 +81,22 @@ const $0 = require('$1')
 endsnippet
 
 snippet makroute "Define makeen route" b
-  router.$1(
-    '$2',
-    async (req, res, next) => \{
-      try \{
-				$0
-      \} catch (err) \{
-        next(err);
-      \}
-    \},
-  );
+router.$1(
+  '$2',
+  async (req, res, next) => \{
+    try \{
+			$0
+    \} catch (err) \{
+      next(err);
+    \}
+  \},
+);
+endsnippet
+
+snippet joio "Joi object"
+Joi.object()${1:.keys(\{$2\})}${3:.required()}$0
+endsnippet
+
+snippet jois "Joi string"
+Joi.string()${1:.required()}$0
 endsnippet
