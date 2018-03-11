@@ -12,6 +12,7 @@ Plug 'altercation/vim-colors-solarized'     "Just a theme
 
 Plug 'tpope/vim-fugitive'                   "for git
 Plug 'tpope/vim-unimpaired'                 "Adds shortcuts for fugitive (<[-q>, <[-Q>)
+Plug 'tpope/vim-repeat'                     "Enable repeating for surround
 Plug 'scrooloose/nerdcommenter'             "Commenting tool
 
 "Auto completion
@@ -114,6 +115,7 @@ let NERDTreeKeepTreeInNewTab=1
 
 "YouCompleteme
 set completeopt-=preview "Prevent opening new window with documentation
+nnoremap <C-y> :YcmCompleter RestartServer<CR>
 
 "Highlighting options
 let g:ale_linters = {'javascript': ['eslint'], 'go': ['go build', 'gofmt', 'golint', 'gometalinter', 'gosimple', 'gotype', 'go vet', 'staticcheck']}
@@ -136,6 +138,12 @@ let g:user_emmet_settings = {
 \  },
 \}
 au FileType javascript.jsx nmap <C-b> :YcmCompleter GoToDefinition<CR>
+"Folding
+" augroup javascript_folding
+"     au!
+"     au FileType javascript setlocal foldmethod=syntax
+" augroup END
+" nnoremap <space> za
 
 
 
@@ -177,7 +185,6 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
 "=============== KEYMAP =========================
-imap jj <Esc>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' "output path to current file/buffer
 
 " Navigate properly when lines are wrapped
@@ -186,6 +193,7 @@ nnoremap k gk
 
 " SYSTEM CLIPBOARD COPY & PASTE SUPPORT
 set pastetoggle=<F2> "F2 before pasting to preserve indentation
+nnoremap <C-t> :tabe %<cr>
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>

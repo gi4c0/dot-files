@@ -2,6 +2,14 @@ snippet imf "import from" b
 import ${2:\{ $0 \}} from '$1';
 endsnippet
 
+snippet itf "it function" b
+it('$1', async () => {
+	const res = await request.$2($3)
+		${4:.set('authorization', this.${5:borrower}Token)$0}
+	assert(res.status, 200);
+});
+endsnippet
+
 snippet crf "create react function" b
 import React from 'react'
 
@@ -77,8 +85,16 @@ try \{
 endsnippet
 
 snippet nreq "node require"
-const $0 = require('$1')
+const $2 = require('$1')$0
 endsnippet
+
+
+snippet rsok "res.sendStatus(200)" b
+res.sendStatus(200);
+endsnippet
+
+
+
 
 snippet makroute "Define makeen route" b
 router.$1(
@@ -99,4 +115,78 @@ endsnippet
 
 snippet jois "Joi string"
 Joi.string()${1:.required()}$0
+endsnippet
+
+snippet join "Joi number"
+Joi.number()${1:.required()}$0
+endsnippet
+
+snippet joia "Joi array"
+Joi.array()${1:.required()}$0
+endsnippet
+
+
+
+
+
+snippet cbs "comment body string"
+@param {string} $1.body${2:.required}
+endsnippet
+
+snippet cbn "comment body number"
+@param {number} $1.body${2:.required}
+endsnippet
+
+snippet cbo "commnet body object"
+@param {object} $1.body${2:.required}
+endsnippet
+
+snippet cps "comment path string"
+@param {string} $1.path${2:.required}
+endsnippet
+
+snippet cqs "comment query string"
+@param {string} $1.query${2:.required}
+endsnippet
+
+snippet cqo "comment query object"
+@param {object} $1.query${2:.required}
+endsnippet
+
+snippet crdel "comment route GET"
+@route DELETE$1
+endsnippet
+
+snippet crget "comment route GET"
+@route GET$1
+endsnippet
+
+snippet crpost "comment route POST"
+@route POST$1
+endsnippet
+
+snippet crpatch "comment route PATCH"
+@route PATCH$1
+endsnippet
+
+snippet cjwt "comment route PATCH"
+@security jwtToken
+endsnippet
+
+snippet crn "comment return number"
+@returns {number} 200$0
+endsnippet
+
+snippet cro "comment return"
+@returns {object} 200$0
+endsnippet
+
+snippet cra "comment return array"
+@returns {array} 200$0
+endsnippet
+
+snippet cdef "comment defenition"
+/**
+* $0
+*/
 endsnippet
