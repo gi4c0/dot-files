@@ -18,7 +18,6 @@ Plug 'scrooloose/nerdcommenter'             "Commenting tool
 "Auto completion
 Plug 'jiangmiao/auto-pairs'                 "Auto insert pairs for '{]
 Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 2 or 3
-"Plug 'ervandew/supertab'                   " use <Tab> for all your insert completion needs
 Plug 'ctrlpvim/ctrlp.vim'                   "for searching files by <C-p>
 Plug 'sirver/ultisnips'                     "snippets
 Plug 'honza/vim-snippets'                   "for snippets too
@@ -26,9 +25,10 @@ Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'               "Show git diff
 
 "Code hightlighting
-Plug 'fatih/vim-go'                         "For golang
+Plug 'sheerun/vim-polyglot'                   "One plugin for all languages
+" Plug 'fatih/vim-go'                         "For golang
 "Plug 'othree/yajs.vim'
-Plug 'pangloss/vim-javascript'              "Indentation and highlighting
+" Plug 'pangloss/vim-javascript'              "Indentation and highlighting
 Plug 'mxw/vim-jsx'
 call plug#end()
 
@@ -36,6 +36,15 @@ call plug#end()
 filetype plugin indent on
 runtime macros/matchit.vim
 set hidden
+
+
+" Russion language
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+setlocal spell spelllang=ru_yo,en_us "Включает русскую ё
+
 
 " Switch syntax highlighting on, when the terminal has colors.
 " Also switch on highlighting the last used search pattern.
