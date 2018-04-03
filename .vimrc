@@ -25,10 +25,11 @@ Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'               "Show git diff
 
 "Code hightlighting
-Plug 'sheerun/vim-polyglot'                   "One plugin for all languages
-" Plug 'fatih/vim-go'                         "For golang
+" Plug 'sheerun/vim-polyglot'                   "One plugin for all languages
+Plug 'fatih/vim-go'                         "For golang
 "Plug 'othree/yajs.vim'
-" Plug 'pangloss/vim-javascript'              "Indentation and highlighting
+Plug 'pangloss/vim-javascript'              "Indentation and highlighting
+Plug 'leafgarland/typescript-vim'           "Typescript support
 Plug 'mxw/vim-jsx'
 call plug#end()
 
@@ -43,7 +44,8 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
-setlocal spell spelllang=ru_yo,en_us "Включает русскую ё
+ "Включает русскую ё
+nmap <F6> :setlocal spell! spelllang=ru_yo,en_us<cr>
 
 
 " Switch syntax highlighting on, when the terminal has colors.
@@ -147,6 +149,10 @@ let g:user_emmet_settings = {
 \  },
 \}
 au FileType javascript.jsx nmap <C-b> :YcmCompleter GoToDefinition<CR>
+
+"Typescript
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 "Folding
 " augroup javascript_folding
 "     au!
@@ -216,5 +222,7 @@ nnoremap <silent> <Down> :resize -5<cr>
 " Save whenever switching windows or leaving vim. This is useful when running
 " the tests inside vim without having to save all files first.
 au FocusLost,WinLeave * :silent! wa
+"Save file
+nnoremap <C-s> :w<Cr>
 
 nnoremap <C-F> :Ggrep -F '
