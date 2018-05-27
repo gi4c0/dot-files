@@ -20,24 +20,17 @@ Plug 'jiangmiao/auto-pairs'                 "Auto insert pairs for '{]
 Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 2 or 3
 Plug 'ctrlpvim/ctrlp.vim'                   "for searching files by <C-p>
 Plug 'sirver/ultisnips'                     "snippets
-Plug 'honza/vim-snippets'                   "for snippets too
 Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'               "Show git diff
 
 "Code hightlighting
-" Plug 'sheerun/vim-polyglot'                   "One plugin for all languages
-Plug 'fatih/vim-go'                         "For golang
-"Plug 'othree/yajs.vim'
-Plug 'pangloss/vim-javascript'              "Indentation and highlighting
-Plug 'leafgarland/typescript-vim'           "Typescript support
-Plug 'mxw/vim-jsx'
+Plug 'sheerun/vim-polyglot'                   "One plugin for all languages
 call plug#end()
 
 " ----------- Native vim settings -----------
 filetype plugin indent on
 runtime macros/matchit.vim
 set hidden
-
 
 " Russion language
 set keymap=russian-jcukenwin
@@ -96,8 +89,10 @@ set history=200 "History amount of commands to keep in memory
 
 "---------------- COLOR SCHEME --------------//
 let g:solarized_termcolors=256
-set background=dark
+let g:enable_bold_font = 1
+let g:enable_italic_font = 1
 colorscheme solarized
+set background=dark
 "--------------------------------------------//
 
 
@@ -127,15 +122,15 @@ let NERDTreeKeepTreeInNewTab=1
 "YouCompleteme
 set completeopt-=preview "Prevent opening new window with documentation
 nnoremap <C-y> :YcmCompleter RestartServer<CR>
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.scss
+au FileType javascript.jsx nmap <C-b> :YcmCompleter GoToDefinition<CR>
 
 "Highlighting options
-let g:ale_linters = {'javascript': ['eslint'], 'go': ['go build', 'gofmt', 'golint', 'gometalinter', 'gosimple', 'gotype', 'go vet', 'staticcheck']}
+let g:ale_linters = {'javascript': ['eslint'], 'go': ['go build', 'gofmt', 'golint', 'gometalinter', 'gosimple', 'gotype', 'go vet', 'staticcheck'], 'python': ['flake8', 'mypy', 'pylint']}
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 " Enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
-
-
 
 "JS-VIM
 let g:javascript_plugin_jsdoc = 1
@@ -148,18 +143,16 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
-au FileType javascript.jsx nmap <C-b> :YcmCompleter GoToDefinition<CR>
+
+"Vue.js
+let g:vue_disable_pre_processors=1
 
 "Typescript
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
-"Folding
-" augroup javascript_folding
-"     au!
-"     au FileType javascript setlocal foldmethod=syntax
-" augroup END
-" nnoremap <space> za
 
+" Python
+let g:ycm_python_binary_path = 'python3.6'
 
 
 "Go Vim
@@ -179,12 +172,13 @@ au FileType go nmap <C-b> <Plug>(go-def)
 
 "CtrlP
 let g:ctrlp_working_path_mode = 'ra' " Detect root of project by nearest .git
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " Exclude files in .gitignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules     " Ingore node_modules.
 
 
 
 " UltiSnips
-let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsEditSplit="vertical" "for split window UltiSnipsEditSplit
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips'] " Provide directory for UltiSnips
 " UltiSnips triggering
@@ -201,6 +195,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 "=============== KEYMAP =========================
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' "output path to current file/buffer
+let mapleader="\<space>"
 
 " Navigate properly when lines are wrapped
 nnoremap j gj
@@ -226,3 +221,19 @@ au FocusLost,WinLeave * :silent! wa
 nnoremap <C-s> :w<Cr>
 
 nnoremap <C-F> :Ggrep -F '
+
+
+"======== BUFFERS ==============
+set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+nnoremap <C-x> :buffers<CR>:buffer<Space>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>

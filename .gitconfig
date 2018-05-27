@@ -8,3 +8,7 @@
   dump = cat-file -p
 [core]
 	excludesfile = /Users/alekseypanchenko/dev/dot-files/.gitignore_global
+[user]
+	name = gtament
+	email = denis.braslavskiy@do-it.co
+	username = denis.braslavskiy
