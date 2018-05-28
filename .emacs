@@ -18,6 +18,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
  '(blink-cursor-alist (quote ((nil))))
  '(blink-cursor-mode nil)
  '(compilation-message-face (quote default))
@@ -26,7 +28,7 @@
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(cursor-type (quote (bar . 50)))
- '(custom-enabled-themes (quote (material)))
+ '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
     ("732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
@@ -53,16 +55,19 @@
  '(hl-fg-colors
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
+ '(hl-sexp-background-color "#1c1f26")
  '(ido-enable-flex-matching t)
  '(ido-mode (quote both) nil (ido))
  '(ido-vertical-mode t)
  '(inhibit-startup-screen t)
  '(js2-bounce-indent-p t)
+ '(js2-highlight-level 3)
  '(js2-ignored-warnings nil)
  '(js2-missing-semi-one-line-override nil)
  '(js2-mode-indent-ignore-first-tab t)
  '(js2-mode-indent-inhibit-undo nil)
  '(js2-mode-show-parse-errors nil)
+ '(js2-mode-show-strict-warnings nil)
  '(js2-strict-missing-semi-warning nil)
  '(magit-diff-use-overlays nil)
  '(neo-force-change-root t)
@@ -71,7 +76,7 @@
  '(package-enable-at-startup nil)
  '(package-selected-packages
    (quote
-    (smex ido-vertical-mode neotree multi-term solarized-theme material-theme json-mode web-mode exec-path-from-shell flycheck company-tern xref-js2 js2-refactor js2-mode)))
+    (treemacs-projectile treemacs-evil treemacs evil-surround evil-magit magit smex ido-vertical-mode multi-term solarized-theme material-theme json-mode web-mode exec-path-from-shell flycheck company-tern xref-js2 js2-refactor js2-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(server-mode nil)
@@ -88,7 +93,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default")))))
+ '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "nil" :family "PT Mono")))))
 
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -194,16 +199,16 @@
 (add-hook 'js-mode-hook #'smartparens-mode)
 
 ;; Neo Tree plugin (like NERDTree)
-(add-to-list 'load-path "/some/path/neotree")
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
+;;(add-to-list 'load-path "/some/path/neotree")
+;;(require 'neotree)
+;;(global-set-key [f8] 'neotree-toggle)
 
 ;; add shortcats for evil in neotree
-(add-hook 'neotree-mode-hook
-          (lambda ()
-            (define-key evil-normal-state-local-map (kbd "o") 'neotree-enter)
-            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+;;(add-hook 'neotree-mode-hook
+          ;;(lambda ()
+            ;;(define-key evil-normal-state-local-map (kbd "o") 'neotree-enter)
+            ;;(define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+            ;;(define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
 ;; disable evil mode for neotree
 ;;(add-hook 'neotree-mode-hook
@@ -228,3 +233,69 @@
     (save-some-buffers t))
   
   (add-hook 'focus-out-hook 'save-all)
+
+(global-set-key (kbd "C-x g") 'magit-status)
+
+;; optional: disable additional bindings for yanking text
+;; (setq evil-magit-use-y-for-yank nil)
+(require 'evil-magit)
+;; optional: this is the evil state that evil-magit will use
+(setq evil-magit-state 'normal)
+
+
+;; Treemacs
+(use-package treemacs
+  :ensure t
+  :defer t
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :config
+  (progn
+    (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
+          treemacs-file-event-delay           5000
+          treemacs-follow-after-init          t
+          treemacs-follow-recenter-distance   0.1
+          treemacs-goto-tag-strategy          'refetch-index
+          treemacs-indentation                2
+          treemacs-indentation-string         " "
+          treemacs-is-never-other-window      nil
+          treemacs-no-png-images              nil
+          treemacs-project-follow-cleanup     nil
+          treemacs-recenter-after-file-follow nil
+          treemacs-recenter-after-tag-follow  nil
+          treemacs-show-hidden-files          t
+          treemacs-silent-filewatch           nil
+          treemacs-silent-refresh             nil
+          treemacs-sorting                    'alphabetic-desc
+          treemacs-tag-follow-cleanup         t
+          treemacs-tag-follow-delay           1.5
+          treemacs-width                      35)
+
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (pcase (cons (not (null (executable-find "git")))
+                 (not (null (executable-find "python3"))))
+      (`(t . t)
+       (treemacs-git-mode 'extended))
+      (`(t . _)
+       (treemacs-git-mode 'simple))))
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t" . treemacs-toggle)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag)))
+
+(use-package treemacs-evil
+  :after treemacs evil
+  :ensure t)
+
+(use-package treemacs-projectile
+  :after treemacs projectile
+  :ensure t)
+
+
+(global-set-key (kbd "C-x t") 'treemacs-toggle)

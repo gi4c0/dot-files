@@ -1,6 +1,8 @@
 "No compatible mode (no compatible with VI)
 set nocompatible
 
+call has('python3')
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
@@ -18,6 +20,7 @@ Plug 'scrooloose/nerdcommenter'             "Commenting tool
 "Auto completion
 Plug 'jiangmiao/auto-pairs'                 "Auto insert pairs for '{]
 Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 2 or 3
+"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'ctrlpvim/ctrlp.vim'                   "for searching files by <C-p>
 Plug 'sirver/ultisnips'                     "snippets
 Plug 'mattn/emmet-vim'
@@ -118,6 +121,10 @@ let g:NERDTrimTrailingWhitespace = 1
 let NERDTreeKeepTreeInNewTab=1
 
 
+" Deoplete
+" let g:deoplete#sources#ternjs#filter = 0
+" let g:deoplete#sources#ternjs#case_insensitive = 1
+
 
 "YouCompleteme
 set completeopt-=preview "Prevent opening new window with documentation
@@ -174,6 +181,11 @@ au FileType go nmap <C-b> <Plug>(go-def)
 let g:ctrlp_working_path_mode = 'ra' " Detect root of project by nearest .git
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " Exclude files in .gitignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules     " Ingore node_modules.
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_types = ['buf', 'fil']
+"nnoremap <C-x>b :CtrlPBuffer<CR>
+"nnoremap <C-x><C-b> :CtrlPBuffer<CR>
 
 
 
@@ -226,7 +238,7 @@ nnoremap <C-F> :Ggrep -F '
 "======== BUFFERS ==============
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-nnoremap <C-x> :buffers<CR>:buffer<Space>
+" nnoremap <C-x> :buffers<CR>:buffer<Space>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
