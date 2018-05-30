@@ -28,7 +28,6 @@ Plug 'sheerun/vim-polyglot'                   "One plugin for all languages
 call plug#end()
 
 " ----------- Native vim settings -----------
-filetype plugin indent on
 runtime macros/matchit.vim
 set hidden
 
@@ -51,14 +50,14 @@ set showcmd        "Show commands"
 set laststatus=2
 set autowrite      "Automatically write before running commands
 set autoread       "Reload files changed outside vim
-" Trigger autoread when changing buffers or coming back to vim in terminal.
-autocmd FocusGained,BufEnter * :silent! !
 
 "Tabs and space
-set tabstop=2
-set expandtab
+set tabstop=8
+set softtabstop=2
 set shiftwidth=2
+set expandtab
 set autoindent
+filetype plugin indent on
 set relativenumber "reletive numbers of lines ;)
 
 "HTML Editing
@@ -82,6 +81,26 @@ set showmatch "Show matching brackets
 set history=200 "History amount of commands to keep in memory
 "===============================================
 
+augroup AutoMake
+  autocmd!
+
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.scss
+  autocmd FileType javascript.jsx nmap <C-b> :YcmCompleter GoToDefinition<CR>
+  autocmd FileType html,css,javascript.jsx EmmetInstall
+  "typescript stuff
+  autocmd QuickFixCmdPost [^l]* nested cwindow
+  autocmd QuickFixCmdPost    l* nested lwindow
+  autocmd FileType go nnoremap <C-b> <Plug>(go-def)
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+  autocmd FocusLost,WinLeave * :silent! wa
+" Trigger autoread when changing buffers or coming back to vim in terminal.
+  autocmd FocusGained,BufEnter * :silent! !
+augroup END
+
 
 "---------------- COLOR SCHEME --------------//
 let g:solarized_termcolors=256
@@ -96,15 +115,10 @@ set background=dark
 "===============PLUGINS OPTIONS============================//
 
 "NerdTREE settings
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <C-d> :NERDTreeToggle<CR>
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+noremap <C-d> :NERDTreeToggle<CR>
+nnoremap <Leader>n <plug>NERDTreeTabsToggle<CR>
 "locate current file in NERDTree
-map <leader>l :NERDTreeFind<cr>
-"close vim if only nerdtree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+nnoremap <leader>l :NERDTreeFind<cr>
 
 " NERDComments:
 let g:NERDSpaceDelims = 1
@@ -119,8 +133,6 @@ let NERDTreeKeepTreeInNewTab=1
 "YouCompleteme
 set completeopt-=preview "Prevent opening new window with documentation
 nnoremap <C-y> :YcmCompleter RestartServer<CR>
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.scss
-autocmd FileType javascript.jsx nmap <C-b> :YcmCompleter GoToDefinition<CR>
 
 "Highlighting options
 let g:ale_linters = {'javascript': ['eslint'], 'go': ['go build', 'gofmt', 'golint', 'gometalinter', 'gosimple', 'gotype', 'go vet', 'staticcheck'], 'python': ['flake8', 'mypy', 'pylint']}
@@ -134,7 +146,6 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 " jsx
 let g:jsx_ext_required = 0
-autocmd FileType html,css,javascript.jsx EmmetInstall
 let g:user_emmet_settings = {
 \  'javascript' : {
 \      'extends' : 'jsx',
@@ -143,10 +154,6 @@ let g:user_emmet_settings = {
 
 "Vue.js
 let g:vue_disable_pre_processors=1
-
-"Typescript
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
 
 " Python
 let g:ycm_python_binary_path = 'python3.6'
@@ -161,7 +168,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_fmt_command = "goimports"
-autocmd FileType go nmap <C-b> <Plug>(go-def)
 
 
 
@@ -176,17 +182,17 @@ let g:ctrlp_types = ['buf', 'fil']
 " map <C-2> to delete buffer
 let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
 
-func! MyCtrlPMappings()
+function! MyCtrlPMappings() abort
     nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
 endfunc
 
-func! s:DeleteBuffer()
-    let line = getline('.')
-    let bufid = line =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(line, '\d\+'))
+function! s:DeleteBuffer() abort
+  let line = getline('.')
+  let bufid = line =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(line, '\d\+'))
         \ : fnamemodify(line[2:], ':p')
-    exec "bd" bufid
-    exec "norm \<F5>"
-endfunc
+  exec "bd" bufid
+  exec "norm \<F5>"
+endfunction
 
 
 " UltiSnips
@@ -202,7 +208,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 "FUGITIVE
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P "Add to infor to status line
-autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
 "=============== KEYMAP =========================
@@ -223,7 +228,6 @@ nnoremap <silent> <Up> :resize +5<cr>
 nnoremap <silent> <Down> :resize -5<cr>
 
 " Save whenever switching windows or leaving vim. 
-autocmd FocusLost,WinLeave * :silent! wa
 "Save file
 
 nnoremap <C-F> :Ggrep -F '
