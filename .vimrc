@@ -1,6 +1,3 @@
-"No compatible mode (no compatible with VI)
-set nocompatible
-
 call has('python3')
 
 call plug#begin()
@@ -11,6 +8,7 @@ Plug 'w0rp/ale'                             "Anynchronous lint engine
 Plug 'bling/vim-airline'                    "Nice colorized status bar an the bottom
 
 Plug 'altercation/vim-colors-solarized'     "Just a theme
+Plug 'larsbs/vimterial_dark'
 
 Plug 'tpope/vim-fugitive'                   "for git
 Plug 'tpope/vim-unimpaired'                 "Adds shortcuts for fugitive (<[-q>, <[-Q>)
@@ -20,7 +18,6 @@ Plug 'scrooloose/nerdcommenter'             "Commenting tool
 "Auto completion
 Plug 'jiangmiao/auto-pairs'                 "Auto insert pairs for '{]
 Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 2 or 3
-"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'ctrlpvim/ctrlp.vim'                   "for searching files by <C-p>
 Plug 'sirver/ultisnips'                     "snippets
 Plug 'mattn/emmet-vim'
@@ -41,7 +38,7 @@ set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
  "Включает русскую ё
-nmap <F6> :setlocal spell! spelllang=ru_yo,en_us<cr>
+nnoremap <F6> :setlocal spell! spelllang=ru_yo,en_us<cr>
 
 
 " Switch syntax highlighting on, when the terminal has colors.
@@ -51,21 +48,17 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 set showcmd        "Show commands"
-set ruler          "Show cursor position all the time"
 set laststatus=2
 set autowrite      "Automatically write before running commands
 set autoread       "Reload files changed outside vim
-set nocursorline
 " Trigger autoread when changing buffers or coming back to vim in terminal.
-au FocusGained,BufEnter * :silent! !
+autocmd FocusGained,BufEnter * :silent! !
 
 "Tabs and space
 set tabstop=2
 set expandtab
 set shiftwidth=2
-"set smarttab
-set ai
-set nu "Show number of lines
+set autoindent
 set relativenumber "reletive numbers of lines ;)
 
 "HTML Editing
@@ -73,8 +66,8 @@ set matchpairs+=<:>
 
 " Scrolling stuff
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
 set sidescroll=1
+set sidescrolloff=15
 
 "hightlighting search result
 set hlsearch
@@ -95,6 +88,7 @@ let g:solarized_termcolors=256
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
 colorscheme solarized
+" colorscheme vimterial_dark
 set background=dark
 "--------------------------------------------//
 
@@ -121,16 +115,12 @@ let g:NERDTrimTrailingWhitespace = 1
 let NERDTreeKeepTreeInNewTab=1
 
 
-" Deoplete
-" let g:deoplete#sources#ternjs#filter = 0
-" let g:deoplete#sources#ternjs#case_insensitive = 1
-
 
 "YouCompleteme
 set completeopt-=preview "Prevent opening new window with documentation
 nnoremap <C-y> :YcmCompleter RestartServer<CR>
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.scss
-au FileType javascript.jsx nmap <C-b> :YcmCompleter GoToDefinition<CR>
+autocmd FileType javascript.jsx nmap <C-b> :YcmCompleter GoToDefinition<CR>
 
 "Highlighting options
 let g:ale_linters = {'javascript': ['eslint'], 'go': ['go build', 'gofmt', 'golint', 'gometalinter', 'gosimple', 'gotype', 'go vet', 'staticcheck'], 'python': ['flake8', 'mypy', 'pylint']}
@@ -161,7 +151,6 @@ autocmd QuickFixCmdPost    l* nested lwindow
 " Python
 let g:ycm_python_binary_path = 'python3.6'
 
-
 "Go Vim
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
@@ -171,9 +160,8 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
-"let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
-au FileType go nmap <C-b> <Plug>(go-def)
+autocmd FileType go nmap <C-b> <Plug>(go-def)
 
 
 
@@ -184,9 +172,21 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules     " Ingore node_modules.
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_types = ['buf', 'fil']
-"nnoremap <C-x>b :CtrlPBuffer<CR>
-"nnoremap <C-x><C-b> :CtrlPBuffer<CR>
 
+" map <C-2> to delete buffer
+let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
+
+func! MyCtrlPMappings()
+    nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
+endfunc
+
+func! s:DeleteBuffer()
+    let line = getline('.')
+    let bufid = line =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(line, '\d\+'))
+        \ : fnamemodify(line[2:], ':p')
+    exec "bd" bufid
+    exec "norm \<F5>"
+endfunc
 
 
 " UltiSnips
@@ -215,10 +215,6 @@ nnoremap k gk
 
 " SYSTEM CLIPBOARD COPY & PASTE SUPPORT
 set pastetoggle=<F2> "F2 before pasting to preserve indentation
-nnoremap <C-t> :tabe %<cr>
-
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " resize panes
 nnoremap <silent> <Right> :vertical resize +5<cr>
@@ -226,26 +222,8 @@ nnoremap <silent> <Left> :vertical resize -5<cr>
 nnoremap <silent> <Up> :resize +5<cr>
 nnoremap <silent> <Down> :resize -5<cr>
 
-" Save whenever switching windows or leaving vim. This is useful when running
-" the tests inside vim without having to save all files first.
-au FocusLost,WinLeave * :silent! wa
+" Save whenever switching windows or leaving vim. 
+autocmd FocusLost,WinLeave * :silent! wa
 "Save file
-nnoremap <C-s> :w<Cr>
 
 nnoremap <C-F> :Ggrep -F '
-
-
-"======== BUFFERS ==============
-set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
-" nnoremap <C-x> :buffers<CR>:buffer<Space>
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
