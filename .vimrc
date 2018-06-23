@@ -8,7 +8,7 @@ Plug 'w0rp/ale'                             "Anynchronous lint engine
 Plug 'bling/vim-airline'                    "Nice colorized status bar an the bottom
 
 Plug 'altercation/vim-colors-solarized'     "Just a theme
-Plug 'larsbs/vimterial_dark'
+Plug 'joshdick/onedark.vim'
 
 Plug 'tpope/vim-fugitive'                   "for git
 Plug 'tpope/vim-unimpaired'                 "Adds shortcuts for fugitive (<[-q>, <[-Q>)
@@ -18,7 +18,9 @@ Plug 'scrooloose/nerdcommenter'             "Commenting tool
 "Auto completion
 Plug 'jiangmiao/auto-pairs'                 "Auto insert pairs for '{]
 Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 2 or 3
+Plug 'flowtype/vim-flow'
 Plug 'ctrlpvim/ctrlp.vim'                   "for searching files by <C-p>
+Plug 'd11wtq/ctrlp_bdelete.vim'             "For deleting buffers by <C-2>
 Plug 'sirver/ultisnips'                     "snippets
 Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'               "Show git diff
@@ -58,7 +60,7 @@ set shiftwidth=2
 set expandtab
 set autoindent
 filetype plugin indent on
-set relativenumber "reletive numbers of lines ;)
+set number relativenumber "reletive numbers of lines ;)
 
 "HTML Editing
 set matchpairs+=<:>
@@ -106,8 +108,8 @@ augroup END
 let g:solarized_termcolors=256
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
-colorscheme solarized
-" colorscheme vimterial_dark
+colorscheme onedark
+
 set background=dark
 "--------------------------------------------//
 
@@ -179,21 +181,8 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_types = ['buf', 'fil']
 
-" map <C-2> to delete buffer
-let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
-
-function! MyCtrlPMappings() abort
-    nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
-endfunc
-
-function! s:DeleteBuffer() abort
-  let line = getline('.')
-  let bufid = line =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(line, '\d\+'))
-        \ : fnamemodify(line[2:], ':p')
-  exec "bd" bufid
-  exec "norm \<F5>"
-endfunction
-
+"init plugin for deleting buffer
+call ctrlp_bdelete#init()
 
 " UltiSnips
 let g:UltiSnipsUsePythonVersion = 3
@@ -227,7 +216,14 @@ nnoremap <silent> <Left> :vertical resize -5<cr>
 nnoremap <silent> <Up> :resize +5<cr>
 nnoremap <silent> <Down> :resize -5<cr>
 
+" better mark jumping
+nnoremap ' `
+
 " Save whenever switching windows or leaving vim. 
 "Save file
 
 nnoremap <C-F> :Ggrep -F '
+
+"TEST
+"improve performance
+set regexpengine=1
