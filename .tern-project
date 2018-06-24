@@ -1,6 +1,8 @@
 {
   "plugins": {
     "node": {},
+    "commonjs": {},
+    "requirejs": {},
     "es_modules": {},
     "complete_strings": {}
   }
