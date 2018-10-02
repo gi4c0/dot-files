@@ -1,4 +1,5 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
+export GOPATH=$HOME/go
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/alekseypanchenko/.oh-my-zsh"
@@ -87,8 +88,21 @@ alias redis-start='brew services start redis'
 alias db-start='sudo mongod &'
 alias cockroach-start="cockroach start --insecure --host=localhost"
 alias testnet-start='geth --testnet --syncmode="light" --rpc --rpcapi db,eth,net,web3,personal --cache=1024 --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"'
-
-# test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+alias hm='cd /Users/alekseypanchenko/projects/hire-match/backend; nvm use 9;'
+alias py='python3'
+alias sshdev='ssh denadmin@dendevu2.eastus.cloudapp.azure.com'
+alias sshprod='ssh denroot@denprdu1.eastus.cloudapp.azure.com'
 
 # IP Addresses
 export hirematch="www@167.99.248.125"
+
+[[ -s "/Users/alekseypanchenko/.gvm/scripts/gvm" ]] && source "/Users/alekseypanchenko/.gvm/scripts/gvm"
+
+# python env
+export VIRTUALENVWRAPPER_PYTHON=/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs   # Optional
+export PROJECT_HOME=$HOME/py_projects      # Optional
+source /Library/Frameworks/Python.framework/Versions/3.6/bin/virtualenvwrapper.sh
+
+# direnv
+eval "$(direnv hook zsh)"

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "allowJs": true,
+    "target": "es2017",
+    "rootDir": "app",
+    "outDir": "dist",
+    "sourceMap": true,
+    "moduleResolution": "node"
+  },
+
+  "include": [
+    "app"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
