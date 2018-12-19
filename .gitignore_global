@@ -3,3 +3,6 @@ node_modules/
 .#*
 .DS_Store
 project.org
+.tern-project
+.env
+#.*

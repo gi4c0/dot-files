@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/usr/local/sbin
 export GOPATH=$HOME/go
 
 # Path to your oh-my-zsh installation.
@@ -92,9 +92,13 @@ alias hm='cd /Users/alekseypanchenko/projects/hire-match/backend; nvm use 9;'
 alias py='python3'
 alias sshdev='ssh denadmin@dendevu2.eastus.cloudapp.azure.com'
 alias sshprod='ssh denroot@denprdu1.eastus.cloudapp.azure.com'
+alias getPassword='cd ~/dev/decrypt; getPassword'
+# alias rename_ts=`find . -name "*.t1" -exec bash -c 'mv "$1" "${1%.t1}".t2' - '{}'\;`
 
 # IP Addresses
 export hirematch="www@167.99.248.125"
+export c2f_prod="denroot@denprdu1.eastus.cloudapp.azure.com"
+export c2f_dev="denadmin@dendevu2.eastus.cloudapp.azure.com"
 
 [[ -s "/Users/alekseypanchenko/.gvm/scripts/gvm" ]] && source "/Users/alekseypanchenko/.gvm/scripts/gvm"
 
