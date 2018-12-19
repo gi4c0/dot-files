@@ -361,7 +361,11 @@ you should place your code here."
       (insert " ")))
 
   (define-key global-map (kbd "SPC") 'my/insert-space)
+
+  (add-to-list 'spacemacs-jump-handlers-typescript-mode '(tide-jump-to-definition :async t))
+
 )
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
