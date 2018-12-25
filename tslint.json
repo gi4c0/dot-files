@@ -1,14 +1,14 @@
 {
   "defaultSeverity": "error",
   "extends": [
-    "tslint-config-standard"
+    "tslint:recommended"
   ],
 
   "jsRules": {},
 
   "rules": {
     "eofilne": true,
-    "max-line-length": [true, 100],
+    "max-line-length": [true, 120],
     "indent": [true, "spaces", 2],
     "prefer-const": true,
     "arrow-return-shorthand": true,
