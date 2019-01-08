@@ -92,7 +92,6 @@ alias hm='cd /Users/alekseypanchenko/projects/hire-match/backend; nvm use 9;'
 alias py='python3'
 alias sshdev='ssh denadmin@dendevu2.eastus.cloudapp.azure.com'
 alias sshprod='ssh denroot@denprdu1.eastus.cloudapp.azure.com'
-alias getPassword='cd ~/dev/decrypt; getPassword'
 # alias rename_ts=`find . -name "*.t1" -exec bash -c 'mv "$1" "${1%.t1}".t2' - '{}'\;`
 
 # IP Addresses

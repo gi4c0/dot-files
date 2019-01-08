@@ -7,7 +7,7 @@
     "target": "esnext",
     "rootDir": "src",
     "outDir": "dist",
-    "sourceMap": true,
+    "sourceMap": false,
     "moduleResolution": "node"
   },
 
