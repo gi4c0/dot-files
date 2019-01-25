@@ -9,7 +9,8 @@
     "outDir": "dist",
     "sourceMap": false,
     "noUnusedLocals": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "types": ["node"]
   },
 
   "include": [
