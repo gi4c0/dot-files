@@ -4,6 +4,7 @@ antigen use oh-my-zsh
 
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
+
 # Tell Antigen that you're done.
 antigen apply
 
@@ -29,6 +30,7 @@ plugins=(
   node
   npm
   vi-mode
+  docker
 )
 
 source $ZSH/oh-my-zsh.sh
