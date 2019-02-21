@@ -17,7 +17,7 @@ Plug 'scrooloose/nerdcommenter'             "Commenting tool
 
 "Auto completion
 Plug 'jiangmiao/auto-pairs'                 "Auto insert pairs for '{]
-Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 2 or 3
+ Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 2 or 3
 Plug 'flowtype/vim-flow'
 Plug 'ctrlpvim/ctrlp.vim'                   "for searching files by <C-p>
 Plug 'd11wtq/ctrlp_bdelete.vim'             "For deleting buffers by <C-2>
@@ -26,7 +26,8 @@ Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'               "Show git diff
 
 "Code hightlighting
-Plug 'sheerun/vim-polyglot'                   "One plugin for all languages
+Plug 'sheerun/vim-polyglot'                 "One plugin for all languages
+Plug 'dag/vim-fish'                         "Support for .fish files
 call plug#end()
 
 " ----------- Native vim settings -----------
@@ -34,12 +35,12 @@ runtime macros/matchit.vim
 set hidden
 
 " Russion language
-set keymap=russian-jcukenwin
+" set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
  "Включает русскую ё
-nnoremap <F6> :setlocal spell! spelllang=ru_yo,en_us<cr>
+" noremap <F6> :setlocal spell! spelllang=ru_yo,en_us<cr>
 
 
 " Switch syntax highlighting on, when the terminal has colors.
