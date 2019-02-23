@@ -373,7 +373,6 @@ you should place your code here."
   (define-key global-map (kbd "SPC") 'my/insert-space)
 
   (add-to-list 'spacemacs-jump-handlers-typescript-mode '(tide-jump-to-definition :async t))
-
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
