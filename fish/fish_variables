@@ -4,6 +4,7 @@ SETUVAR EDITOR:vim
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
+SETUVAR _fish_abbr_awb:cd\x20/Users/alekseypanchenko/dev/AlcoWiki/AlcoWikiBackend/
 SETUVAR _fish_abbr_ff:cd\x20/Users/alekseypanchenko/\x2econfig/fish/functions/
 SETUVAR _fish_abbr_nrd:npm\x20run\x20debug
 SETUVAR _fish_abbr_ns:npm\x20start
@@ -12,6 +13,8 @@ SETUVAR _fish_abbr_pccb:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/c
 SETUVAR _fish_abbr_pcdb:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/DemandEngine/DemandEngineBackend/
 SETUVAR _fish_abbr_pcdf:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/DemandEngine/DenamdEngineFrontend/
 SETUVAR _fish_abbr_pce:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/EnterpriseProfiler/
+SETUVAR _fish_abbr_pceb:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/EnterpriseProfiler/EnterpriseProfilerBackend/
+SETUVAR _fish_abbr_pcef:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/EnterpriseProfiler/EnterpriseProfilerFrontend/
 SETUVAR _fish_abbr_pcl:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/LocationUtilitiesAPI/
 SETUVAR _fish_abbr_pcn:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/Network\x2dFinder
 SETUVAR _fish_abbr_pcnb:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/Network\x2dFinder/Network\x2dFinder\x2dBackend/
@@ -19,6 +22,7 @@ SETUVAR _fish_abbr_pcnf:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/N
 SETUVAR _fish_abbr_pcnfb:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/Network\x2dFinder\x2dBulk\x2dAPI/
 SETUVAR _fish_abbr_pcs:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/StandardAddressAPI/
 SETUVAR _fish_abbr_pcu:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/UserAuthentication/
+SETUVAR _fish_abbr_vim:nvim
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
