@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: node require
+# key: nreq
+# --
+const $0 = require('$1')

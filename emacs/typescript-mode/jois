@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: joi string
+# key: jois
+# --
+Joi.string()${.required()}
