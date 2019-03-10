@@ -15,6 +15,7 @@ SETUVAR _fish_abbr_pcdf:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/D
 SETUVAR _fish_abbr_pce:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/EnterpriseProfiler/
 SETUVAR _fish_abbr_pceb:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/EnterpriseProfiler/EnterpriseProfilerBackend/
 SETUVAR _fish_abbr_pcef:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/EnterpriseProfiler/EnterpriseProfilerFrontend/
+SETUVAR _fish_abbr_pcf:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/FavoritedCompaniesAPI/
 SETUVAR _fish_abbr_pcl:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/LocationUtilitiesAPI/
 SETUVAR _fish_abbr_pcn:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/Network\x2dFinder
 SETUVAR _fish_abbr_pcnb:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/Network\x2dFinder/Network\x2dFinder\x2dBackend/
