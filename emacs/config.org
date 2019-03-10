@@ -101,6 +101,11 @@
      (tool-bar-mode -1)
      (scroll-bar-mode -1)
 #+END_SRC
+** make fullscreen by default
+#+BEGIN_SRC emacs-lisp
+  (custom-set-variables
+   '(initial-frame-alist (quote ((fullscreen . maximized)))))
+#+END_SRC
 * Ido
 ** Enable ido mode
 #+BEGIN_SRC emacs-lisp

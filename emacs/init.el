@@ -29,9 +29,10 @@
  '(custom-safe-themes
    (quote
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (evil-magit magit rainbow-mode rainbow avy smex ido-vertical-mode evil-surround org-bullets beacon evil spacemacs-theme which-key use-package))))
+    (projectile evil-magit magit rainbow-mode rainbow avy smex ido-vertical-mode evil-surround org-bullets beacon evil spacemacs-theme which-key use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
