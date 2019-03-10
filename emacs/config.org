@@ -39,6 +39,20 @@
     :ensure t
     :init (rainbow-mode 1))
 #+END_SRC
+** projectile
+*** Install
+For managing projects
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :ensure t
+    :init (projectile-mode +1))
+#+END_SRC
+
+*** Key bindings
+#+BEGIN_SRC emacs-lisp
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+#+END_SRC
 * git
 ** magit
 *** install
