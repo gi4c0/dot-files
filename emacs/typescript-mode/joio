@@ -4,4 +4,4 @@
 # --
 Joi.object().keys({
   $0
-})${.required()}${.unknown()}
+})${.unknown()}${.required()}

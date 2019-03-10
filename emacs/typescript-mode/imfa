@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: imfa
+# key: import from as
+# --
+import * as $0 from '$1'

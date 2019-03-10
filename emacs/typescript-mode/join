@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: joi number
+# key: join
+# --
+Joi.number()${.required()}
