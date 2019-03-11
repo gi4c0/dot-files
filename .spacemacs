@@ -323,6 +323,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
   )
 
 (defun dotspacemacs/user-config ()
+  ;; Add key bindings for switching windows as in vim
+  (define-key evil-normal-state-map (kbd "C-w C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-w C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-w C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-w C-l") 'evil-window-right)
+
   ;; Set icons in neotree
   (setq neo-theme 'icons)
 
