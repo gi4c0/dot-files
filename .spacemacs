@@ -324,6 +324,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
 (defun dotspacemacs/user-config ()
   ;; Custom keybinding =========================================
+
+  ;; Make Evil Normal State the Initial State Always
+  (setq evil-emacs-state-modes nil)
+  (setq evil-insert-state-modes nil)
+  (setq evil-motion-state-modes nil)
+
   ;; For jumping to notes.org of connected2fiber
   (defun notes-connected2fiber ()
     "Jump to connected2Fiber/notes.org file"
