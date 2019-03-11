@@ -53,6 +53,40 @@ For managing projects
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 #+END_SRC
+*** Set default dir to look for projects
+    List directories to look for projects:
+
+#+BEGIN_SRC emacs-lisp
+  (setq projectile-project-search-path '("~/projects/connected2fiber/"))
+#+END_SRC
+
+** Neotree
+*** Install
+#+BEGIN_SRC emacs-lisp
+  (use-package neotree :ensure t)
+#+END_SRC
+*** Configuration
+**** Every time when the neotree window is opened, let it find current file and jump to node
+#+BEGIN_SRC emacs-lisp
+  (setq neo-smart-open t)
+#+END_SRC
+
+**** When running ‘projectile-switch-project’ (C-c p p), ‘neotree’ will change root automatically
+#+BEGIN_SRC emacs-lisp
+  (setq projectile-switch-project-action 'neotree-projectile-action)
+#+END_SRC
+**** Key bindings for evil-mode
+#+BEGIN_SRC emacs-lisp
+  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
+  (evil-define-key 'normal neotree-mode-map (kbd "n") 'neotree-next-line)
+  (evil-define-key 'normal neotree-mode-map (kbd "p") 'neotree-previous-line)
+  (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
+  (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
+#+END_SRC
 * git
 ** magit
 *** install
@@ -90,6 +124,12 @@ For managing projects
   (define-key evil-normal-state-map (kbd "C-w C-j") 'evil-window-down)
   (define-key evil-normal-state-map (kbd "C-w C-k") 'evil-window-up)
   (define-key evil-normal-state-map (kbd "C-w C-l") 'evil-window-right)
+#+END_SRC
+*** Make Evil Normal State the Initial State Always
+#+BEGIN_SRC emacs-lisp
+  (setq evil-emacs-state-modes nil)
+  (setq evil-insert-state-modes nil)
+  (setq evil-motion-state-modes nil)
 #+END_SRC
 * Emacs default configuration 
 ** Variables
