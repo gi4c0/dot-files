@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: joi boolean
+# key: joib
+# --
+Joi.boolean()${.required()}
