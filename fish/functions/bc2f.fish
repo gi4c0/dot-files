@@ -4,9 +4,12 @@ function bc2f
 
   cd ~/projects/connected2Fiber/ssh-tunnel
   npm start
-  pm2 delete "Kibana Tunnel PROD"
+  pm2 delete "MySQL UAT"
 
   cd ~/projects/connected2fiber/UserAuthentication
+  npm run pm2:$argv[1]
+
+  cd ~/projects/connected2Fiber/International-Address-API
   npm run pm2:$argv[1]
 
   cd ~/projects/connected2Fiber/Network-Finder-API
