@@ -404,7 +404,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# ============== CUSTOM =========================
+# ============== CUSTOM ================================================
 # Setup default layouts for keyboard (english (unated states), russian)
 exec --no-startup-id setxkbmap -layout us,ru
 
@@ -415,4 +415,15 @@ exec --no-startup-id xmodmap -e 'add Mod3 = Alt_R'
 # Map escape to caps and change language to right ctrl
 exec --no-startup-id setxkbmap -option caps:escape -option 'grp:toggle'
 
+# Assignment applications to particular workspaces
 assign [class="Google-chrome"] → number 2
+assign [class="Emacs"] → number 3
+assign [class="TelegramDesktop"] → number 1
+assign [class="Slack"] → number 1
+assign [class="Rocket.Chat"] → number 1
+
+# Auto execute applications on startup
+exec telegram-desktop
+exec google-chrome-stable
+exec --no-startup-id emacs --daemon
+exec --no-startup-id xflux -l 46.445127 -g 30.719987
