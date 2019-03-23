@@ -346,6 +346,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (spacemacs/set-leader-keys "gb" 'magit-blame)
   ;; ============================================================
 
+  ;; Fix expand for '<s TAB' in org-mode
+  (when (version<= "9.2" (org-version))
+    (require 'org-tempo))
+
   ;; Add key bindings for switching windows as in vim
   (define-key evil-normal-state-map (kbd "C-w C-h") 'evil-window-left)
   (define-key evil-normal-state-map (kbd "C-w C-j") 'evil-window-down)
