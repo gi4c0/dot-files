@@ -405,9 +405,14 @@ mode "$mode_gaps_outer" {
 }
 
 # ============== CUSTOM =========================
+# Setup default layouts for keyboard (english (unated states), russian)
 exec --no-startup-id setxkbmap -layout us,ru
 
+# Remove rith alt key from `mod1` modificator
 exec --no-startup-id xmodmap -e 'remove Mod1 = Alt_R'
 exec --no-startup-id xmodmap -e 'add Mod3 = Alt_R'
+
+# Map escape to caps and change language to right ctrl
 exec --no-startup-id setxkbmap -option caps:escape -option 'grp:toggle'
 
+assign [class="Google-chrome"] → number 2
