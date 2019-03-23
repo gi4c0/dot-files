@@ -403,3 +403,6 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# ============== CUSTOM =========================
+exec --no-startup-id setxkbmap -option caps:escape
