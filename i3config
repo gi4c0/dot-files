@@ -408,3 +408,9 @@ bindcode $mod+$super+43 resize shrink width 5 px or 5 ppt
 bindcode $mod+$super+44 resize grow height 5 px or 5 ppt
 bindcode $mod+$super+45 resize shrink height 5 px or 5 ppt
 bindcode $mod+$super+46 resize grow width 5 px or 5 ppt
+
+# Open ranger on $mod+r
+bindcode $mod+27 exec xterm -e 'ranger'
+
+
+# ================== Modes ====================== #
