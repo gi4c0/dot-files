@@ -3,6 +3,7 @@
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
+set $super Mod4
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -21,7 +22,7 @@ bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 12
+font xft:URWGothic-Book 10
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -55,19 +56,13 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
-bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+Ctrl+b exec xterm -e 'bmenu'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+semicolon exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
@@ -94,13 +89,13 @@ bindcode $mod+39 split h;exec notify-send 'tile horizontally'
 bindcode $mod+55 split v;exec notify-send 'tile vertically'
 bindcode $mod+24 split toggle
 
-# toggle fullscreen mode for the focused container
+# toggle fullscreen mode for the focused container $mod+f
 bindcode $mod+41 fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+semicolon layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# change container layout (stacked ';', tabbed 'w', toggle split 'e')
+bindcode $mod+47 layout stacking
+bindcode $mod+25 layout tabbed
+bindcode $mod+26 layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -111,8 +106,8 @@ bindsym $mod+space focus mode_toggle
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
+# focus the parent container ($mod+o (out))
+bindcode $mod+32 focus parent
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -121,9 +116,9 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-#navigate workspaces next / previous
-bindsym $mod+Ctrl+l workspace next
-bindsym $mod+Ctrl+h workspace prev
+#navigate workspaces next (l) / previous (h)
+bindcode $mod+Ctrl+46 workspace next
+bindcode $mod+Ctrl+43 workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -334,9 +329,6 @@ bar {
     }
 }
 
-# hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
-
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
   client.focused          #556064 #556064 #80FFF9 #FDF6E3
@@ -404,7 +396,10 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# ============== CUSTOM ================================================
+########################################################################
+#============================= CUSTOM =================================#
+########################################################################
+
 # Setup default layouts for keyboard (english (unated states), russian)
 exec --no-startup-id setxkbmap -layout us,ru
 
@@ -416,11 +411,11 @@ exec --no-startup-id xmodmap -e 'add Mod3 = Alt_R'
 exec --no-startup-id setxkbmap -option caps:escape -option 'grp:toggle'
 
 # Assignment applications to particular workspaces
-assign [class="Google-chrome"] → number 2
-assign [class="Emacs"] → number 3
-assign [class="TelegramDesktop"] → number 1
-assign [class="Slack"] → number 1
-assign [class="Rocket.Chat"] → number 1
+assign [class="Google-chrome"] → $ws2
+assign [class="Emacs"] → $ws3
+assign [class="TelegramDesktop"] → $ws1
+assign [class="Slack"] → $ws1
+assign [class="Rocket.Chat"] → $ws1
 
 # Auto execute applications on startup
 exec telegram-desktop
