@@ -373,12 +373,17 @@ exec --no-startup-id xmodmap -e 'add Mod3 = Alt_R'
 # Map escape to caps and change language to right ctrl
 exec --no-startup-id setxkbmap -option caps:escape -option 'grp:toggle'
 
-# Assignment applications to particular workspaces
-assign [class="Google-chrome"] → $ws2
-assign [class="Emacs"] → $ws3
+# Assignment applications to particular workspaces by 'xprop'
 assign [class="TelegramDesktop"] → $ws1
 assign [class="Slack"] → $ws1
 assign [class="Rocket.Chat"] → $ws1
+
+assign [class="Google-chrome"] → $ws2
+
+assign [class="Emacs"] → $ws3
+
+assign [class="Postman"] → $ws4
+assign [class="Mysql-workbench-bin"] → $ws4
 
 # Auto execute applications on startup
 exec telegram-desktop
