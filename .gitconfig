@@ -8,7 +8,7 @@
   dump = cat-file -p
   lg = log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'
 [core]
-	excludesfile = /Users/alekseypanchenko/dev/dot-files/.gitignore_global
+	excludesfile = ~/.dot-files/.gitignore_global
 [user]
 	name = alexpan
 	email = p.aleksey@do-it.co
