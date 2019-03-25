@@ -124,6 +124,8 @@ bindcode $mod+Ctrl+43 workspace prev
 # navigate to upscreen (k, j)
 bindcode $mod+Shift+Ctrl+45 move workspace to output up
 bindcode $mod+Shift+Ctrl+44 move workspace to output down
+bindcode $mod+Shift+Ctrl+46 move workspace to output right
+bindcode $mod+Shift+Ctrl+43 move workspace to output left
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use

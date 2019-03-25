@@ -2,15 +2,22 @@ function bc2f
   set current_dir $PWD
   pm2 delete all
 
+  set env "UAT"
+  if test $argv[1] = "prod"
+    set env "PROD"
+  end
+
   cd ~/projects/connected2Fiber/ssh-tunnel
-  npm start
-  pm2 delete "MySQL UAT"
+  npm run $argv[1]
+  pm2 delete "User Auth API $env:8092"
+  pm2 delete "Standard Address API $env:8086"
+  pm2 delete "Bulk Rabbit $env:5672"
 
-  cd ~/projects/connected2fiber/UserAuthentication
+  cd ~/projects/connected2Fiber/UserAuthentication
   npm run pm2:$argv[1]
 
-  cd ~/projects/connected2Fiber/International-Address-API
-  npm run pm2:$argv[1]
+  # cd ~/projects/connected2Fiber/International-Address-API
+  # npm run pm2:$argv[1]
 
   cd ~/projects/connected2Fiber/Network-Finder-API
   npm run pm2:$argv[1]
