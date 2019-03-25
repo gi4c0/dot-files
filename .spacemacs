@@ -141,7 +141,7 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
 
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+                               :size 17
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -334,6 +334,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq evil-insert-state-modes nil)
   (setq evil-motion-state-modes nil)
 
+  ;; For jumping to i3config
+  (defun jump-i3config()
+    "Jump to connected2Fiber/notes.org file"
+    (interactive)
+    (find-file "~/.dot-files/i3config"))
+
   ;; For jumping to notes.org of connected2fiber
   (defun notes-connected2fiber ()
     "Jump to connected2Fiber/notes.org file"
@@ -341,15 +347,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (find-file "~/projects/connected2Fiber/notes.org"))
 
   (spacemacs/declare-prefix "o" "own stuff")
+  (spacemacs/declare-prefix "oc" "configs")
+
   (spacemacs/set-leader-keys "on" 'notes-connected2fiber)
+  (spacemacs/set-leader-keys "oci" 'jump-i3config)
 
   ;; Fix for magit blame (for some reason don't work in spacemacs)
   (spacemacs/set-leader-keys "gb" 'magit-blame)
   ;; ============================================================
-
-  ;; Fix expand for '<s TAB' in org-mode
-  (when (version<= "9.2" (org-version))
-    (require 'org-tempo))
 
   ;; Add key bindings for switching windows as in vim
   (define-key evil-normal-state-map (kbd "C-w C-h") 'evil-window-left)
