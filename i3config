@@ -57,7 +57,6 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec xterm -e 'bmenu'
-bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
@@ -87,7 +86,9 @@ bindcode $mod+Shift+56 move container to workspace back_and_forth; workspace bac
 # split orientation
 bindcode $mod+39 split h;exec notify-send 'tile horizontally'
 bindcode $mod+55 split v;exec notify-send 'tile vertically'
-bindcode $mod+24 split toggle
+
+# $mod+t
+bindcode $mod+28 split toggle
 
 # toggle fullscreen mode for the focused container $mod+f
 bindcode $mod+41 fullscreen toggle
@@ -120,6 +121,10 @@ bindsym $mod+minus scratchpad show
 bindcode $mod+Ctrl+46 workspace next
 bindcode $mod+Ctrl+43 workspace prev
 
+# navigate to upscreen (k, j)
+bindcode $mod+Shift+Ctrl+45 move workspace to output up
+bindcode $mod+Shift+Ctrl+44 move workspace to output down
+
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
@@ -132,6 +137,7 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
+set $ws9 9
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -142,6 +148,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -152,6 +159,7 @@ bindsym $mod+Ctrl+5 move container to workspace $ws5
 bindsym $mod+Ctrl+6 move container to workspace $ws6
 bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -162,6 +170,7 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws8; workspace $ws9
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
@@ -219,6 +228,7 @@ mode "$mode_system" {
     bindsym e exec --no-startup-id i3exit logout, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym t exec --no-startup-id pkill compton
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
@@ -227,7 +237,7 @@ mode "$mode_system" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+bindsym $mod+Ctrl+q exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -281,6 +291,7 @@ bar {
 	i3bar_command i3bar
 	status_command i3status
 	position top
+  tray_output primary
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
@@ -335,10 +346,14 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps.
+# Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace).
+# If you also press Shift with these keys, the change will be global for all workspaces.
+
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
