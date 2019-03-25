@@ -407,7 +407,13 @@ bindcode $mod+27 exec xterm -e 'ranger'
 bindcode $mod+38 mode "apps"
 mode "apps" {
      # launch emacs on $mod+a e
-     bindcode 26 exec xterm -e 'emacsclient -nc', mode "default"
+     bindcode 26 exec emacs
+
+     # launch mysql-workbench (m)
+     bindcode 58 exec mysql-workbench, mode "default"
+
+     # launch postman (p)
+     bindcode 33 exec postman, mode "default"
 
      bindsym Return mode "default"
      bindsym Escape mode "default"
