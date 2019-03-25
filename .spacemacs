@@ -346,11 +346,18 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (interactive)
     (find-file "~/projects/connected2Fiber/notes.org"))
 
+  ;; For jumping to notes.org of connected2fiber
+  (defun jump-polybar-config ()
+    "Jump to connected2Fiber/notes.org file"
+    (interactive)
+    (find-file "~/.config/polybar/config"))
+
   (spacemacs/declare-prefix "o" "own stuff")
   (spacemacs/declare-prefix "oc" "configs")
 
   (spacemacs/set-leader-keys "on" 'notes-connected2fiber)
   (spacemacs/set-leader-keys "oci" 'jump-i3config)
+  (spacemacs/set-leader-keys "ocp" 'jump-polybar-config)
 
   ;; Fix for magit blame (for some reason don't work in spacemacs)
   (spacemacs/set-leader-keys "gb" 'magit-blame)
