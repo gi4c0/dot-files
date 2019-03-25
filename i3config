@@ -423,3 +423,15 @@ mode "apps" {
      bindsym Return mode "default"
      bindsym Escape mode "default"
 }
+
+# Mode for managing external displays ($mod+Shift+d)
+bindcode $mod+Shift+40 mode "Displays"
+mode "displays" {
+     # (j)
+     bindcode 44 exec xterm -e '~/.screenlayout/job.sh', mode "default"
+     # (d)
+     bindcode 40 exec xterm -e '~/.screenlayout/default.sh', mode "default"
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
