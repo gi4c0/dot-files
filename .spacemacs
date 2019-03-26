@@ -33,7 +33,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     shell-scripts
+     ;; shell-scripts
      sql
      csv
      yaml
@@ -352,10 +352,17 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (interactive)
     (find-file "~/.config/polybar/config"))
 
+  ;; For jumping to notes.org of connected2fiber
+  (defun jump-tutors ()
+    "Jump to tutorials file"
+    (interactive)
+    (find-file "~/dev/tutors"))
+
   (spacemacs/declare-prefix "o" "own stuff")
   (spacemacs/declare-prefix "oc" "configs")
 
   (spacemacs/set-leader-keys "on" 'notes-connected2fiber)
+  (spacemacs/set-leader-keys "ot" 'jump-tutors)
   (spacemacs/set-leader-keys "oci" 'jump-i3config)
   (spacemacs/set-leader-keys "ocp" 'jump-polybar-config)
 
