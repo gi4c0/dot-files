@@ -410,7 +410,6 @@ bindcode $mod+27 exec xterm -e 'ranger'
 
 # ================== Modes ====================== #
 bindcode $mod+Shift+38 mode "$mode_apps"
-# Example: set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman
 
 mode "$mode_apps" {
@@ -428,8 +427,10 @@ mode "$mode_apps" {
 }
 
 # Mode for managing external displays ($mod+Shift+d)
-bindcode $mod+Shift+40 mode "Displays"
-mode "displays" {
+bindcode $mod+Shift+40 mode "$mode_displays"
+set $mode_displays Displays: (j) job, (d) default
+
+mode "$mode_displays" {
      # (j)
      bindcode 44 exec xterm -e '~/.screenlayout/job.sh', mode "default"
      # (d)
