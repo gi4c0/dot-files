@@ -409,10 +409,13 @@ bindcode $mod+27 exec xterm -e 'ranger'
 
 
 # ================== Modes ====================== #
-bindcode $mod+38 mode "apps"
-mode "apps" {
+bindcode $mod+Shift+38 mode "$mode_apps"
+# Example: set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman
+
+mode "$mode_apps" {
      # launch emacs on $mod+a e
-     bindcode 26 exec emacs
+     bindcode 26 exec emacs, mode "default"
 
      # launch mysql-workbench (m)
      bindcode 58 exec mysql-workbench, mode "default"
