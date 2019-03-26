@@ -7,6 +7,8 @@ function bc2f
     set env "PROD"
   end
 
+  systemctl start rabbitmq.service
+
   cd ~/projects/connected2Fiber/ssh-tunnel
   npm run $argv[1]
   pm2 delete "User Auth API $env:8092"
@@ -35,4 +37,3 @@ function bc2f
   clear
   pm2 list
 end
-
