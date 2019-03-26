@@ -7,7 +7,7 @@ function bc2f
     set env "PROD"
   end
 
-  systemctl start rabbitmq.service
+  # systemctl start rabbitmq.service
 
   cd ~/projects/connected2Fiber/ssh-tunnel
   npm run $argv[1]
