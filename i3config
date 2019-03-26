@@ -30,7 +30,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec xterm
 
-# kill focused window
+# kill focused window ($mod+Shift+q)
 bindcode $mod+Shift+24 kill
 
 # start program launcher
@@ -86,9 +86,6 @@ bindcode $mod+Shift+56 move container to workspace back_and_forth; workspace bac
 # split orientation
 bindcode $mod+39 split h;exec notify-send 'tile horizontally'
 bindcode $mod+55 split v;exec notify-send 'tile vertically'
-
-# $mod+t
-bindcode $mod+28 split toggle
 
 # toggle fullscreen mode for the focused container $mod+f
 bindcode $mod+41 fullscreen toggle
