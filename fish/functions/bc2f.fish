@@ -16,22 +16,22 @@ function bc2f
   pm2 delete "Bulk Rabbit $env:5672"
 
   cd ~/projects/connected2Fiber/UserAuthentication
-  npm run pm2:$argv[1]
+  npm run pm2:prod
 
   # cd ~/projects/connected2Fiber/International-Address-API
   # npm run pm2:$argv[1]
 
   cd ~/projects/connected2Fiber/Network-Finder-API
-  npm run pm2:$argv[1]
+  npm run pm2:prod
 
   cd ~/projects/connected2Fiber/Network-Finder-Bulk-API
-  npm run pm2:$argv[1]
+  npm run pm2:prod
 
   cd ~/projects/connected2Fiber/AddressFormatAPI
   npm run prod
 
   cd ~/projects/connected2Fiber/StandardAddressAPI
-  npm run pm2:$argv[1]
+  npm run pm2:prod
 
   cd $current_dir
   clear
