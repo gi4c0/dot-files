@@ -451,3 +451,6 @@ bindcode $super+58 [class="Mysql-workbench-bin"] focus
 
 # jump to chrome ($super+c)
 bindcode $super+54 [class="Google-chrome"] focus
+
+# jump to telegram ($super+t)
+bindcode $super+28 [class="TelegramDesktop"] focus
