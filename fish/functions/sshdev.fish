@@ -3,8 +3,7 @@ function sshdev
 
   if count $argv > /dev/null
     ssh -L $argv[1]:localhost:$argv[1] $address
-  else 
+  else
     ssh $address
   end
 end
-

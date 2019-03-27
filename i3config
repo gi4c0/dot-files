@@ -436,3 +436,18 @@ mode "$mode_displays" {
      bindsym Return mode "default"
      bindsym Escape mode "default"
 }
+
+
+# ================ Jump to applicaiton ================== #
+
+# jump to emacs ($super+e)
+bindcode $super+26 [class="Emacs"] focus
+
+# jump to postman ($super+p)
+bindcode $super+33 [class="Postman"] focus
+
+# jump to mysql-workbench ($super+m)
+bindcode $super+58 [class="Mysql-workbench-bin"] focus
+
+# jump to chrome ($super+c)
+bindcode $super+54 [class="Google-chrome"] focus
