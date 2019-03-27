@@ -33,6 +33,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     shell-scripts
      ;; shell-scripts
      sql
      csv
@@ -329,6 +330,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
 (defun dotspacemacs/user-config ()
   ;; Custom keybinding =========================================
 
+  ;; Fix expand for '<s TAB' in org-mode
+  (when (version<= "9.2" (org-version))
+    (require 'org-tempo))
+
   ;; Make Evil Normal State the Initial State Always
   (setq evil-emacs-state-modes nil)
   (setq evil-insert-state-modes nil)
@@ -353,6 +358,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (find-file "~/.config/polybar/config"))
 
   ;; For jumping to notes.org of connected2fiber
+  (defun jump-fish-config ()
+    "Jump to ~/.config/fish/config.fish"
+    (interactive)
+    (find-file "~/.config/fish/config.fish"))
+
+  ;; For jumping to notes.org of connected2fiber
   (defun jump-tutors ()
     "Jump to tutorials file"
     (interactive)
@@ -365,6 +376,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (spacemacs/set-leader-keys "ot" 'jump-tutors)
   (spacemacs/set-leader-keys "oci" 'jump-i3config)
   (spacemacs/set-leader-keys "ocp" 'jump-polybar-config)
+  (spacemacs/set-leader-keys "ocf" 'jump-fish-config)
 
   ;; Fix for magit blame (for some reason don't work in spacemacs)
   (spacemacs/set-leader-keys "gb" 'magit-blame)
