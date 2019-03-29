@@ -407,7 +407,7 @@ bindcode $mod+27 exec xterm -e 'ranger'
 
 # ================== Modes ====================== #
 bindcode $mod+Shift+38 mode "$mode_apps"
-set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman
+set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman, (b) browser
 
 mode "$mode_apps" {
      # launch emacs on $mod+a e
@@ -418,6 +418,9 @@ mode "$mode_apps" {
 
      # launch postman (p)
      bindcode 33 exec postman, mode "default"
+
+     # launch browser (b)
+     bindcode 56 exec google-chrome-stable, mode "default"
 
      bindsym Return mode "default"
      bindsym Escape mode "default"
