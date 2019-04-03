@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: copyright
+# key: copyright
+# --
+/**
+ * $1
+ *
+ * Abstract: $2
+ *
+ * Copyright (c) 2019 Connected2Fiber, Inc.
+ * All rights reserved.
+ */
