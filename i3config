@@ -59,7 +59,13 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 bindsym $mod+Ctrl+b exec xterm -e 'bmenu'
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
+
+# Screenshot of selected area (Print) added to ~/Pictures dir and copied to clipboard
+bindsym --release Print exec "scrot ~/Pictures/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"
+
+# Desktop screenshot
+bindsym --release Shift+Print exec "scrot ~/Bilder/Bildschirmfotos/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"
+
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
