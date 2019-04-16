@@ -242,8 +242,8 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-# Lock screen
-bindsym $mod+Ctrl+q exec --no-startup-id blurlock
+# Lock screen $mod+Ctrl+q
+bindcode $mod+Ctrl+24 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
