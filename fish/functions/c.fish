@@ -1,5 +1,5 @@
 # Copy file to clipboard
 
-function cb
+function c
     xclip -selection c
 end
