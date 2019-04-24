@@ -16,7 +16,34 @@
 ;
 ;==========================================================
 
+
 [colors]
+; Material Colors
+
+red = #e53935
+pink = #d81b60
+purple = #8e24aa
+deep-purple = #5e35b1
+indigo = #3949ab
+blue = #1e88e5
+light-blue = #039be5
+cyan = #00acc1
+teal = #00897b
+green = #43a047
+light-green = #7cb342
+lime = #c0ca33
+yellow = #fdd835
+amber = #ffb300
+orange = #fb8c00
+deep-orange = #f4511e
+brown = #6d4c41
+grey = #757575
+blue-gray = #546e7a
+
+acolor = #FFFFFF
+curgent = #EF5350
+coccupied = #42A5F5
+
 ;background = ${xrdb:color0:#222}
 background = #222
 background-alt = #444
@@ -25,13 +52,12 @@ foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
-alert = #bd2c40
 
 [bar/base]
 enable-ipc = true
 monitor = ${env:MONITOR}
 width = 100%
-height = 30
+height = 33
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -47,18 +73,21 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
-font-0 = fixed:pixelsize=13;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+;font-0 = fixed:pixelsize=13;1
+;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-0 = "Fantasque Sans Mono:pixelsize=15;3"
+font-1 = "Iosevka Nerd Font:pixelsize=13;3"
+
+;font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = date
-modules-right = filesystem pulseaudio xkeyboard memory cpu battery temperature powermenu
+modules-right = filesystem xkeyboard memory cpu battery temperature powermenu
 
 tray-position = right
 tray-padding = 2
@@ -86,12 +115,12 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+format-prefix = "  "
+format-prefix-foreground = ${colors.lime}
+;format-prefix-underline = ${colors.secondary}
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+;label-layout-underline = ${colors.secondary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
@@ -104,10 +133,10 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %mountpoint%: %used% of %total%
+label-mounted =  %used% of %total%
 ;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+label-unmounted-foreground = ${colors.deep-orange}
 
 [module/bspwm]
 type = internal/bspwm
@@ -121,7 +150,7 @@ label-occupied = %index%
 label-occupied-padding = 2
 
 label-urgent = %index%!
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.curgent}
 label-urgent-padding = 2
 
 label-empty = %index%
@@ -148,7 +177,7 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-underline =
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
@@ -208,18 +237,18 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-label = CPU %percentage:2%%
+format-prefix = ""
+format-prefix-foreground = ${colors.pink}
+format-underline =
+label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = RAM %gb_used%
+format-prefix = "  "
+format-prefix-foreground = ${colors.green}
+format-underline =
+label = %gb_used%
 
 [module/wlan]
 type = internal/network
@@ -263,11 +292,12 @@ format-disconnected =
 type = internal/date
 interval = 5
 
+format-prefix = " "
+
 date = %Y-%m-%d%
 time = %H:%M
 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-prefix-foreground = ${colors.amber}
 
 label = %date% %time%
 
@@ -329,33 +359,42 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = ADP1
-full-at = 98
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+adapter = AC
+full-at = 96
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline =
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix = "  "
+format-full-prefix-foreground = ${colors.light-blue}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
@@ -365,18 +404,18 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline =
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.red}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.red}
 
 [module/powermenu]
 type = custom/menu
