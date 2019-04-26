@@ -352,7 +352,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (defun jump-i3config()
     "Jump to connected2Fiber/notes.org file"
     (interactive)
-    (find-file "~/.dot-files/i3config"))
+    (find-file "~/.dot-files/i3/config"))
 
   ;; For jumping to notes.org of connected2fiber
   (defun notes-connected2fiber ()

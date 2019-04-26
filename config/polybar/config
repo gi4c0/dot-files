@@ -237,7 +237,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = ""
+format-prefix = " "
 format-prefix-foreground = ${colors.pink}
 format-underline =
 label = %percentage:2%%
@@ -363,12 +363,12 @@ battery = BAT0
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
 adapter = AC
-full-at = 96
+full-at = 99
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline =
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = "  "
@@ -380,14 +380,14 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = ${colors.orange}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${colors.green}
 animation-charging-framerate = 750
 
 animation-discharging-0 = 
@@ -395,7 +395,7 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
-animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-foreground = ${colors.orange}
 animation-discharging-framerate = 750
 
 [module/temperature]
