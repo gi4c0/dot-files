@@ -68,6 +68,8 @@ get_session(){
 setxkbmap -layout us,ru
 
 # Map escape to caps and change language to right ctrl
+xmodmap -e 'remove Mod1 = Alt_R'
+xmodmap -e 'add Mod3 = Alt_R'
 setxkbmap -option caps:escape -option 'grp:toggle'
 
 # Start udiskei

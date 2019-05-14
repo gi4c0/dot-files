@@ -38,7 +38,7 @@ values."
      sql
      csv
      yaml
-     markdown
+     ;; markdown
      helm
      emacs-lisp
      evil-commentary
@@ -376,7 +376,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (defun jump-tutors ()
     "Jump to tutorials file"
     (interactive)
-    (find-file "~/dev/tutors"))
+    (find-file "~/dev/tutors/tutorials.org"))
 
   (spacemacs/declare-prefix "o" "own stuff")
   (spacemacs/declare-prefix "oc" "configs")
