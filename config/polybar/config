@@ -87,7 +87,7 @@ font-1 = "Iosevka Nerd Font:pixelsize=13;3"
 
 modules-left = i3
 modules-center = date
-modules-right = filesystem xkeyboard memory cpu battery temperature powermenu
+modules-right = filesystem memory cpu battery temperature xkeyboard powermenu
 
 tray-position = right
 tray-padding = 2
