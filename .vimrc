@@ -4,7 +4,6 @@ call plug#begin()
     Plug 'scrooloose/nerdtree'
     Plug 'xuyuanp/nerdtree-git-plugin'
     Plug 'tpope/vim-surround'                   "Add functionality for surrounding stuff
-    Plug 'w0rp/ale'                             "Anynchronous lint engine
     Plug 'bling/vim-airline'                    "Nice colorized status bar an the bottom
 
     Plug 'altercation/vim-colors-solarized'     "Just a theme
@@ -16,8 +15,11 @@ call plug#begin()
     Plug 'scrooloose/nerdcommenter'             "Commenting tool
 
     "Auto completion
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'} " Run :call coc#util#install()
+
+
     Plug 'jiangmiao/auto-pairs'                 "Auto insert pairs for '{]
-     Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 2 or 3
+    " Plug 'valloric/youcompleteme'               " ./install.py --js-completer --go-completer. Needs python 2 or 3
     Plug 'flowtype/vim-flow'
     Plug 'ctrlpvim/ctrlp.vim'                   "for searching files by <C-p>
     Plug 'd11wtq/ctrlp_bdelete.vim'             "For deleting buffers by <C-2>
@@ -53,7 +55,7 @@ call plug#end()
     endif
 
 "Show commands
-    set showcmd        
+    set showcmd
     set laststatus=2
 "Automatically write before running commands
     set autowrite
@@ -74,16 +76,16 @@ call plug#end()
 
 " Scrolling stuff
 "Start scrolling when we're 8 lines away from margins
-    set scrolloff=8         
+    set scrolloff=8
     set sidescroll=1
     set sidescrolloff=15
 
 "hightlighting search result
     set hlsearch
 "highlight everythign right after typing
-    set incsearch 
+    set incsearch
 "Disable hightlight for
-    nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l> 
+    nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
     set ignorecase "Ingore case while search
     set incsearch "Live search. Show pattern while typing
@@ -123,6 +125,32 @@ call plug#end()
 
 
 "===============PLUGINS OPTIONS============================//
+
+" Coc (autocompletion)
+let g:coc_global_extensions = [ 'coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml' ]
+
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+" Use `lp` and `ln` for navigate diagnostics
+nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> <leader>ld <Plug>(coc-definition)
+nmap <silent> <leader>lt <Plug>(coc-type-definition)
+nmap <silent> <leader>li <Plug>(coc-implementation)
+nmap <silent> <leader>lf <Plug>(coc-references)
+
+" Remap for rename current word
+nmap <leader>lr <Plug>(coc-rename)
+
 
 "NerdTREE settings
     noremap <C-d> :NERDTreeToggle<CR>
@@ -209,7 +237,7 @@ call plug#end()
 
 "=============== KEYMAP =========================
     cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' "output path to current file/buffer
-    let mapleader="\<space>"
+    let mapleader=" "
 
 " Navigate properly when lines are wrapped
     nnoremap j gj
@@ -227,7 +255,7 @@ call plug#end()
 " better mark jumping
     nnoremap ' `
 
-" Save whenever switching windows or leaving vim. 
+" Save whenever switching windows or leaving vim.
 "Save file
 
     nnoremap <C-F> :Ggrep -F '
