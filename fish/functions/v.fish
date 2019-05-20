@@ -1,3 +1,3 @@
 function v
-  vim
+  nvim
 end
