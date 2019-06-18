@@ -87,8 +87,8 @@ bindcode $mod+Shift+46 move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-# $mod+caps
-bindcode $mod+66 workspace back_and_forth
+# $mod+b
+bindcode $mod+56 workspace back_and_forth
 bindcode $mod+Shift+56 move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
@@ -110,7 +110,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+# bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container ($mod+o (out))
 bindcode $mod+32 focus parent
@@ -212,6 +212,8 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -227,7 +229,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
@@ -383,6 +385,7 @@ assign [class="Slack"] → $ws1
 assign [class="Rocket.Chat"] → $ws1
 
 assign [class="Google-chrome"] → $ws2
+assign [class="Firefox"] → $ws2
 
 assign [class="Emacs"] → $ws3
 
@@ -392,7 +395,9 @@ assign [class="Mysql-workbench-bin"] → $ws4
 # Auto execute applications on startup
 exec telegram-desktop
 exec google-chrome-stable
-exec --no-startup-id emacs --daemon
+exec firefox
+
+# Yellow colors in the evening
 exec --no-startup-id xflux -l 46.445127 -g 30.719987
 
 # Start polybar
@@ -410,13 +415,13 @@ bindcode $mod+$super+46 resize grow width 5 px or 5 ppt
 
 # Open ranger on $mod+r
 bindcode $mod+27 exec xterm -e 'ranger'
-# Open pcmanfm (another file manager) $mod+Shift+r
-bindcode $mod+Shift+33 exec pcmanfm
 
+# Open calculator
+bindcode $mod+54 exec gnome-calculator
 
 # ================== Modes ====================== #
-bindcode $mod+Shift+38 mode "$mode_apps"
-set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman, (b) browser
+bindcode $mod+38 mode "$mode_apps"
+set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman, (b) browser, (f) filemanager
 
 mode "$mode_apps" {
      # launch emacs on $mod+a e
@@ -433,6 +438,9 @@ mode "$mode_apps" {
 
      bindsym Return mode "default"
      bindsym Escape mode "default"
+
+    # Open pcmanfm (another file manager) (f)
+     bindcode 41 exec pcmanfm, mode "default"
 }
 
 # Mode for managing external displays ($mod+Shift+d)
@@ -449,6 +457,20 @@ mode "$mode_displays" {
      bindsym Escape mode "default"
 }
 
+
+# Mode for settings ($mod+Shift+s)
+bindcode $mod+Shift+39 mode "$mode_settings"
+set $mode_settings Settings: (a) audio, (d) displays
+
+mode "$mode_settings" {
+     # (a) - audio
+     bindcode 38 exec 'pavucontrol', mode "default"
+     # (d)
+     bindcode 40 exec 'arandr', mode "default"
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
 
 # ================ Jump to applicaiton ================== #
 
