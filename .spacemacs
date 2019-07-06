@@ -56,6 +56,7 @@ values."
      org
      themes-megapack
      go
+     lsp
      python
      )
 
@@ -329,17 +330,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   )
 
 (defun dotspacemacs/user-config ()
-  ;; Fix golang
-  (let ((govet (flycheck-checker-get 'go-vet 'command)))
-    (when (equal (cadr govet) "tool")
-      (setf (cdr govet) (cddr govet))))
-
-  ;; Debugging
-  (dap-mode 1)
-  (dap-ui-mode 1)
-
-  ;; Custom keybinding =========================================
-
+  ;; ======================= CUSTOM KEYBINDING =========================================
   ;; Fix expand for '<s TAB' in org-mode
   (when (version<= "9.2" (org-version))
     (require 'org-tempo))
@@ -399,7 +390,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (define-key evil-normal-state-map (kbd "C-w C-l") 'evil-window-right)
 
   ;; Set icons in neotree
-  (setq neo-theme 'icons)
+  ;; (setq neo-theme 'icons)
 
   ;; Disable creation temporary files
   (setq make-backup-file nil)
