@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: export wrapper
+# key: ew
+# --
+export const $1 = wrapper(async (req, res, next) => {
+  $0
+})

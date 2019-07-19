@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import require
+# key: ireq
+# --
+import $0 = require('$1')
