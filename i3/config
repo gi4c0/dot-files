@@ -92,8 +92,8 @@ bindcode $mod+56 workspace back_and_forth
 bindcode $mod+Shift+56 move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindcode $mod+39 split h;exec notify-send 'tile horizontally'
-bindcode $mod+55 split v;exec notify-send 'tile vertically'
+bindcode $mod+55 split h;exec notify-send 'tile horizontally'
+bindcode $mod+39 split v;exec notify-send 'tile vertically'
 
 # toggle fullscreen mode for the focused container $mod+f
 bindcode $mod+41 fullscreen toggle
@@ -445,13 +445,16 @@ mode "$mode_apps" {
 
 # Mode for managing external displays ($mod+Shift+d)
 bindcode $mod+Shift+40 mode "$mode_displays"
-set $mode_displays Displays: (j) job, (d) default
+set $mode_displays Displays: (j) job, (d) default, (h) home
 
 mode "$mode_displays" {
      # (j)
      bindcode 44 exec xterm -e '~/.screenlayout/job.sh', mode "default"
      # (d)
      bindcode 40 exec xterm -e '~/.screenlayout/default.sh', mode "default"
+
+     # (h)
+     bindcode 43 exec xterm -e '~/.screenlayout/home.sh', mode "default"
 
      bindsym Return mode "default"
      bindsym Escape mode "default"

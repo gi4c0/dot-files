@@ -1,6 +1,6 @@
 
 # fnm
-set PATH $HOME/.fnm $HOME/bin $PATH
+set PATH $HOME/.fnm $HOME/bin /usr/local/go/bin $PATH/go/bin $PATH
 set -gx EDITOR nvim
 set -gx PASSWORD_STORE_GENERATED_LENGTH 20
 

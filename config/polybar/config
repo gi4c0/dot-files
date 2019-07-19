@@ -363,7 +363,7 @@ battery = BAT0
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
 adapter = AC
-full-at = 96
+full-at = 94
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline =
