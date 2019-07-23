@@ -9,7 +9,7 @@
   "rules": {
     "array-type": false,
     "eofilne": true,
-    "max-line-length": [true, 100],
+    "max-line-length": [true, 90],
     "indent": [true, "spaces", 2],
     "prefer-const": true,
     "arrow-return-shorthand": true,
