@@ -10,7 +10,10 @@
     "sourceMap": false,
     "noUnusedLocals": true,
     "moduleResolution": "node",
-    "types": ["node"]
+    "types": ["node"],
+    "plugins": [
+      { "name": "typescript-tslint-plugin" }
+    ]
   },
 
   "include": [
