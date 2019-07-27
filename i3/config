@@ -246,6 +246,9 @@ exec --no-startup-id /usr/bin/regolith-ftue.sh
 exec --no-startup-id /usr/bin/unclutter -b
 
 # ================ Keybindings ===================== #
+# Launch calc
+bindcode $mod+54 exec gnome-calculator
+
 # $mod+b
 bindcode $mod+56 workspace back_and_forth
 bindcode $mod+Shift+56 move container to workspace back_and_forth; workspace back_and_forth
