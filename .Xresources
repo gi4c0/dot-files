@@ -4,7 +4,7 @@ URxvt.keysym.C-S-Up:   perl:font-size:incglobal
 URxvt.keysym.C-S-Down: perl:font-size:decglobal
 
 ! URxvt*font: xft:SauceCodePro Nerd Font:pixelsize=14, xft:DejaVu Sans:size=7
-URxvt*font: xft:Source Code Pro:size=12
+URxvt*font: xft:Source Code Pro:size=13
 URxvt*letterSpace:                1
 
 URxvt.background: #222D31
