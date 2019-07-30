@@ -63,6 +63,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      ;; treemacs
      neotree
+     ranger
      ;; go
      ;; lsp
      ;; version-control
@@ -481,6 +482,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; Ranger config
+  (setq ranger-show-preview t)
+  (setq ranger-cleanup-on-disable t)
+
+  ;; Set icons for neotree
   (setq neo-theme 'icons)
 
   ;; Fuzzy math for ivy
