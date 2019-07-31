@@ -240,6 +240,13 @@ bindcode $mod+47 layout stacking
 bindcode $mod+25 layout tabbed
 bindcode $mod+26 layout toggle split
 
+# Resizing windows
+
+bindcode $mod+Ctrl+43 resize shrink width 5 px or 5 ppt
+bindcode $mod+Ctrl+44 resize grow height 5 px or 5 ppt
+bindcode $mod+Ctrl+45 resize shrink height 5 px or 5 ppt
+bindcode $mod+Ctrl+46 resize grow width 5 px or 5 ppt
+
 # toggle tiling / floating
 bindsym $super+Shift+space floating toggle
 
@@ -302,7 +309,7 @@ mode "$mode_apps" {
      bindcode 58 exec mysql-workbench, mode "default"
 
      # launch postman (p)
-     bindcode 33 exec postman, mode "default"
+     bindcode 33 exec ~/dev/Postman/Postman, mode "default"
 
      # launch browser (b)
      bindcode 56 exec google-chrome-stable, mode "default"
