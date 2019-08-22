@@ -2,7 +2,7 @@
 
 function bc2f
   # Check if rabbitmq is already running, if not -> stat it
-  if ! systemctl is-active --quiet rabbitmq.service
+    if ! systemctl is-active --quiet rabbitmq-server.service
       echo "RabbitMQ is inactive. Starting up..."
       sudo systemctl start rabbitmq.service
   end
