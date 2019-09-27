@@ -1,5 +1,5 @@
 {
-  "defaultSeverity": "error",
+  "defaultSeverity": "warning",
   "extends": [
     "tslint:recommended"
   ],
@@ -8,12 +8,11 @@
 
   "rules": {
     "array-type": false,
-    "eofilne": true,
     "max-line-length": [true, 90],
     "indent": [true, "spaces", 2],
     "prefer-const": true,
     "arrow-return-shorthand": true,
-    "quotemark": [true, "single", "avoid-escape"],
+    "quotemark": false,
     "semicolon": [true, "never"],
     "no-var-requires": false,
     "no-console": [false],

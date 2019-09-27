@@ -8,7 +8,6 @@
     "rootDir": "src",
     "outDir": "dist",
     "sourceMap": false,
-    "noUnusedLocals": true,
     "moduleResolution": "node",
     "types": ["node"],
     "plugins": [
