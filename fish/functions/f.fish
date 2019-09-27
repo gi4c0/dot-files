@@ -6,6 +6,6 @@ function f --argument-names 'search_term'
         return 1
     end
 
-    ps -aux | grep "$search_term"
+    ps -aux | grep "$search_term" | awk '{print $2,$11}'
     return 0
 end
