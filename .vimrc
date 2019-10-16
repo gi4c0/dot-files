@@ -138,15 +138,20 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
-" Use `lp` and `ln` for navigate diagnostics
-nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
+" Use <c-space> to trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
+
+" use `complete_info` if your vim support it, like:
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : \<C-g>u\<CR>"
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
-nmap <silent> <leader>ld <Plug>(coc-definition)
-nmap <silent> <leader>lt <Plug>(coc-type-definition)
-nmap <silent> <leader>li <Plug>(coc-implementation)
-nmap <silent> <leader>lf <Plug>(coc-references)
+" nmap <silent> <leader>ld <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
 
 " Remap for rename current word
 nmap <leader>lr <Plug>(coc-rename)
@@ -167,10 +172,6 @@ nmap <leader>lr <Plug>(coc-rename)
     let NERDTreeKeepTreeInNewTab=1
 
 
-
-"YouCompleteme
-    set completeopt-=preview "Prevent opening new window with documentation
-    nnoremap <C-y> :YcmCompleter RestartServer<CR>
 
 "Highlighting options
     let g:ale_linters = {'javascript': ['eslint'], 'go': ['go build', 'gofmt', 'golint', 'gometalinter', 'gosimple', 'gotype', 'go vet', 'staticcheck'], 'python': ['flake8', 'mypy', 'pylint'], 'typescript': ['tslint', 'tsserver', 'typecheck'] }
