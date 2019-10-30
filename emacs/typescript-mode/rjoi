@@ -2,4 +2,4 @@
 # name: require joi
 # key: rjoi
 # --
-import Joi = require('joi')
+import Joi = require('@hapi/joi')

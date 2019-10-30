@@ -299,7 +299,7 @@ exec google-chrome-stable
 
 #================ Modes ============================== #
 bindcode $mod+38 mode "$mode_apps"
-set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman, (b) browser, (f) filemanager
+set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman, (b) browser, (f) filemanager, (i) image editor
 
 mode "$mode_apps" {
      # launch emacs on $mod+a e
@@ -318,7 +318,10 @@ mode "$mode_apps" {
      bindsym Escape mode "default"
 
     # Open pcmanfm (another file manager) (f)
-     bindcode 41 exec pcmanfm, mode "default"
+     bindcode 41 exec nautilus, mode "default"
+
+    # Open pcmanfm (another file manager) (f)
+     bindcode 31 exec krita, mode "default"
 }
 
 # ================ Jump to applicaiton ================== #
