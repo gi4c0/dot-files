@@ -4,8 +4,6 @@
     "tslint:recommended"
   ],
 
-  "jsRules": {},
-
   "rules": {
     "array-type": false,
     "max-line-length": [true, 90],

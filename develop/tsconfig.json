@@ -9,10 +9,7 @@
     "outDir": "dist",
     "sourceMap": false,
     "moduleResolution": "node",
-    "types": ["node"],
-    "plugins": [
-      { "name": "typescript-tslint-plugin" }
-    ]
+    "types": ["node"]
   },
 
   "include": [
