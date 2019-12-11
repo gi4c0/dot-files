@@ -56,15 +56,6 @@ bindsym $mod+Ctrl+space exec rofi -show window -theme $rofiTheme
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+Shift+t focus mode_toggle
-
-# tabbed toggle mode
-bindsym $mod+t layout toggle tabbed splith splitv
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -76,9 +67,6 @@ bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
 
 # Power off computer
 bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
-
-# lock the screen
-bindsym $mod+Escape exec gnome-screensaver-command --lock
 
 # put the system to sleep
 # bindsym $mod+Shift+s exec systemctl suspend
@@ -229,10 +217,6 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
-# cycle between workspace
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
-
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
 bindsym $mod+Ctrl+2 move container to workspace $ws2
@@ -300,11 +284,12 @@ bindcode $mod+Ctrl+45 resize shrink height 5 px or 5 ppt
 bindcode $mod+Ctrl+46 resize grow width 5 px or 5 ppt
 
 # toggle tiling / floating
-bindsym $super+Shift+space floating toggle
+# $mod+Shift+f
+bindcode $mod+Shift+41 floating toggle
 
 # change focus between tiling / floating windows
-bindsym $super+space focus mode_toggle
-
+# $mod+t
+bindcode $mod+28 focus mode_toggle
 # toggle sticky
 # bindsym $mod+Shift+s sticky toggle
 
