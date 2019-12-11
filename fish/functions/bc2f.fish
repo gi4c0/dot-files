@@ -31,6 +31,10 @@ function bc2f
   # npm run pm2:prod
   pm2 start ecosystem.config.js --env production
 
+  cd ~/projects/connected2Fiber/LocationUtilitiesAPI
+  # npm run pm2:prod
+  pm2 start ecosystem.config.js --env production
+
   cd $current_dir
   clear
   pm2 list
