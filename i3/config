@@ -49,7 +49,7 @@ bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
 set_from_resource $rofiTheme rofi.theme "regolith-theme"
 
 # rofi app and window launchers
-# bindsym $mod+space exec rofi -show drun -theme $rofiTheme
+bindsym $mod+space exec rofi -show drun -theme $rofiTheme
 bindsym $mod+Shift+space exec rofi -show run -theme $rofiTheme
 bindsym $mod+Ctrl+space exec rofi -show window -theme $rofiTheme
 
@@ -78,7 +78,7 @@ bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
 bindsym $mod+d exec gnome-control-center display
 bindsym $mod+n exec gnome-control-center network
 bindsym $mod+p exec gnome-control-center power
-# bindsym $mod+s exec gnome-control-center sound
+bindsym $mod+Shift+s exec gnome-control-center bluetooth
 
 # Disable titlebar
 new_window pixel 1
