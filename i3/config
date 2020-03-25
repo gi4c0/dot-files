@@ -320,6 +320,7 @@ for_window [urgent=latest] focus
 assign [class="TelegramDesktop"] → $ws1
 assign [class="Slack"] → $ws1
 assign [class="Rocket.Chat"] → $ws1
+assign [class="discord"] → $ws1
 
 assign [class="Google-chrome"] → $ws2
 assign [class="Firefox"] → $ws2
