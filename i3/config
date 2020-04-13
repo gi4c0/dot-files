@@ -5,7 +5,7 @@
 # This defines which key super maps to on your keyboard.
 # Alt key is Mod1, and Windows key is Mod4
 set_from_resource $mod  i3-wm.mod Mod1
-set_from_resource $alt  i3-wm.alt Mod4
+set_from_resource $super  i3-wm.alt Mod4
 
 # Color values are defined in ~/.Xresources-regolith
 # These are the labels which define each i3 workspace.
@@ -186,7 +186,7 @@ client.urgent           $urgent.color.border               $urgent.color.backgro
 popup_during_fullscreen smart
 
 # window focus follows your mouse movements as the mouse crosses window borders
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # Create variables from Xresources for i3bars's look.
 set_from_resource $i3-wm.bar.background.color i3-wm.bar.background.color "#002b36"

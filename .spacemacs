@@ -486,6 +486,18 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; Auto save file before open git status buffer
+  (setq magit-save-repository-buffers 'dontask)
+
+  (defun mu-magit-kill-buffers ()
+    "Restore window configuration and kill all Magit buffers."
+    (interactive)
+    (let ((buffers (magit-mode-get-buffers)))
+      (magit-restore-window-configuration)
+      (mapc #'kill-buffer buffers)))
+
+  (bind-key "q" #'mu-magit-kill-buffers magit-status-mode-map)
+  ;; Enable `gd' Go To Definition (it was broken after some update)
   (add-to-list 'spacemacs-jump-handlers-typescript-mode '(tide-jump-to-definition :async t))
 
   (setq evil-jumps-cross-buffers nil)
