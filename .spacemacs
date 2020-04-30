@@ -489,15 +489,6 @@ before packages are loaded."
   ;; Auto save file before open git status buffer
   (setq magit-save-repository-buffers 'dontask)
 
-  ;; Autokill banch of magit buffers
-  (defun mu-magit-kill-buffers (param)
-    "Restore window configuration and kill all Magit buffers."
-    (let ((buffers (magit-mode-get-buffers)))
-      (magit-restore-window-configuration)
-      (mapc #'kill-buffer buffers)))
-
-  (setq magit-bury-buffer-function #'mu-magit-kill-buffers)
-
   ;; Enable `gd' Go To Definition (it was broken after some update)
   (add-to-list 'spacemacs-jump-handlers-typescript-mode '(tide-jump-to-definition :async t))
 
