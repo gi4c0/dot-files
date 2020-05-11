@@ -329,7 +329,7 @@ set_from_resource $i3-wm.bar.status_command i3-wm.bar.status_command i3xrocks -u
 
 # The bar configuration
 bar {
-  position $i3-wm.bar.position
+  position top
   font $i3-wm.bar.font
   separator_symbol $i3-wm.bar.separator
   status_command $i3-wm.bar.status_command
@@ -446,7 +446,7 @@ mode "$mode_apps" {
      bindcode 58 exec mysql-workbench, mode "default"
 
      # launch postman (p)
-     bindcode 33 exec ~/dev/Postman/Postman, mode "default"
+     bindcode 33 exec postman, mode "default"
 
      # launch browser (b)
      bindcode 56 exec google-chrome-stable, mode "default"
@@ -457,23 +457,23 @@ mode "$mode_apps" {
     # Open pcmanfm (another file manager) (f)
      bindcode 41 exec nautilus, mode "default"
 
-    # Open pcmanfm (another file manager) (f)
+    # Open image editor (another file manager) (f)
      bindcode 31 exec krita, mode "default"
 }
 
 # ================ Jump to applicaiton ================== #
 
-# # jump to emacs ($super+e)
-# bindcode $super+26 [class="Emacs"] focus
+# jump to emacs ($super+e)
+bindcode $ctrl+26 [class="Emacs"] focus
 
-# # jump to postman ($super+p)
-# bindcode $super+33 [class="Postman"] focus
+# jump to postman ($super+p)
+bindcode $ctrl+33 [class="Postman"] focus
 
-# # jump to mysql-workbench ($super+m)
-# bindcode $super+58 [class="Mysql-workbench-bin"] focus
+# jump to mysql-workbench ($super+m)
+bindcode $ctrl+58 [class="Mysql-workbench-bin"] focus
 
-# # jump to chrome ($super+c)
-# bindcode $super+54 [class="Google-chrome"] focus
+# jump to chrome ($super+c)
+bindcode $ctrl+54 [class="Google-chrome"] focus
 
-# # jump to telegram ($super+t)
-# bindcode $super+28 [class="TelegramDesktop"] focus
+# jump to telegram ($super+t)
+bindcode $ctrl+28 [class="TelegramDesktop"] focus
