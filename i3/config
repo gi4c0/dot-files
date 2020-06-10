@@ -196,10 +196,6 @@ bindsym $mod+Shift+p exec $i3-wm.program.shutdown
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
 bindsym $mod+Escape exec $i3-wm.program.lock
 
-## Session // Sleep // $mod+$ctrl+q
-set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
-bindcode $mod+$ctrl+24 exec $i3-wm.program.sleep
-
 ###############################################################################
 # System Management
 ###############################################################################
