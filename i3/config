@@ -407,6 +407,9 @@ bindcode $mod+32 focus parent
 # change focus between tiling / floating windows $mod+t
 bindcode $mod+28 focus mode_toggle
 
+# $mod+p take screenshot (install with sudo apt install flameshot)
+bindcode $mod+33 exec flameshot gui
+
 
 # =============== Window configs =================== #
 for_window [class="Gnome-calculator"] floating enable
