@@ -337,12 +337,12 @@ nnoremap <leader>fs :w<cr>
 " Clear search
 nnoremap <leader>sc :nohlsearch<CR>
 
-" Remap keys for gotos
-nnoremap gd <Plug>(coc-definition)
-nnoremap <silent> gy <Plug>(coc-type-definition)
+" Map keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 
-" Remap for rename current word
-nnoremap <leader>mrr <Plug>(coc-rename)
+" Map for rename current word
+nmap <leader>mrr <Plug>(coc-rename)
 
 " Open git status
 nnoremap <leader>gs :Git<cr>
