@@ -238,21 +238,8 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P "Add to
 " Output path to current file/buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' 
 
-" Navigate properly when lines are wrapped
-nnoremap j gj
-nnoremap k gk
-
 " SYSTEM CLIPBOARD COPY & PASTE SUPPORT
 set pastetoggle=<F2> "F2 before pasting to preserve indentation
-
-" resize panes
-nnoremap <silent> <Right> :vertical resize +5<cr>
-nnoremap <silent> <Left> :vertical resize -5<cr>
-nnoremap <silent> <Up> :resize +5<cr>
-nnoremap <silent> <Down> :resize -5<cr>
-
-" better mark jumping
-nnoremap ' `
 
 "TEST
 "improve performance
@@ -268,10 +255,10 @@ set regexpengine=0
 "   <leader>ph - Browse list of files in current directory
 "   <leader>/  - Search current directory for occurences of given term and close window if no results
 "   <leader>*  - Search current directory for occurences of word under cursor
-nnoremap <leader>bb :Denite buffer<CR>
-nnoremap <leader>ph :DeniteProjectDir file/rec/git<CR>
-nnoremap <leader>/ :<C-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>* :<C-u>DeniteCursorWord grep:.<CR>
+nnoremap <silent> <leader>bb :Denite buffer<CR>
+nnoremap <silent> <leader>ph :DeniteProjectDir file/rec/git<CR>
+nnoremap <silent> <leader>/ :<C-u>Denite grep:. -no-empty<CR>
+nnoremap <silent> <leader>* :<C-u>DeniteCursorWord grep:.<CR>
 
 
 " Define mappings while in 'filter' mode
@@ -331,26 +318,47 @@ endfunction
 
 
 " Delete current buffer
-nnoremap <leader>bd :bdelete<cr>
+nnoremap <silent> <leader>bd :bdelete<cr>
 
 " Save file
-nnoremap <leader>fs :w<cr>
+nnoremap <silent> <leader>fs :w<cr>
 
 " Clear search
-nnoremap <leader>sc :nohlsearch<CR>
+nnoremap <silent> <leader>sc :nohlsearch<CR>
 
 " Map keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> <silent> gd <Plug>(coc-definition)
+nmap <silent> <silent> gt <Plug>(coc-type-definition)
 
 " Map for rename current word
 nmap <leader>mrr <Plug>(coc-rename)
 
 " Open git status
-nnoremap <leader>gs :Git<cr>
+nnoremap <silent> <leader>gs :Git<cr>
 " Git blame
-nnoremap <leader>gb :Git blame<cr>
+nnoremap <silent> <leader>gb :Git blame<cr>
 
-"locate current file in NERDTree
-nnoremap <leader>pt :NERDTreeFind<cr>
+" locate current file in NERDTree or close if NERDTree tab is opened
+function MyNerdToggle()
+    if &filetype == 'nerdtree' || exists("g:NERDTree") && g:NERDTree.IsOpen()
+        :NERDTreeToggle
+    else
+        :NERDTreeFind
+    endif
+endfunction
+
+nnoremap <silent> <leader>pt :call MyNerdToggle()<CR>
+
+" resize panes
+nnoremap <silent> <Right> :vertical resize +5<cr>
+nnoremap <silent> <Left> :vertical resize -5<cr>
+nnoremap <silent> <Up> :resize +5<cr>
+nnoremap <silent> <Down> :resize -5<cr>
+
+" better mark jumping
+nnoremap ' `
+
+" Navigate properly when lines are wrapped
+nnoremap j gj
+nnoremap k gk
 
