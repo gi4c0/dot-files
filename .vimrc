@@ -145,6 +145,8 @@ try
   " Use ripgrep in place of 'grep'
   call denite#custom#var('grep', 'command', ['rg'])
 
+  " Remove date from buffer list
+  call denite#custom#var('buffer', 'date_format', '')
   " Custom options for ripgrep
   "   --vimgrep:  Show results with every match on it's own line
   "   --hidden:   Search hidden directories and files
