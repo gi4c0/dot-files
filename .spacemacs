@@ -52,7 +52,8 @@ This function should only modify configuration layer settings."
      multiple-cursors
      javascript
      (typescript :variables
-                 typescript-linter 'tslint)
+                 typescript-linter 'tslint
+                 node-add-modules-path t)
      haskell
      ;; ibuffer
      org
@@ -545,7 +546,7 @@ before packages are loaded."
   (defun notes-connected2fiber ()
     "Jump to connected2Fiber/notes.org file"
     (interactive)
-    (find-file "~/projects/connected2Fiber/notes.org"))
+    (find-file "~/notes.org"))
 
   ;; For jumping to notes.org of connected2fiber
   (defun jump-polybar-config ()
@@ -588,26 +589,29 @@ before packages are loaded."
 
   ;;; GOLANG
   ;; set the linter
-  (setq go-linter 'golangci-lint)
+  ;; (setq go-linter 'golangci-lint)
+  (setq go-use-golangci-lint t)
+  (setq go-format-before-save t)
 
+  ;; Disable annoying docs popup windows
+  (setq lsp-ui-doc-enable nil)
   ;; lsp backend
-  ;; (setq 'go-backend 'lsp)
+  (setq go-backend 'lsp)
+  ;; (setq go-backend 'go-mode)
 
   (setq go-tab-width 4)
-  ;; (setq go-use-golangci-lint t)
   ;; (setq godoc-at-point-function 'godoc-gogetdoc)
-  (setq go-backend 'lsp)
 
   (setq js2-include-node-externs t)
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
 
   ;; Set tide as default backend for typescript
-  (setq-default typescript-backend 'tide)
-  ;; (setq-default typescript-backend 'lsp)
-  ;; (setq-default typescript-lsp-linter nil)
+  (setq typescript-backend 'tide)
+  (setq typescript-indent-level 2)
 
-  (setq-default typescript-indent-level 2)
+
+
   (setq-default js-indent-level 2)
 
   (setq-default
