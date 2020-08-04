@@ -199,15 +199,16 @@ catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
 
-" use `complete_info` if your vim support it, like:
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : \<C-g>u\<CR>"
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
-" NERDComments:
+" ========== coc.nvim ========== "
+" Highlight the symbol and its references when holding the cursor. 
+" // TODO: maybe delete if causes performance issues
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+
+" NERDComments
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
@@ -327,8 +328,10 @@ nnoremap <silent> <leader>fs :w<cr>
 nnoremap <silent> <leader>sc :nohlsearch<CR>
 
 " Map keys for gotos
-nmap <silent> <silent> gd <Plug>(coc-definition)
-nmap <silent> <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Map for rename current word
 nmap <leader>mrr <Plug>(coc-rename)
@@ -374,3 +377,23 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Show list of errors from current buffer
+nmap <silent> <leader>el :CocDiagnostics<CR>
+nmap <silent> <leader>eL :CocDiagnostics<CR>
