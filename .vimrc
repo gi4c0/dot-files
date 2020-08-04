@@ -333,21 +333,23 @@ nmap <silent> <silent> gt <Plug>(coc-type-definition)
 " Map for rename current word
 nmap <leader>mrr <Plug>(coc-rename)
 
-" Open git status
-nnoremap <silent> <leader>gs :Git<cr>
+" Open git status vertical from right side
+nnoremap <silent> <leader>gs :vertical :Git<cr><C-w>L
 " Git blame
 nnoremap <silent> <leader>gb :Git blame<cr>
 
 " locate current file in NERDTree or close if NERDTree tab is opened
-function MyNerdToggle()
-    if &filetype == 'nerdtree' || exists("g:NERDTree") && g:NERDTree.IsOpen()
-        :NERDTreeToggle
+function! NerdTreeToggleFind()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        NERDTreeClose
+    elseif filereadable(expand('%'))
+        NERDTreeFind
     else
-        :NERDTreeFind
+        NERDTree
     endif
 endfunction
 
-nnoremap <silent> <leader>pt :call MyNerdToggle()<CR>
+nnoremap <silent> <leader>pt :call NerdTreeToggleFind()<CR>
 
 " resize panes
 nnoremap <silent> <Right> :vertical resize +5<cr>
