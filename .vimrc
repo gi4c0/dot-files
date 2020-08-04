@@ -11,6 +11,7 @@ Plug 'tpope/vim-repeat'                     "Enable repeating for surround
 Plug 'bling/vim-airline'                    "Nice colorized status bar an the bottom
 
 Plug 'joshdick/onedark.vim'
+Plug 'tomasiser/vim-code-dark'
 
 Plug 'tpope/vim-fugitive'                   "for git
 Plug 'tpope/vim-unimpaired'                 "Adds shortcuts for fugitive (<[-q>, <[-Q>)
@@ -120,9 +121,8 @@ augroup END
 let g:solarized_termcolors=256
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
-colorscheme onedark
-
-set background=dark
+colorscheme codedark
+let g:airline_theme = 'codedark'
 "--------------------------------------------//
 
 
