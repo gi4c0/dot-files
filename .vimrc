@@ -54,32 +54,31 @@ highlight lCursor guifg=NONE guibg=Cyan
   " syntax on
 " endif
 
-"Show commands
+" Show commands
 set showcmd
 set laststatus=2
-"Automatically write before running commands
+" Automatically write before running commands
 set autowrite
-"Reload files changed outside vim
+" Reload files changed outside vim
 set autoread
 
-"Tabs and space
+" Tabs and space
 set tabstop=8
 set softtabstop=2
 set shiftwidth=2
 set expandtab
 set autoindent
 filetype plugin indent on
-set number relativenumber "reletive numbers of lines ;)
+set number relativenumber
 
-" Scrolling stuff
-"Start scrolling when we're 8 lines away from margins
+" Start scrolling when we're 8 lines away from margins
 set scrolloff=8
 set sidescroll=1
 set sidescrolloff=15
 
-"hightlighting search result
+" Hightlighting search result
 set hlsearch
-"highlight everythign right after typing
+" Highlight everythign right after typing
 set incsearch
 
 set ignorecase "Ingore case while search
@@ -91,12 +90,13 @@ set history=200 "History amount of commands to keep in memory
 set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
-" don't give |ins-completion-menu| messages.
+" Don't give |ins-completion-menu| messages.
 set shortmess+=c
-" always show signcolumns
+" Always show signcolumns
 set signcolumn=yes
-"===============================================
 
+
+" Put all autocmd commands here to avoid performance issues
 augroup AutoMake
   autocmd!
 
@@ -117,6 +117,7 @@ augroup AutoMake
 augroup END
 
 
+
 "---------------- COLOR SCHEME --------------//
 let g:solarized_termcolors=256
 let g:enable_bold_font = 1
@@ -126,12 +127,13 @@ let g:airline_theme = 'codedark'
 "--------------------------------------------//
 
 
+
 " ============================================================================ "
 " ===                           PLUGIN SETUP                               === "
 " ============================================================================ "
 " Wrap in try/catch to avoid errors on initial install before plugin is available
 try
-  " === Denite setup ==="
+  " ============== Denite setup =============== "
   " Use ripgrep for searching current directory for files
   " By default, ripgrep will respect rules in .gitignore
   "   --files: Print each file that would be searched (but don't search)
@@ -208,8 +210,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 
-" NERDComments
+" ============ NERDComments ============== "
+" Add <n> spaces before comment
 let g:NERDSpaceDelims = 1
+
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
@@ -217,22 +221,20 @@ let g:NERDTrimTrailingWhitespace = 1
 let NERDTreeKeepTreeInNewTab=1
 
 
-" Enable integration with airline.
-let g:airline#extensions#ale#enabled = 1
-
-
 " UltiSnips
 let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsEditSplit="vertical" "for split window UltiSnipsEditSplit
+" For split window UltiSnipsEditSplit
+let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips'] " Provide directory for UltiSnips
+
 " UltiSnips triggering
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 
-"FUGITIVE
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P "Add to infor to status line
+" FUGITIVE
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P "Add to info to status line
 
 
 "=============== KEYMAP =========================
