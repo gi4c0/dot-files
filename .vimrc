@@ -63,7 +63,7 @@ set autowrite
 set autoread
 
 " Tabs and space
-set tabstop=8
+set tabstop=4
 set softtabstop=2
 set shiftwidth=2
 set expandtab
@@ -209,6 +209,8 @@ endtry
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
+let NERDTreeWinSize=35
+
 
 " ============ NERDComments ============== "
 " Add <n> spaces before comment
@@ -221,17 +223,11 @@ let g:NERDTrimTrailingWhitespace = 1
 let NERDTreeKeepTreeInNewTab=1
 
 
-" UltiSnips
+" =========== UltiSnips =============== ""
 let g:UltiSnipsUsePythonVersion = 3
 " For split window UltiSnipsEditSplit
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips'] " Provide directory for UltiSnips
-
-" UltiSnips triggering
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-
+let g:UltiSnipsSnippetDirectories = ['~/.dot-files/UltiSnips', 'UltiSnips'] " Provide directory for UltiSnips
 
 " FUGITIVE
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P "Add to info to status line
@@ -399,3 +395,9 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Show list of errors from current buffer
 nmap <silent> <leader>el :CocDiagnostics<CR>
 nmap <silent> <leader>eL :CocDiagnostics<CR>
+
+" Rename file/imports
+nmap <silent> <leader>mrf :CocCommand workspace.renameCurrentFile<CR>
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
