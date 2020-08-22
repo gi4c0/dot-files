@@ -12,6 +12,7 @@ Plug 'bling/vim-airline'                    "Nice colorized status bar an the bo
 
 Plug 'joshdick/onedark.vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'rakr/vim-one'
 
 Plug 'tpope/vim-fugitive'                   "for git
 Plug 'tpope/vim-unimpaired'                 "Adds shortcuts for fugitive (<[-q>, <[-Q>)
@@ -32,6 +33,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 Plug 'dag/vim-fish'                         "Support for .fish files
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " ----------- Native vim settings -----------
@@ -63,7 +65,7 @@ set autowrite
 set autoread
 
 " Tabs and space
-set tabstop=4
+set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
@@ -104,8 +106,8 @@ augroup AutoMake
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
   " Close vim is only nerd tree buffer left open
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
   "typescript stuff
   " autocmd QuickFixCmdPost [^l]* nested cwindow
   " autocmd QuickFixCmdPost    l* nested lwindow
@@ -119,11 +121,34 @@ augroup END
 
 
 "---------------- COLOR SCHEME --------------//
-let g:solarized_termcolors=256
-let g:enable_bold_font = 1
-let g:enable_italic_font = 1
-colorscheme codedark
-let g:airline_theme = 'codedark'
+" let g:solarized_termcolors=256
+" let g:enable_bold_font = 1
+" let g:enable_italic_font = 1
+" colorscheme codedark
+" let g:airline_theme = 'codedark'
+
+"Credit joshdick
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+
+set background=dark " for the dark version
+" set background=light " for the light version
+colorscheme one
+let g:airline_theme = 'one'
 "--------------------------------------------//
 
 
@@ -210,6 +235,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 let NERDTreeWinSize=35
+let NERDTreeQuitOnOpen=3
 
 
 " ============ NERDComments ============== "
@@ -328,7 +354,7 @@ nnoremap <silent> <leader>sc :nohlsearch<CR>
 " Map keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gy <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Map for rename current word
@@ -401,3 +427,11 @@ nmap <silent> <leader>mrf :CocCommand workspace.renameCurrentFile<CR>
 
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
+
+" Remap Y to yank till end of line
+nnoremap Y y$
+
+" Find and replace selected text with prompted
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+map <Leader>j <Plug>(easymotion-prefix)
