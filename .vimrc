@@ -28,6 +28,7 @@ Plug 'airblade/vim-gitgutter'               "Show git diff
 
 "Code hightlighting
 Plug 'sheerun/vim-polyglot'               "One plugin for all languages
+Plug 'jceb/vim-orgmode'
 
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -270,6 +271,12 @@ set pastetoggle=<F2> "F2 before pasting to preserve indentation
 "improve performance
 set regexpengine=0
 
+
+" ============================================================================ "
+" ===                             Jump to File                             === "
+" ============================================================================ "
+" Jump to notes
+nnoremap <leader>on :e ~/notes.org<cr>
 
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "
