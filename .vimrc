@@ -376,6 +376,11 @@ nnoremap <silent> <leader>gs :vertical :Git<cr><C-w>L
 " Git blame
 nnoremap <silent> <leader>gb :Git blame<cr>
 
+" For resolving conflicts: take from the right side
+nnoremap <silent> <leader>gl :deffget //3<cr>
+" For resolving conflicts: take from the left side
+nnoremap <silent> <leader>gh :deffget //2<cr>
+
 " locate current file in NERDTree or close if NERDTree tab is opened
 function! NerdTreeToggleFind()
     if exists("g:NERDTree") && g:NERDTree.IsOpen()
