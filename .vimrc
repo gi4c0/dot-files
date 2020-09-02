@@ -188,6 +188,10 @@ try
   call denite#custom#var('grep', 'separator', ['--'])
   call denite#custom#var('grep', 'final_opts', [])
 
+  " Sort buffers and files by last visited
+  call denite#custom#source('buffer', 'sorters', ['sorter/oldfiles'])
+  call denite#custom#source('file/rec/git', 'sorters', ['sorter/oldfiles'])
+
   " Custom options for Denite
   "   auto_resize             - Auto resize the Denite window height
   " automatically.
@@ -360,7 +364,7 @@ nnoremap <silent> <leader>sc :nohlsearch<CR>
 
 " Map keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> gy <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
