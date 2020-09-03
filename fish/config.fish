@@ -8,3 +8,5 @@ set -gx GOROOT "/usr/local/go"
 set -gx GOPATH "$HOME/go"
 
 set -gx PATH "$GOPATH/bin:$GOROOT/bin:$DENO_INSTALL/bin:$PATH"
+
+set -gx MANPAGER 'nvim +Man!'

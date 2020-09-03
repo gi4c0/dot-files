@@ -15,6 +15,10 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'rakr/vim-one'
 
 Plug 'tpope/vim-fugitive'                   "for git
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'              " Nice checkout for git
+
 Plug 'tpope/vim-unimpaired'                 "Adds shortcuts for fugitive (<[-q>, <[-Q>)
 Plug 'scrooloose/nerdcommenter'             "Commenting tool
 
@@ -122,16 +126,6 @@ augroup END
 
 
 "---------------- COLOR SCHEME --------------//
-" let g:solarized_termcolors=256
-" let g:enable_bold_font = 1
-" let g:enable_italic_font = 1
-" colorscheme codedark
-" let g:airline_theme = 'codedark'
-
-"Credit joshdick
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 if (empty($TMUX))
   if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -147,7 +141,6 @@ endif
 
 
 set background=dark " for the dark version
-" set background=light " for the light version
 colorscheme one
 let g:airline_theme = 'one'
 "--------------------------------------------//
@@ -263,6 +256,10 @@ let g:UltiSnipsSnippetDirectories = ['~/.dot-files/UltiSnips', 'UltiSnips'] " Pr
 " FUGITIVE
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P "Add to info to status line
 
+" ============ Fzf ===================
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+
 
 "=============== KEYMAP =========================
 " Output path to current file/buffer
@@ -285,15 +282,33 @@ nnoremap <leader>on :e ~/notes.org<cr>
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "
 " ============================================================================ "
+" Show list of buffers
+nnoremap <silent> <leader>bb :Buffers<CR>
+
+" File history
+nnoremap <silent> <leader>fr :History<CR>
+
+" Search through the project
+nnoremap <silent> <leader>/ :Rg<space>
+
+" Show list of files
+nnoremap <silent> <leader>ph :GFiles<CR>
+
+" Git (history) commits
+nnoremap <silent> <leader>ghh :Commits<CR>
+
+" Git (history) commits for buffer
+nnoremap <silent> <leader>ghb :BCommits<CR>
+
 
 " === Denite shorcuts === "
 "   <leader>bb - Browser currently open buffers
 "   <leader>ph - Browse list of files in current directory
 "   <leader>/  - Search current directory for occurences of given term and close window if no results
 "   <leader>*  - Search current directory for occurences of word under cursor
-nnoremap <silent> <leader>bb :Denite buffer<CR>
-nnoremap <silent> <leader>ph :DeniteProjectDir file/rec/git<CR>
-nnoremap <silent> <leader>/ :<C-u>Denite grep:. -no-empty<CR>
+" nnoremap <silent> <leader>bb :Denite buffer<CR>
+" nnoremap <silent> <leader>ph :DeniteProjectDir file/rec/git<CR>
+" nnoremap <silent> <leader>/ :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <silent> <leader>* :<C-u>DeniteCursorWord grep:.<CR>
 
 
@@ -376,10 +391,8 @@ nnoremap <silent> <leader>gs :vertical :Git<cr><C-w>L
 " Git blame
 nnoremap <silent> <leader>gb :Git blame<cr>
 
-" For resolving conflicts: take from the right side
-nnoremap <silent> <leader>gl :deffget //3<cr>
-" For resolving conflicts: take from the left side
-nnoremap <silent> <leader>gh :deffget //2<cr>
+" Check out branch
+nnoremap <leader>gc :GBranches<CR>
 
 " locate current file in NERDTree or close if NERDTree tab is opened
 function! NerdTreeToggleFind()
