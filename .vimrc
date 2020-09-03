@@ -140,7 +140,7 @@ let g:airline_theme = 'one'
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
-let NERDTreeWinSize=35
+let NERDTreeWinSize=45
 let NERDTreeQuitOnOpen=3
 
 
