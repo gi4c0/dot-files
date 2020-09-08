@@ -304,3 +304,9 @@ nnoremap Y y$
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 map <Leader>j <Plug>(easymotion-prefix)
+
+" Search word under the cursor in project
+nnoremap <leader>* yiw:Rg <C-r>0<CR>
+
+" Search visually selected word in project
+vnoremap <leader>* y:Rg <C-r>0<CR>
