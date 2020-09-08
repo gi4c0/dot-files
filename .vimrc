@@ -310,3 +310,19 @@ nnoremap <leader>* yiw:Rg <C-r>0<CR>
 
 " Search visually selected word in project
 vnoremap <leader>* y:Rg <C-r>0<CR>
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+" Make <tab> used for trigger completion, completion confirm, snippet expand and jump like VSCode
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+nnoremap <leader>fed :edit $MYVIMRC<CR>
