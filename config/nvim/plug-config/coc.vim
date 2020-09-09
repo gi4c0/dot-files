@@ -48,9 +48,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>el :CocDiagnostics<CR>
 nmap <silent> <leader>eL :CocDiagnostics<CR>
 
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
