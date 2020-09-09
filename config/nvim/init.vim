@@ -47,8 +47,6 @@ augroup AutoMake
   autocmd!
 
   autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
   autocmd BufReadPost fugitive://* set bufhidden=delete
   autocmd FocusLost,WinLeave * :silent! wa
   " Trigger autoread when changing buffers or coming back to vim in terminal.
@@ -80,21 +78,7 @@ let g:airline_theme = 'one'
 " ===                           PLUGIN SETUP                               === "
 " ============================================================================ "
 source $HOME/.dot-files/config/nvim/plug-config/coc.vim
-
-let NERDTreeWinSize=45
-let NERDTreeQuitOnOpen=3
-
-
-" ============ NERDComments ============== "
-" Add <n> spaces before comment
-let g:NERDSpaceDelims = 1
-
-let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
-let NERDTreeKeepTreeInNewTab=1
-
+source $HOME/.dot-files/config/nvim/plug-config/nerdtree.vim
 
 " =========== UltiSnips =============== ""
 let g:UltiSnipsUsePythonVersion = 3
@@ -165,19 +149,6 @@ nnoremap <silent> <leader>gb :Git blame<cr>
 
 " Check out branch
 nnoremap <leader>gc :GBranches<CR>
-
-" locate current file in NERDTree or close if NERDTree tab is opened
-function! NerdTreeToggleFind()
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
-        NERDTreeClose
-    elseif filereadable(expand('%'))
-        NERDTreeFind
-    else
-        NERDTree
-    endif
-endfunction
-
-nnoremap <silent> <leader>pt :call NerdTreeToggleFind()<CR>
 
 " resize panes
 nnoremap <silent> <Right> :vertical resize +5<cr>
