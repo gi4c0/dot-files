@@ -40,59 +40,7 @@ Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " ----------- Native vim settings -----------
-let mapleader=" "
-runtime macros/matchit.vim
-set hidden
-
-" Russion language
-" set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
-highlight lCursor guifg=NONE guibg=Cyan
-"Включает русскую ё
-" noremap <F6> :setlocal spell! spelllang=ru_yo,en_us<cr>
-
-" Show commands
-set showcmd
-set laststatus=2
-" Automatically write before running commands
-set autowrite
-" Reload files changed outside vim
-set autoread
-
-" Tabs and space
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-set autoindent
-filetype plugin indent on
-set number relativenumber
-
-" Start scrolling when we're 8 lines away from margins
-set scrolloff=8
-set sidescroll=1
-set sidescrolloff=15
-
-" Hightlighting search result
-set hlsearch
-" Highlight everythign right after typing
-set incsearch
-
-set ignorecase "Ingore case while search
-set showmatch "Show matching brackets
-set history=200 "History amount of commands to keep in memory
-
-
-" Better display for messages
-set cmdheight=2
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-" Don't give |ins-completion-menu| messages.
-set shortmess+=c
-" Always show signcolumns
-set signcolumn=yes
-
+source $HOME/.dot-files/config/nvim/settings.vim
 
 " Put all autocmd commands here to avoid performance issues
 augroup AutoMake
@@ -105,8 +53,10 @@ augroup AutoMake
   autocmd FocusLost,WinLeave * :silent! wa
   " Trigger autoread when changing buffers or coming back to vim in terminal.
   autocmd FocusGained,BufEnter * :silent! !
-augroup END
 
+  " Highlight the symbol and its references when holding the cursor. 
+  " // TODO: maybe delete if causes performance issues
+  autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 "---------------- COLOR SCHEME --------------//
@@ -124,7 +74,6 @@ if (empty($TMUX))
 endif
 
 
-set background=dark " for the dark version
 colorscheme one
 let g:airline_theme = 'one'
 "--------------------------------------------//
@@ -135,11 +84,6 @@ let g:airline_theme = 'one'
 " ============================================================================ "
 "
 " ========== coc.nvim ========== "
-" Highlight the symbol and its references when holding the cursor. 
-" // TODO: maybe delete if causes performance issues
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-
 let NERDTreeWinSize=45
 let NERDTreeQuitOnOpen=3
 
@@ -325,4 +269,5 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
+" Open vimrc
 nnoremap <leader>fed :edit $MYVIMRC<CR>
