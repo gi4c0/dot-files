@@ -48,7 +48,7 @@ set history=200 "History amount of commands to keep in memory
 set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
-set timeoutlen=300                      " By default timeoutlen is 1000 ms
+set timeoutlen=1000                     " By default timeoutlen is 1000 ms
 " Don't give |ins-completion-menu| messages.
 set shortmess+=c
 " Always show signcolumns

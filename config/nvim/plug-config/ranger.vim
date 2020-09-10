@@ -2,6 +2,7 @@
 let g:rnvimr_ex_enable = 1
 
 nmap <leader>r :RnvimrToggle<CR>
+nmap <leader>pt :RnvimrToggle<CR>
 
 " Make Ranger to be hidden after picking a file
 let g:rnvimr_enable_picker = 1
@@ -11,8 +12,8 @@ let g:rnvimr_enable_bw = 1
 
 " Customize the initial layout
 let g:rnvimr_layout = { 'relative': 'editor',
-            \ 'width': float2nr(round(0.6 * &columns)),
-            \ 'height': float2nr(round(0.6 * &lines)),
-            \ 'col': float2nr(round(0.2 * &columns)),
-            \ 'row': float2nr(round(0.2 * &lines)),
+            \ 'width': float2nr(round(0.8 * &columns)),
+            \ 'height': float2nr(round(0.8 * &lines)),
+            \ 'col': float2nr(round(0.1 * &columns)),
+            \ 'row': float2nr(round(0.1 * &lines)),
             \ 'style': 'minimal' }
