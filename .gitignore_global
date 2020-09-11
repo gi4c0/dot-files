@@ -6,3 +6,4 @@ project.org
 .tern-project
 .env
 #.*
+.vim
