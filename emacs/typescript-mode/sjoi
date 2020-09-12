@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: joi schema
-# key: sjoi
-# --
-export const $1Schema = {
-  $2: Joi.object().keys({
-    $0
-  })${.unknown()}${.required()}
-}

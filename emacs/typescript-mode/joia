@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: joi array
-# key: joia
-# --
-Joi.array()${.items($0)}${.required()}

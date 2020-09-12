@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: require joi
-# key: rjoi
-# --
-import Joi = require('@hapi/joi')

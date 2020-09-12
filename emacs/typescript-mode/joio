@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: joi object
-# key: joio
-# --
-Joi.object().keys({
-  $0
-})${.unknown()}${.required()}
