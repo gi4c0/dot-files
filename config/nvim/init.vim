@@ -54,6 +54,7 @@ source $HOME/.dot-files/config/nvim/plug-config/fugitive.vim
 source $HOME/.dot-files/config/nvim/plug-config/easymotion.vim
 source $HOME/.dot-files/config/nvim/plug-config/ranger.vim
 source $HOME/.dot-files/config/nvim/plug-config/spelling.vim
+source $HOME/.dot-files/config/nvim/plug-config/markdown.vim
 
 " =========== Themes ============"
 source $HOME/.dot-files/config/nvim/themes/one.vim
