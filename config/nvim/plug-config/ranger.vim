@@ -1,8 +1,8 @@
 " Make Ranger replace netrw and be the file explorer
 let g:rnvimr_ex_enable = 1
 
-nmap <leader>r :RnvimrToggle<CR>
-nmap <leader>pt :RnvimrToggle<CR>
+nmap <silent> <leader>r :RnvimrToggle<CR>
+nmap <silent> <leader>pt :RnvimrToggle<CR>
 
 " Make Ranger to be hidden after picking a file
 let g:rnvimr_enable_picker = 1

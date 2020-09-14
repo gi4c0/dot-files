@@ -39,6 +39,7 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'dag/vim-fish'                         "Support for .fish files
 Plug 'unblevable/quick-scope'
+Plug 'justinmk/vim-sneak'
 call plug#end()
 
 " ----------- Native vim settings -----------
@@ -55,6 +56,7 @@ source $HOME/.dot-files/config/nvim/plug-config/ranger.vim
 source $HOME/.dot-files/config/nvim/plug-config/spelling.vim
 source $HOME/.dot-files/config/nvim/plug-config/markdown.vim
 source $HOME/.dot-files/config/nvim/plug-config/quick-scope.vim
+source $HOME/.dot-files/config/nvim/plug-config/sneak.vim
 
 " =========== Themes ============"
 source $HOME/.dot-files/config/nvim/themes/one.vim
