@@ -9,6 +9,7 @@ nnoremap <silent> <leader>bd :bdelete<cr>
 
 " Save file
 nnoremap <silent> <leader>fs :w<cr>
+nnoremap <silent> <C-s> :w<cr>
 
 " Clear search
 nnoremap <silent> <leader>sc :nohlsearch<CR>
@@ -35,3 +36,5 @@ nnoremap <leader>fed :edit $MYVIMRC<CR>
 " Output path to current file/buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' 
 
+" New tab with <C-t>
+nnoremap <C-t> :tabedit<CR>

@@ -7,5 +7,5 @@ augroup qs_colors
   autocmd ColorScheme * highlight QuickScopeSecondary guifg='#FF0000' gui=underline ctermfg=202 cterm=underline
 augroup END
 
-let g:qs_max_chars=150
+let g:qs_max_chars=200
 

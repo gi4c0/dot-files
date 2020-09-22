@@ -1,13 +1,7 @@
 let NERDTreeWinSize=45
 let NERDTreeQuitOnOpen=3             " Close NERDTree window on selected file
 
-" Add <n> spaces before comment
-let g:NERDSpaceDelims = 1
-
-let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
 let NERDTreeKeepTreeInNewTab=1
 
 " locate current file in NERDTree or close if NERDTree tab is opened

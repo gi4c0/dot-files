@@ -38,8 +38,8 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 Plug 'dag/vim-fish'                         "Support for .fish files
-Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
+" Plug 'wincent/corpus'                         " For Notes taking
 call plug#end()
 
 " ----------- Native vim settings -----------
@@ -49,14 +49,18 @@ source $HOME/.dot-files/config/nvim/mappings.vim
 " ===                           PLUGIN SETUP                               === "
 source $HOME/.dot-files/config/nvim/plug-config/ultisnips.vim
 source $HOME/.dot-files/config/nvim/plug-config/coc.vim
-source $HOME/.dot-files/config/nvim/plug-config/nerdtree.vim
 source $HOME/.dot-files/config/nvim/plug-config/fzf.vim
 source $HOME/.dot-files/config/nvim/plug-config/fugitive.vim
 source $HOME/.dot-files/config/nvim/plug-config/ranger.vim
 source $HOME/.dot-files/config/nvim/plug-config/spelling.vim
 source $HOME/.dot-files/config/nvim/plug-config/markdown.vim
-source $HOME/.dot-files/config/nvim/plug-config/quick-scope.vim
 source $HOME/.dot-files/config/nvim/plug-config/sneak.vim
+source $HOME/.dot-files/config/nvim/plug-config/nerd-commenter.vim
+
+" DISABLED
+" source $HOME/.dot-files/config/nvim/plug-config/corpus-notes.vim
+" source $HOME/.dot-files/config/nvim/plug-config/nerdtree.vim
+" source $HOME/.dot-files/config/nvim/plug-config/quick-scope.vim
 
 " =========== Themes ============"
 source $HOME/.dot-files/config/nvim/themes/one.vim
