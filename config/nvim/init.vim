@@ -40,6 +40,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'dag/vim-fish'                         "Support for .fish files
 Plug 'justinmk/vim-sneak'
 " Plug 'wincent/corpus'                         " For Notes taking
+Plug 'ap/vim-css-color'
 call plug#end()
 
 " ----------- Native vim settings -----------
