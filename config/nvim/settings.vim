@@ -2,23 +2,18 @@ let mapleader=" "
 runtime macros/matchit.vim
 set hidden
 
-" Russion language
-" set keymap=russian-jcukenwin
+
+" set keymap=russian-jcukenwin          " Russion language
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
-"Включает русскую ё
-" noremap <F6> :setlocal spell! spelllang=ru_yo,en_us<cr>
 
-" Show commands
-set showcmd
-set laststatus=2
-" Automatically write before running commands
-set autowrite
-" Reload files changed outside vim
-set autoread
+" noremap <F6> :setlocal spell! spelllang=ru_yo,en_us<cr>   " Enable russion 'ё'
 
-" Tabs and space
+set showcmd                             " Show commands
+set laststatus=2                        " influences when the last window will have a status line (2 - always)
+set autowrite                           " Automatically write before running commands
+set autoread                            " Reload files changed outside vim
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -28,35 +23,20 @@ set autoindent                          " Good auto indent
 set smartindent                         " Makes indenting smart
 filetype plugin indent on
 set number relativenumber
-
-" Start scrolling when we're 8 lines away from margins
-set scrolloff=8
+set scrolloff=8                         " Start scrolling when we're 8 lines away from margins
 set sidescroll=1
 set sidescrolloff=15
-
-" Hightlighting search result
-set hlsearch
-" Highlight everythign right after typing
-set incsearch
-
-set ignorecase "Ingore case while search
-set showmatch "Show matching brackets
-set history=200 "History amount of commands to keep in memory
-
-
-" Better display for messages
-set cmdheight=2
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
+set hlsearch                            " Hightlighting search result
+set incsearch                           " Highlight everything right after typing
+set ignorecase                          " Ingore case while search
+set showmatch                           " Show matching brackets
+set history=200                         " History amount of commands to keep in memory
+set cmdheight=2                         " Better display for messages
+set updatetime=300                      " Smaller updatetime for CursorHold & CursorHoldI
 set timeoutlen=1000                     " By default timeoutlen is 1000 ms
-" Don't give |ins-completion-menu| messages.
-set shortmess+=c
-" Always show signcolumns
-set signcolumn=yes
-
-" for the dark version
-set background=dark
-
+set shortmess+=c                        " Don't give |ins-completion-menu| messages.
+set signcolumn=yes                      " Always show signcolumns
+set background=dark                     " for the dark version
 set nowrap                              " Display long lines
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
