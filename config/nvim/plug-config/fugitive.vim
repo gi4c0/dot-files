@@ -6,6 +6,8 @@ nnoremap <silent> <leader>gs :vertical :Git<cr>
 " Git blame
 nnoremap <silent> <leader>gb :Git blame<cr>
 
+nnoremap <silent> <leader>gt :0Gclog<cr>
+
 augroup AutoMakes
   autocmd!
   autocmd BufReadPost fugitive://* set bufhidden=delete
