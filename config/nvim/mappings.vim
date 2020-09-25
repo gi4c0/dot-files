@@ -28,7 +28,7 @@ nnoremap Y y$
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Jump to notes
-nnoremap <leader>on :e ~/notes.org<cr>
+nnoremap <leader>on :e ~/notes.md<cr>
 
 " Open vimrc
 nnoremap <leader>fed :edit $MYVIMRC<CR>
