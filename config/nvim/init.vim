@@ -36,14 +36,11 @@ call plug#begin()
 
   Plug 'dag/vim-fish'                         "Support for .fish files
   Plug 'justinmk/vim-sneak'
-  " Plug 'wincent/corpus'                         " For Notes taking
   Plug 'ap/vim-css-color'
   Plug 'christoomey/vim-sort-motion'          " For sorting with gs
   Plug 'mbbill/undotree'                      " Kind of git but built in Vim
   Plug 'vimwiki/vimwiki'
   Plug 'nvim-treesitter/nvim-treesitter'
-
-
 call plug#end()
 
 " ----------- Native vim settings -----------
@@ -65,11 +62,8 @@ source $HOME/.dot-files/config/nvim/plug-config/vimwiki.vim
 source $HOME/.dot-files/config/nvim/plug-config/tree-sitter.vim
 
 " DISABLED
-" source $HOME/.dot-files/config/nvim/plug-config/corpus-notes.vim
 " source $HOME/.dot-files/config/nvim/plug-config/nerdtree.vim
-" source $HOME/.dot-files/config/nvim/plug-config/quick-scope.vim
 
 " =========== Themes ============"
 source $HOME/.dot-files/config/nvim/themes/sonokai.vim
 " source $HOME/.dot-files/config/nvim/themes/one.vim
-" source $HOME/.dot-files/config/nvim/themes/nvcode.vim
