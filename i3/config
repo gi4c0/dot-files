@@ -481,3 +481,6 @@ bindcode $ctrl+54 [class="Google-chrome"] focus
 bindcode $ctrl+28 [class="TelegramDesktop"] focus
 
 bindcode $ctrl+39 [class="Slack"] focus
+
+# Open ranger
+bindcode $mod+27 exec alacritty -e ranger
