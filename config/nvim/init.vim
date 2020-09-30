@@ -40,7 +40,7 @@ call plug#begin()
   Plug 'christoomey/vim-sort-motion'          " For sorting with gs
   Plug 'mbbill/undotree'                      " Kind of git but built in Vim
   Plug 'vimwiki/vimwiki'
-  Plug 'nvim-treesitter/nvim-treesitter'
+  " Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
 " ----------- Native vim settings -----------
@@ -59,11 +59,11 @@ source $HOME/.dot-files/config/nvim/plug-config/sneak.vim
 source $HOME/.dot-files/config/nvim/plug-config/nerd-commenter.vim
 source $HOME/.dot-files/config/nvim/plug-config/undotree.vim
 source $HOME/.dot-files/config/nvim/plug-config/vimwiki.vim
-source $HOME/.dot-files/config/nvim/plug-config/tree-sitter.vim
+" source $HOME/.dot-files/config/nvim/plug-config/tree-sitter.vim
 
 " DISABLED
 " source $HOME/.dot-files/config/nvim/plug-config/nerdtree.vim
 
 " =========== Themes ============"
-source $HOME/.dot-files/config/nvim/themes/sonokai.vim
-" source $HOME/.dot-files/config/nvim/themes/one.vim
+" source $HOME/.dot-files/config/nvim/themes/sonokai.vim
+source $HOME/.dot-files/config/nvim/themes/one.vim

@@ -484,3 +484,6 @@ bindcode $ctrl+39 [class="Slack"] focus
 
 # Open ranger
 bindcode $mod+27 exec alacritty -e ranger
+
+workspace "$ws2" output HDMI-1
+workspace "$ws4" output HDMI-1

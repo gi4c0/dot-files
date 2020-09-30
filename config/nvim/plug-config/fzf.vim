@@ -1,10 +1,10 @@
 " Make Ripgrep ONLY search file contents and not filenames
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --hidden --smart-case --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4.. -e'}, 'right:50%', '?'),
-  \   <bang>0)
+" command! -bang -nargs=* Rg
+  " \ call fzf#vim#grep(
+  " \   'rg --column --line-number --hidden --smart-case --no-heading --color=always '.shellescape(<q-args>), 1,
+  " \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  " \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4.. -e'}, 'right:50%', '?'),
+  " \   <bang>0)
 
 " Show list of buffers
 nnoremap <silent> <leader>bb :Buffers<CR>
@@ -13,7 +13,7 @@ nnoremap <silent> <leader>bb :Buffers<CR>
 nnoremap <silent> <leader>fr :History<CR>
 
 " Search through the project
-nnoremap <silent> <leader>/ :Rg<space>
+nnoremap <leader>/ :Rg<space>
 
 " Show list of files
 nnoremap <silent> <leader>ph :GFiles<CR>
