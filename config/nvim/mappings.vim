@@ -38,3 +38,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " New tab with <C-t>
 nnoremap <C-t> :tabedit<CR>
+
+" Escape from terminal
+tnoremap <C-g> <C-\><C-n>
