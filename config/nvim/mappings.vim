@@ -41,3 +41,7 @@ nnoremap <C-t> :tabedit<CR>
 
 " Escape from terminal
 tnoremap <C-g> <C-\><C-n>
+
+" Use <tab> to switch tabs
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT

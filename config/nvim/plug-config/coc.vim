@@ -4,6 +4,12 @@ augroup myGroup
   autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup END
 
+" Global extension names to install when they aren't installed.
+let g:coc_global_extensions = [
+  \ 'coc-json', 'coc-tsserver', 'coc-tslint-plugin',
+  \ 'coc-tslint', 'coc-spell-checker', 'coc-yaml'
+\]
+
 " Map keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)

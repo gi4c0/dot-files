@@ -39,7 +39,6 @@ call plug#begin()
   Plug 'ap/vim-css-color'
   Plug 'christoomey/vim-sort-motion'          " For sorting with gs
   Plug 'mbbill/undotree'                      " Kind of git but built in Vim
-  Plug 'vimwiki/vimwiki'
   " Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
@@ -58,7 +57,6 @@ source $HOME/.dot-files/config/nvim/plug-config/markdown.vim
 source $HOME/.dot-files/config/nvim/plug-config/sneak.vim
 source $HOME/.dot-files/config/nvim/plug-config/nerd-commenter.vim
 source $HOME/.dot-files/config/nvim/plug-config/undotree.vim
-source $HOME/.dot-files/config/nvim/plug-config/vimwiki.vim
 " source $HOME/.dot-files/config/nvim/plug-config/tree-sitter.vim
 
 " DISABLED
