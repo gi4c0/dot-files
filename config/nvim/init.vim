@@ -57,7 +57,6 @@ source $HOME/.dot-files/config/nvim/plug-config/markdown.vim
 source $HOME/.dot-files/config/nvim/plug-config/sneak.vim
 source $HOME/.dot-files/config/nvim/plug-config/nerd-commenter.vim
 source $HOME/.dot-files/config/nvim/plug-config/undotree.vim
-source $HOME/.dot-files/config/nvim/plug-config/auto-pairs.vim
 " source $HOME/.dot-files/config/nvim/plug-config/tree-sitter.vim
 
 " DISABLED
