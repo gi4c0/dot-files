@@ -8,3 +8,4 @@ project.org
 #.*
 .vim
 plugged
+*.bp/

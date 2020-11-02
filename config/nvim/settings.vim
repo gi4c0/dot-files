@@ -44,7 +44,7 @@ set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
-set nocursorline                          " Enable highlighting of the current line
+set cursorline                          " Enable highlighting of the current line
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set clipboard=unnamedplus               " Copy paste between vim and everything else

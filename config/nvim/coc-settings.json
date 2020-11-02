@@ -38,10 +38,13 @@
     "liuchengxu",
     "monospace",
     "newtype",
+    "onremove",
+    "ormconfig",
     "orupdate",
     "owasp",
     "playname",
     "playtype",
+    "plpgsql",
     "rallback",
     "randomstring",
     "rnvimr",
@@ -52,7 +55,9 @@
     "tpope",
     "typeorm",
     "uncommenting",
+    "unmerge",
     "upline",
+    "uploader",
     "varchar"
   ],
 

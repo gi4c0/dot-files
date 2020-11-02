@@ -10,6 +10,14 @@ nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> gy <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Toggle menu of options on current line
+vmap <silent> <C-Space> <Plug>(coc-codeaction-line)
+nmap <silent> <C-Space> <Plug>(coc-codeaction-line)
+
+" Toggle menu of options on current word
+vmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+
 " Map for rename current word
 nmap <leader>mrr <Plug>(coc-rename)
 
