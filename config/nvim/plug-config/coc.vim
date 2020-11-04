@@ -112,6 +112,7 @@ let g:lightline.component_type = {
 \ }
 
 augroup cocGroup
+  autocmd!
   " Highlight the symbol and its references when holding the cursor.
   " autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocDiagnosticChange call lightline#update()

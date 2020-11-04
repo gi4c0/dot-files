@@ -58,7 +58,8 @@
     "unmerge",
     "upline",
     "uploader",
-    "varchar"
+    "varchar",
+    "webp"
   ],
 
   "cSpell.ignorePaths": [

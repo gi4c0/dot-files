@@ -43,6 +43,7 @@ source $HOME/.dot-files/config/nvim/plug-config/undotree.vim
 source $HOME/.dot-files/config/nvim/plug-config/sneak.vim
 source $HOME/.dot-files/config/nvim/plug-config/ultisnips.vim
 source $HOME/.dot-files/config/nvim/plug-config/vim-wiki.vim
+source $HOME/.dot-files/config/nvim/plug-config/git-gutter.vim
 " source $HOME/.dot-files/config/nvim/plug-config/tree-sitter.vim
 
 " =========== Themes ============"
