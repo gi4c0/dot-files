@@ -12,3 +12,4 @@ let g:vimwiki_list = [wiki]
 " highlight VimwikiHeader4 guifg=#FF00FF
 " highlight VimwikiHeader5 guifg=#00FFFF
 " highlight VimwikiHeader6 guifg=#FFFF00
+

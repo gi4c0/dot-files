@@ -3,19 +3,99 @@ import ${2:\{ $0 \}} from '$1';
 endsnippet
 
 snippet imfa "import * as from" b
-import * as $0 from '$1'
+import * as $0 from '$1';
 endsnippet
 
 snippet cl "console.log"
 console.log($0)
 endsnippet
 
-snippet doc "js doc" b
+snippet doc "ts doc" b
 /**
  * $0
  */
 endsnippet
 
-snippet pr "public readonly" b
-public readonly $1: $0;
+snippet ip "interface property readonly" b
+/**
+ * $1
+ * @type { $3 }
+ */
+readonly $2: $3;
+endsnippet
+
+snippet ips "interface prop string" b
+/**
+ * $1
+ * @type { String }
+ */
+readonly $2: string;
+endsnippet
+
+snippet ipn "interface prop number" b
+/**
+ * $1
+ * @type { Number }
+ */
+readonly $2: number;
+endsnippet
+
+snippet ipb "interface prop boolean" b
+/**
+ * $1
+ * @type { Boolean }
+ */
+readonly $2: boolean;
+endsnippet
+
+snippet cp "class property" b
+/**
+ * $1
+ * @type { $2 }
+ */
+public readonly $3: $2;
+endsnippet
+
+snippet cpn "class property number" b
+/**
+ * $1
+ * @type { Number }
+ */
+public readonly $2: number;
+endsnippet
+
+snippet cps "class property string" b
+/**
+ * $1
+ * @type { String }
+ */
+public readonly $2: string;
+endsnippet
+
+snippet cpb "class property boolean" b
+/**
+ * $1
+ * @type { Boolean }
+ */
+public readonly $2: boolean;
+endsnippet
+
+snippet parsconf "parser config" b
+/**
+ * Config $1
+ * @type { $2 }
+ */
+private static readonly $3: ParserConfigModel<$2> = new ParserConfigModel<$2>({
+  mappings: new Array<keyof $2>($0),
+	validators: {
+
+	},
+  transformers: {
+
+  }
+});
+endsnippet
+
+snippet th "TypeHelper"
+TypeHelper.getType<$1>($0)
 endsnippet

@@ -7,7 +7,7 @@
   " \   <bang>0)
 
 " Show list of buffers
-nnoremap <silent> <leader>bb :Buffers<CR>
+nnoremap <silent> <C-Space> :Buffers<CR>
 
 " File history
 nnoremap <silent> <leader>fr :History<CR>
@@ -16,7 +16,7 @@ nnoremap <silent> <leader>fr :History<CR>
 nnoremap <leader>/ :Rg<space>
 
 " Show list of files
-nnoremap <silent> <leader>ph :GFiles<CR>
+nnoremap <silent> <C-p> :GFiles<CR>
 
 " Git (history) commits
 nnoremap <silent> <leader>ghh :Commits<CR>
@@ -25,8 +25,12 @@ nnoremap <silent> <leader>ghh :Commits<CR>
 nnoremap <silent> <leader>ghb :BCommits<CR>
 
 " ============ Fzf ===================
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let g:fzf_layout = { 'down': '40%' }
+
 let $FZF_DEFAULT_OPTS='--reverse'
+
+let g:fzf_preview_window = ['right:50%:hidden', 'ctrl-/']
 
 " Check out branch
 nnoremap <leader>gc :GBranches<CR>
@@ -38,3 +42,22 @@ nnoremap <leader>* yiw:Rg <C-r>0<CR>
 vnoremap <leader>* y:Rg <C-r>0<CR>
 
 nnoremap <silent> <Leader>ff :Files <C-R>=expand('%:h')<CR><CR>
+
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
+
+nnoremap <leader>bD :BD<CR>

@@ -69,7 +69,7 @@ set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
 
 ## Launch // Application // <> Space ##
 set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app rofi -show drun -theme $rofiTheme
-bindsym $mod+space exec $i3-wm.program.launcher.app
+bindsym $ctrl+Shift+space exec $i3-wm.program.launcher.app
 
 ###############################################################################
 # Window and Workspace Navigation
@@ -190,7 +190,7 @@ bindsym $mod+Shift+b exec $i3-wm.program.reboot
 
 ## Session // Power Down // <><Shift> p ##
 set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown /usr/bin/gnome-session-quit --power-off
-bindsym $mod+Shift+p exec $i3-wm.program.shutdown
+# bindsym $mod+Shift+p exec $i3-wm.program.shutdown
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
@@ -407,12 +407,18 @@ bindcode $mod+32 focus parent
 # change focus between tiling / floating windows $mod+t
 bindcode $mod+28 focus mode_toggle
 
-# $mod+p take screenshot (install with sudo apt install flameshot)
+# $mod+Shift+p take screenshot (install with sudo apt install flameshot)
 bindcode $mod+33 exec flameshot gui
 
+# $mod+p take screenshot (install with sudo apt install flameshot)
+bindcode $mod+Shift+33 exec /home/alex/bin/passmenu
 
 # =============== Window configs =================== #
 for_window [class="Gnome-calculator"] floating enable
+
+# Torrent float window
+for_window [class="deluge"] floating enable
+for_window [class="Deluge-gtk"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

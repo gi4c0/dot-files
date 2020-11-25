@@ -6,3 +6,5 @@ nmap <C-[> <Plug>(GitGutterPrevHunk)
 
 " Jump to previous git hunk
 nmap <C-]> <Plug>(GitGutterNextHunk)
+
+nmap <leader>hp <Plug>(GitGutterPreviewHunk)

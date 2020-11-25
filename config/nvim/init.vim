@@ -19,7 +19,6 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'                       " Show git diff
   Plug 'godlygeek/tabular'                            " Auto tab alignment
   Plug 'dag/vim-fish'                                 " Support for .fish files
-  Plug 'justinmk/vim-sneak'                           " Fast jumping
   Plug 'ap/vim-css-color'                             " Show hex colors
   Plug 'christoomey/vim-sort-motion'                  " For sorting with gs
   Plug 'mbbill/undotree'                              " Kind of git but built in Vim
@@ -40,7 +39,6 @@ source $HOME/.dot-files/config/nvim/plug-config/fzf.vim
 source $HOME/.dot-files/config/nvim/plug-config/fugitive.vim
 source $HOME/.dot-files/config/nvim/plug-config/nerd-commenter.vim
 source $HOME/.dot-files/config/nvim/plug-config/undotree.vim
-source $HOME/.dot-files/config/nvim/plug-config/sneak.vim
 source $HOME/.dot-files/config/nvim/plug-config/ultisnips.vim
 source $HOME/.dot-files/config/nvim/plug-config/vim-wiki.vim
 source $HOME/.dot-files/config/nvim/plug-config/git-gutter.vim

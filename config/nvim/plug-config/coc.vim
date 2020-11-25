@@ -12,7 +12,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Toggle menu of options on current line
 vmap <silent> <C-Space> <Plug>(coc-codeaction-line)
-nmap <silent> <C-Space> <Plug>(coc-codeaction-line)
+" nmap <silent> <C-Space> <Plug>(coc-codeaction-line)
 
 " Toggle menu of options on current word
 vmap <leader>a <Plug>(coc-codeaction-selected)

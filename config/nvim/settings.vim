@@ -49,6 +49,7 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set noshowmode                          " Get rid of 'INSERT/NORMAL/VISUAL' status
+set colorcolumn=160                     " Visualize max allowed line length by column
 
 set nocompatible
 filetype plugin on
