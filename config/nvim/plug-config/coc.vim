@@ -15,11 +15,11 @@ vmap <silent> <C-Space> <Plug>(coc-codeaction-line)
 " nmap <silent> <C-Space> <Plug>(coc-codeaction-line)
 
 " Toggle menu of options on current word
-vmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <Plug>(coc-codeaction-selected)
+vmap <silent> <leader>a <Plug>(coc-codeaction-selected)
+nmap <silent> <leader>a <Plug>(coc-codeaction-selected)
 
 " Map for rename current word
-nmap <leader>mrr <Plug>(coc-rename)
+nmap <silent> <leader>mrr <Plug>(coc-rename)
 
 " Rename file/imports
 nmap <silent> <leader>mrf :CocCommand workspace.renameCurrentFile<CR>
