@@ -172,7 +172,7 @@ bindcode $mod+$ctrl+46 resize grow width 5 px or 5 ppt
 bindcode $mod+33 exec flameshot gui
 
 # $mod+p take screenshot (install with sudo apt install flameshot)
-bindcode $mod+Shift+33 exec /home/alex/bin/passmenu
+bindcode $mod+Shift+33 exec passmenu
 
 # =============== Window configs =================== #
 for_window [class="Gnome-calculator"] floating enable
@@ -208,12 +208,6 @@ bindcode $mod+38 mode "$mode_apps"
 set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman, (b) browser, (f) filemanager, (i) image editor
 
 mode "$mode_apps" {
-     # launch emacs on $mod+a e
-     bindcode 26 exec emacs, mode "default"
-
-     # launch mysql-workbench (m)
-     bindcode 58 exec mysql-workbench, mode "default"
-
      # launch postman (p)
      bindcode 33 exec postman, mode "default"
 
