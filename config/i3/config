@@ -14,16 +14,15 @@ set $mod Mod4
 # as Ctrl on my layout
 set $ctrl Mod1
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-# font pango:monospace 10
-
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 10
+font pango:System San Francisco Display 12
 
 # set default desktop layout (default is tiling)
 workspace_layout tabbed
+
+# Disable ugly borders
+hide_edge_borders both
 
 # Jump back and forth by pressing $mod+<n>
 workspace_auto_back_and_forth yes
@@ -156,10 +155,39 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# ==================================#
+#   ____      _
+#  / ___|___ | | ___  _ __ ___
+# | |   / _ \| |/ _ \| '__/ __|
+# | |__| (_) | | (_) | |  \__ \
+#  \____\___/|_|\___/|_|  |___/
+# ==================================#
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
+
+        colors {
+            background $bg-color
+                separator #757575
+            #                  border             background         text
+            focused_workspace  $bg-color          $bg-color          $text-color
+            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+            urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+          }
 }
 
 # Resizing windows
@@ -168,10 +196,10 @@ bindcode $mod+$ctrl+44 resize grow height 5 px or 5 ppt
 bindcode $mod+$ctrl+45 resize shrink height 5 px or 5 ppt
 bindcode $mod+$ctrl+46 resize grow width 5 px or 5 ppt
 
-# $mod+Shift+p take screenshot (install with sudo apt install flameshot)
+# $mod+p take screenshot (install with sudo apt install flameshot)
 bindcode $mod+33 exec flameshot gui
 
-# $mod+p take screenshot (install with sudo apt install flameshot)
+# $mod+Shift+p take screenshot (install with sudo apt install flameshot)
 bindcode $mod+Shift+33 exec passmenu
 
 # =============== Window configs =================== #

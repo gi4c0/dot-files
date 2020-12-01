@@ -1,0 +1,6 @@
+nitrogen --restore
+setxkbmap -option caps:escape -layout us,ru -option grp:toggle
+xmodmap ~/.Xmodmap
+unclutter --jitter 5 --ignore-scrolling &
+
+exec i3 
