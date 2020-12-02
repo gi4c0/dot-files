@@ -16,7 +16,8 @@ set $ctrl Mod1
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:System San Francisco Display 12
+font pango:SFNS Display 12
+# font pango:monospace 12
 
 # set default desktop layout (default is tiling)
 workspace_layout tabbed
