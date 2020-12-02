@@ -2,10 +2,10 @@
 set -gx EDITOR nvim
 set -gx PASSWORD_STORE_GENERATED_LENGTH 20
 
-set -gx GOROOT "/usr/local/go"
-set -gx GOPATH "$HOME/go"
+# set -gx GOROOT "/usr/local/go"
+# set -gx GOPATH "$HOME/go"
 
-set -gx PATH "$GOPATH/bin:$GOROOT/bin:$DENO_INSTALL/bin:$HOME/bin:$PATH"
+# set -gx PATH "$GOPATH/bin:$GOROOT/bin:$DENO_INSTALL/bin:$HOME/bin:$PATH"
 
 # start X at login
 if status --is-login

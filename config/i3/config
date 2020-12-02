@@ -229,7 +229,8 @@ assign [class="Mysql-workbench-bin"] → $ws4
 # =============== Auto exec on startup =============== #
 # Auto execute applications on startup
 exec --no-startup-id telegram-desktop
-exec --no-startup-id google-chrome-stable
+exec --no-startup-id chromium
+exec --no-startup-id slack
 
 #================ Modes ============================== #
 bindcode $mod+38 mode "$mode_apps"
@@ -252,8 +253,7 @@ mode "$mode_apps" {
      bindcode 31 exec krita, mode "default"
 }
 
-# ================ Jump to applicaiton ================== #
-
+# =============== Jumps =============== #
 # jump to emacs ($super+e)
 bindcode $ctrl+26 [class="Emacs"] focus
 
