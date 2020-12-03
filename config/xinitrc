@@ -1,4 +1,3 @@
-nitrogen --restore
 setxkbmap -option caps:escape -layout us,ru -option grp:toggle
 
 xmodmap ~/.Xmodmap

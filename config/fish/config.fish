@@ -7,6 +7,8 @@ set -gx PASSWORD_STORE_GENERATED_LENGTH 20
 
 # set -gx PATH "$GOPATH/bin:$GOROOT/bin:$DENO_INSTALL/bin:$HOME/bin:$PATH"
 
+set -gx PATH "$HOME/.bin:$PATH"
+
 # start X at login
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
