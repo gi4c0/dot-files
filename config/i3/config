@@ -83,6 +83,10 @@ bindcode $mod+Shift+Ctrl+44 move workspace to output down
 bindcode $mod+Shift+Ctrl+46 move workspace to output right
 bindcode $mod+Shift+Ctrl+43 move workspace to output left
 
+# Disable mouse wheel affecting i3
+bindsym button4 nop
+bindsym button5 nop
+
 # split orientation $mod+v
 bindcode $mod+55 split h;exec notify-send 'tile horizontally'
 
@@ -187,19 +191,23 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks -c ~/.dot-files/config/i3blocks/i3blocks.conf
+  position top
+  status_command i3blocks -c ~/.dot-files/config/i3blocks/i3blocks.conf
 
-        colors {
-            background $bg-color
-                separator #757575
-            #                  border             background         text
-            focused_workspace  $bg-color          $bg-color          $text-color
-            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-            urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-          }
+  colors {
+      background $bg-color
+          separator #757575
+      #                  border             background         text
+      focused_workspace  $bg-color          $bg-color          $text-color
+      inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+      urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+    }
 
-        position top
-        font pango:monospace 11
+  font pango:monospace 11
+
+  # Disable mouse wheel switching workspaces
+  wheel_up_cmd nop
+  wheel_down_cmd nop
 }
 
 # Resizing windows
