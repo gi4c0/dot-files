@@ -309,7 +309,7 @@ handle_mime() {
                 # -- "${FILE_PATH}" && exit 5
             # pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}"\
                 # -- "${FILE_PATH}" && exit 5
-            # exit 2;;
+            exit 2;;
 
         ## DjVu
         image/vnd.djvu)
