@@ -84,8 +84,11 @@ bindcode $mod+Shift+Ctrl+46 move workspace to output right
 bindcode $mod+Shift+Ctrl+43 move workspace to output left
 
 # Disable mouse wheel affecting i3
+bindsym button1 nop
 bindsym button4 nop
 bindsym button5 nop
+bindsym button6 nop
+bindsym button7 nop
 
 # split orientation $mod+v
 bindcode $mod+55 split h;exec notify-send 'tile horizontally'
@@ -208,6 +211,8 @@ bar {
   # Disable mouse wheel switching workspaces
   wheel_up_cmd nop
   wheel_down_cmd nop
+  # disable clicking on workspace buttons
+  bindsym button1 nop
 }
 
 # Resizing windows
