@@ -1,11 +1,12 @@
 # fnm
 set -gx EDITOR nvim
+
+# UNIX Pass: Defualt password length
 set -gx PASSWORD_STORE_GENERATED_LENGTH 20
 
+# Required for golang
 # set -gx GOROOT "/usr/local/go"
 # set -gx GOPATH "$HOME/go"
-
-# set -gx PATH "$GOPATH/bin:$GOROOT/bin:$DENO_INSTALL/bin:$HOME/bin:$PATH"
 
 set -gx PATH "$HOME/.bin:/snap/bin:$PATH"
 

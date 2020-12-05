@@ -6,4 +6,10 @@ unclutter --jitter 5 --ignore-scrolling &
 flameshot &
 redshift &
 
+clipmenud &
+
+# Env variables required for programs started with `exec` from i3wm
+export CM_HISTLENGTH=20 # For clipmenu: set length of output
+export CM_OUTPUT_CLIP=1 # Clipmenu Default output to stdout
+
 exec i3 
