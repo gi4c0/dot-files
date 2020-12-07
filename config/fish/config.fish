@@ -16,3 +16,6 @@ if status --is-login
         exec startx /home/alex/.dot-files/config/xinitrc -- -keeptty
     end
 end
+
+# Add <Ctrl-r> key binding from fzf
+fzf_key_bindings
