@@ -2,9 +2,9 @@
 let g:gitgutter_map_keys = 0
 
 " Jump to next git hunk
-nmap <leader>hp <Plug>(GitGutterPrevHunk)
+nmap <C-k> <Plug>(GitGutterPrevHunk)
 
 " Jump to previous git hunk
-nmap <leader>hn <Plug>(GitGutterNextHunk)
+nmap <C-j> <Plug>(GitGutterNextHunk)
 
 nmap <leader>hs <Plug>(GitGutterPreviewHunk)

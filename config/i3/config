@@ -113,7 +113,7 @@ bindcode $mod+28 focus mode_toggle
 # focus the parent container ($mod+o (out))
 bindcode $mod+32 focus parent
 
-bindcode $mod+54 exec xkb-switch -s us & clipmenu --no-startup-id -i
+bindcode $mod+54 exec --no-startup-id xkb-switch -s us & clipmenu -i
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
