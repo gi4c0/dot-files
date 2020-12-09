@@ -28,6 +28,11 @@ hide_edge_borders both
 # Jump back and forth by pressing $mod+<n>
 workspace_auto_back_and_forth yes
 
+for_window [class=".*"] border pixel 0
+# smart_gaps on
+smart_borders on
+gaps inner 7
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -95,10 +100,10 @@ bindcode $mod+39 split v;exec notify-send 'tile vertically'
 bindcode $mod+41 fullscreen toggle
 
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus move scratchpad
 
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+bindsym $mod+plus scratchpad show
 
 # change container layout (tabbed 'w', toggle split 'e')
 bindcode $mod+25 layout tabbed
@@ -171,6 +176,7 @@ bindcode $mod+Shift+26 exec "i3-nagbar -t warning -m 'You pressed the exit short
 # =============== Colors ===================#
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
+set $main-lighter-color  #434852
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
