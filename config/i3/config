@@ -44,6 +44,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+exec --no-startup-id picom --config ~/.dot-files/config/picom.conf
+
 # Special keys adjust volume (in PulseAudio) and brightness
 set $refresh_i3blocks pkill -RTMIN+1 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && pkill -RTMIN+1 i3blocks
