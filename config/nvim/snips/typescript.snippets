@@ -99,3 +99,7 @@ endsnippet
 snippet th "TypeHelper"
 TypeHelper.getType<$1>($0)
 endsnippet
+
+snippet tth "transformer TypeHelper"
+(value: string): $1 => TypeHelper.getType<$1>(value)$0
+endsnippet

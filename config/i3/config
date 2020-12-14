@@ -44,6 +44,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Might cuases lags in terminal
 exec --no-startup-id picom --config ~/.dot-files/config/picom.conf
 
 # Special keys adjust volume (in PulseAudio) and brightness
@@ -78,6 +79,12 @@ bindcode $mod+Shift+43 move left
 bindcode $mod+Shift+44 move down
 bindcode $mod+Shift+45 move up
 bindcode $mod+Shift+46 move right
+
+## Modify // Workspace Position // <Super><Ctrl><Shift> ↑ ↓ ← → ##
+bindcode $mod+$ctrl+Shift+43 move workspace to output left
+bindcode $mod+$ctrl+Shift+44 move workspace to output down
+bindcode $mod+$ctrl+Shift+45 move workspace to output up
+bindcode $mod+$ctrl+Shift+46 move workspace to output right
 
 # navigate to upscreen (k, j)
 bindcode $mod+Shift+Ctrl+45 move workspace to output up
@@ -302,5 +309,5 @@ bindcode $ctrl+39 [class="Slack"] focus
 # Open ranger
 bindcode $mod+27 exec alacritty -e ranger
 
-workspace "2" output HDMI-1
-workspace "4" output HDMI-1
+workspace "2" output HDMI1
+workspace "4" output HDMI1
