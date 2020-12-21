@@ -17,3 +17,8 @@ let g:rnvimr_layout = { 'relative': 'editor',
             \ 'col': float2nr(round(0.1 * &columns)),
             \ 'row': float2nr(round(0.1 * &lines)),
             \ 'style': 'minimal' }
+
+" Add a shadow window, value is equal to 100 will disable shadow
+let g:rnvimr_shadow_winblend = 40
+
+let g:rnvimr_ranger_cmd = 'ranger --cmd="set colorscheme snow"'

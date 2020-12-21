@@ -1,3 +1,17 @@
+#!/bin/sh
+
+# Env variables required for programs started with `exec` from i3wm
+export CM_HISTLENGTH=20 # For clipmenu: set length of output
+export CM_OUTPUT_CLIP=1 # Clipmenu Default output to stdout
+
+# start some nice programs
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
+
 setxkbmap -option caps:escape -layout us,ru -option grp:toggle
 
 xmodmap ~/.Xmodmap
@@ -7,9 +21,5 @@ flameshot &
 redshift &
 
 clipmenud &
-
-# Env variables required for programs started with `exec` from i3wm
-export CM_HISTLENGTH=20 # For clipmenu: set length of output
-export CM_OUTPUT_CLIP=1 # Clipmenu Default output to stdout
 
 exec i3 

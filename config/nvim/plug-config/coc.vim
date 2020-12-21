@@ -1,7 +1,7 @@
 " Global extension names to install when they aren't installed.
 let g:coc_global_extensions = [
   \ 'coc-json', 'coc-tsserver', 'coc-tslint-plugin',
-  \ 'coc-tslint', 'coc-spell-checker', 'coc-yaml'
+  \ 'coc-tslint', 'coc-spell-checker', 'coc-yaml', 'coc-sh', 'coc-fish'
 \]
 
 " Map keys for gotos
