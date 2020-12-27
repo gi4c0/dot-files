@@ -8,7 +8,7 @@ set -gx PASSWORD_STORE_GENERATED_LENGTH 20
 # set -gx GOROOT "/usr/local/go"
 # set -gx GOPATH "$HOME/go"
 
-set -gx PATH "$HOME/.bin:/snap/bin:$PATH"
+set -gx PATH "$HOME/.bin:/var/lib/snapd/snap/bin:/snap/bin:$PATH"
 
 # start X at login
 if status --is-login
