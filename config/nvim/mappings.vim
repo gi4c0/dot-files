@@ -7,6 +7,8 @@ nnoremap <silent> <M-l>    :vertical resize +2<CR>
 " Delete current buffer
 nnoremap <silent> <leader>bd :bdelete<cr>
 
+nnoremap <silent> Q :bdelete<cr>
+
 " Save file
 nnoremap <silent> <leader>fs :w<cr>
 nnoremap <silent> <C-s> :w<cr>
