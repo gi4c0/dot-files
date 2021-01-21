@@ -19,7 +19,7 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'                       " Show git diff
   Plug 'godlygeek/tabular'                            " Auto tab alignment
   Plug 'dag/vim-fish'                                 " Support for .fish files
-  Plug 'ap/vim-css-color'                             " Show hex colors
+  " Plug 'ap/vim-css-color'                             " Show hex colors
   Plug 'christoomey/vim-sort-motion'                  " For sorting with gs
   Plug 'mbbill/undotree'                              " Kind of git but built in Vim
   Plug 'vimwiki/vimwiki'

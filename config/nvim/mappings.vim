@@ -43,3 +43,6 @@ nnoremap <C-t> :tabedit<CR>
 
 " Escape from terminal
 tnoremap <C-g> <C-\><C-n>
+
+" Change first word
+nnoremap cI ^ciw
