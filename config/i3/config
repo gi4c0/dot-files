@@ -83,6 +83,12 @@ bindcode $mod+Shift+44 move down
 bindcode $mod+Shift+45 move up
 bindcode $mod+Shift+46 move right
 
+## Modify // Window Position
+bindcode $ctrl+Shift+43 move to output left; focus left
+bindcode $ctrl+Shift+44 move to output down; focus down
+bindcode $ctrl+Shift+45 move to output up; focus up
+bindcode $ctrl+Shift+46 move to output right; focus right
+
 ## Modify // Workspace Position // <Super><Ctrl><Shift> ↑ ↓ ← → ##
 bindcode $mod+$ctrl+Shift+43 move workspace to output left
 bindcode $mod+$ctrl+Shift+44 move workspace to output down
@@ -317,4 +323,5 @@ bindcode $ctrl+39 [class="Slack"] focus
 bindcode $mod+27 exec alacritty -e ranger
 
 workspace "2" output HDMI1
+workspace "3" output HDMI1
 workspace "4" output HDMI1
