@@ -10,46 +10,47 @@ highlight lCursor guifg=NONE guibg=Cyan
 
 " noremap <F6> :setlocal spell! spelllang=ru_yo,en_us<cr>   " Enable russion 'ё'
 
-set showcmd                             " Show commands
-set laststatus=2                        " influences when the last window will have a status line (2 - always)
-set autowrite                           " Automatically write before running commands
-set autoread                            " Reload files changed outside vim
+set showcmd               " Show commands
+set laststatus=2          " influences when the last window will have a status line (2 - always)
+set autowrite             " Automatically write before running commands
+set autoread              " Reload files changed outside vim
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
-set expandtab                           " Converts tabs to spaces
-set autoindent                          " Good auto indent
-set smartindent                         " Makes indenting smart
+set shiftround            " Better aligning with '<','>'
+set smarttab              " Makes tabbing smarter will realize you have 2 vs 4
+set expandtab             " Converts tabs to spaces
+set autoindent            " Good auto indent
+set smartindent           " Makes indenting smart
 filetype plugin indent on
-set number relativenumber
-set scrolloff=8                         " Start scrolling when we're 8 lines away from margins
+set number relativenumber " Relative numbers
+set scrolloff=8           " Start scrolling when we're 8 lines away from margins
 set sidescroll=1
 set sidescrolloff=15
-set hlsearch                            " Hightlighting search result
-set incsearch                           " Highlight everything right after typing
-set ignorecase                          " Ingore case while search
-set showmatch                           " Show matching brackets
-set history=200                         " History amount of commands to keep in memory
-set cmdheight=2                         " Better display for messages
-set updatetime=300                      " Smaller updatetime for CursorHold & CursorHoldI
-set timeoutlen=1000                     " By default timeoutlen is 1000 ms
-set shortmess+=c                        " Don't give |ins-completion-menu| messages.
-set signcolumn=yes                      " Always show signcolumns
-set background=dark                     " for the dark version
-set nowrap                              " Display long lines
-set pumheight=10                        " Makes popup menu smaller
-set fileencoding=utf-8                  " The encoding written to file
-set mouse=a                             " Enable your mouse
-set splitbelow                          " Horizontal splits will automatically be below
-set splitright                          " Vertical splits will automatically be to the right
-set t_Co=256                            " Support 256 colors
-set cursorline                          " Enable highlighting of the current line
-set nobackup                            " This is recommended by coc
-set nowritebackup                       " This is recommended by coc
-set clipboard=unnamedplus               " Copy paste between vim and everything else
-set noshowmode                          " Get rid of 'INSERT/NORMAL/VISUAL' status
-set colorcolumn=160                     " Visualize max allowed line length by column
+set hlsearch              " Hightlighting search result
+set incsearch             " Highlight everything right after typing
+set ignorecase            " Ingore case while search
+set showmatch             " Show matching brackets
+set history=200           " History amount of commands to keep in memory
+set cmdheight=2           " Better display for messages
+set updatetime=300        " Smaller updatetime for CursorHold & CursorHoldI
+set timeoutlen=1000       " By default timeoutlen is 1000 ms
+set shortmess+=c          " Don't give |ins-completion-menu| messages.
+set signcolumn=yes        " Always show signcolumns
+set background=dark       " for the dark version
+set nowrap                " Display long lines
+set pumheight=10          " Makes popup menu smaller
+set fileencoding=utf-8    " The encoding written to file
+set mouse=a               " Enable your mouse
+set splitbelow            " Horizontal splits will automatically be below
+set splitright            " Vertical splits will automatically be to the right
+set t_Co=256              " Support 256 colors
+set cursorline            " Enable highlighting of the current line
+set nobackup              " This is recommended by coc
+set nowritebackup         " This is recommended by coc
+set clipboard=unnamedplus " Copy paste between vim and everything else
+set noshowmode            " Get rid of 'INSERT/NORMAL/VISUAL' status
+set colorcolumn=160       " Visualize max allowed line length by column
 
 set nocompatible
 filetype plugin on
