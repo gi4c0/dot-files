@@ -4,6 +4,10 @@ let g:coc_global_extensions = [
   \ 'coc-tslint', 'coc-spell-checker', 'coc-yaml', 'coc-sh', 'coc-fish'
 \]
 
+" Scrolling in float window
+nnoremap <nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
+nnoremap <nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
+
 " Map keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)

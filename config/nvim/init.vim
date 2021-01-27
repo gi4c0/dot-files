@@ -5,6 +5,7 @@ call plug#begin()
   Plug 'kevinhwang91/rnvimr'                           " Ranger
   Plug 'sheerun/vim-polyglot'                          " One plugin for all languages
   Plug 'rakr/vim-one'                                  " Theme
+  Plug 'Th3Whit3Wolf/one-nvim'
   Plug 'tpope/vim-fugitive'                            " for git
   Plug 'itchyny/lightline.vim'
   Plug 'tpope/vim-unimpaired'                          " Adds shortcuts for fugitive (<[-q>, <[-Q>)
@@ -47,3 +48,4 @@ source $HOME/.dot-files/config/nvim/plug-config/tabularize.vim
 
 " =========== Themes ============"
 source $HOME/.dot-files/config/nvim/themes/one.vim
+" source $HOME/.dot-files/config/nvim/themes/one-nvim.vim
