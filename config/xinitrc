@@ -19,7 +19,7 @@ xmodmap ~/.Xmodmap
 unclutter --jitter 5 --ignore-scrolling &
 flameshot &
 redshift &
-
 clipmenud &
+libinput-gestures-setup start
 
 exec i3
