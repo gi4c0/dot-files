@@ -227,8 +227,23 @@ bar {
 
   # font pango:monospace 12
   font pango:CaskaydiaCove Nerd Font Mono 11
+
+  # Disable mouse wheel switching workspaces
+  # wheel_up_cmd nop
+  # wheel_down_cmd nop
 }
 
+# Keyboard settings
+input "type:keyboard" {
+  xkb_layout us,ru
+  xkb_options caps:escape,ctrl:swap_lalt_lctl,grp:toggle
+}
+
+input "type:touchpad" {
+  natural_scroll enabled
+  dwt enabled
+  scroll_factor 0.3
+}
 
 # Resizing windows
 bindcode $mod+$ctrl+43 resize shrink width 5 px or 5 ppt
@@ -272,10 +287,12 @@ assign [class="Mysql-workbench-bin"] → $ws4
 
 # =============== Auto exec on startup =============== #
 # Wallpaper restore
-exec nitrogen --restore
 exec --no-startup-id telegram-desktop
-exec --no-startup-id chromium
+exec --no-startup-id firefox
 exec --no-startup-id slack
+
+exec swaybg -i ~/Pictures/big-sur-mountains-golden-hour-sunset-evening-macos-big-sur-1920x1080-1499.jpg &
+exec wlsunset -l 50.45466 -L 30.5238 &
 
 #================ Modes ============================== #
 bindcode $mod+38 mode "$mode_apps"
@@ -318,7 +335,3 @@ bindcode $ctrl+39 [class="Slack"] focus
 
 # Open ranger
 bindcode $mod+27 exec alacritty -e ranger
-
-workspace "2" output HDMI1
-workspace "3" output HDMI1
-workspace "4" output HDMI1
