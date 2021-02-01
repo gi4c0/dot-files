@@ -136,7 +136,7 @@ bindcode $mod+28 focus mode_toggle
 # focus the parent container ($mod+o (out))
 bindcode $mod+32 focus parent
 
-bindcode $mod+54 exec --no-startup-id xkb-switch -s us & clipmenu -i -l 20 -z 800 -x 560
+bindcode $mod+54 exec clipman pick -t dmenu --tool-args="-i -l 20 -z 800 -x 560"
 
 # Switch to next workspace $mod+tab
 bindsym $mod+Tab workspace next_on_output
@@ -240,6 +240,7 @@ input "type:keyboard" {
 }
 
 input "type:touchpad" {
+  tap_button_map lrm
   natural_scroll enabled
   dwt enabled
   scroll_factor 0.3
@@ -293,6 +294,7 @@ exec --no-startup-id slack
 
 exec swaybg -i ~/Pictures/big-sur-mountains-golden-hour-sunset-evening-macos-big-sur-1920x1080-1499.jpg &
 exec wlsunset -l 50.45466 -L 30.5238 &
+exec wl-paste -t text --watch clipman store
 
 #================ Modes ============================== #
 bindcode $mod+38 mode "$mode_apps"

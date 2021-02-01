@@ -56,6 +56,9 @@ set nocompatible
 filetype plugin on
 syntax on
 
+" Transparent background
+au ColorScheme * hi Normal ctermbg=none guibg=none
+au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
 
 if (empty($TMUX))
   if (has("nvim"))
