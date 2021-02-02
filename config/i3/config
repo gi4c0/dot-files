@@ -114,6 +114,9 @@ bindcode $mod+55 split h;exec notify-send 'tile horizontally'
 # $mod+s
 bindcode $mod+39 split v;exec notify-send 'tile vertically'
 
+# $mod+Shift+s Settings
+bindcode $mod+Shift+39 exec gnome-control-center bluetooth
+
 # enter fullscreen mode for the focused container $mod+f
 bindcode $mod+41 fullscreen toggle
 
@@ -229,8 +232,8 @@ bar {
   font pango:CaskaydiaCove Nerd Font Mono 11
 
   # Disable mouse wheel switching workspaces
-  wheel_up_cmd nop
-  wheel_down_cmd nop
+  bindsym button4 nop
+  bindsym button5 nop
 }
 
 # Resizing windows
@@ -254,6 +257,7 @@ for_window [class="Gnome-calculator"] floating enable
 # Torrent float window
 for_window [class="deluge"] floating enable
 for_window [class="Deluge-gtk"] floating enable
+for_window [class="flameshot"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
