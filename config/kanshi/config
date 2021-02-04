@@ -1,0 +1,8 @@
+profile {
+  output eDP-1 mode 1920x1080 position 0,2160
+  output HDMI-A-2 mode 1920x1080 position 0,1080
+}
+
+profile {
+  output eDP-1 mode 1920x1080 position 0,2160
+}
