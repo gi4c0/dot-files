@@ -295,6 +295,7 @@ exec --no-startup-id slack
 exec swaybg -i ~/Pictures/big-sur-mountains-golden-hour-sunset-evening-macos-big-sur-1920x1080-1499.jpg &
 exec wlsunset -l 50.45466 -L 30.5238 &
 exec wl-paste -t text --watch clipman store
+exec kanshi
 
 #================ Modes ============================== #
 bindcode $mod+38 mode "$mode_apps"
