@@ -245,7 +245,7 @@ bindcode $mod+$ctrl+46 resize grow width 5 px or 5 ppt
 # $mod+p take screenshot (install with sudo apt install flameshot)
 bindcode $mod+33 exec flameshot gui
 
-# $mod+Shift+p take screenshot (install with sudo apt install flameshot)
+# $mod+Shift+p passmenu
 bindcode $mod+Shift+33 exec xkb-switch -s us & passmenu -l 20 -z 800 -x 560
 
 # Lock screen with fancy effect $mod+Shift+x
@@ -258,6 +258,7 @@ for_window [class="Gnome-calculator"] floating enable
 for_window [class="deluge"] floating enable
 for_window [class="Deluge-gtk"] floating enable
 for_window [class="flameshot"] floating enable
+for_window [class="Gnome-system-monitor"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -286,7 +287,7 @@ exec --no-startup-id slack
 
 #================ Modes ============================== #
 bindcode $mod+38 mode "$mode_apps"
-set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman, (b) browser, (f) filemanager, (i) image editor
+set $mode_apps Apps: (p) postman, (f) filemanager, (i) image editor, (m) system Monitor
 
 mode "$mode_apps" {
      # launch postman (p)
@@ -303,6 +304,9 @@ mode "$mode_apps" {
 
     # Open image editor (another file manager) (f)
      bindcode 31 exec krita, mode "default"
+
+    # Open system monitor ($mod+m)
+     bindcode 58 exec gnome-system-monitor, mode "default"
 }
 
 # =============== Jumps =============== #
