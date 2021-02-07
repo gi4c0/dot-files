@@ -114,6 +114,9 @@ bindcode $mod+55 split h;exec notify-send 'tile horizontally'
 # $mod+s
 bindcode $mod+39 split v;exec notify-send 'tile vertically'
 
+# $mod+Shift+s Settings
+bindcode $mod+Shift+39 exec gnome-control-center bluetooth
+
 # enter fullscreen mode for the focused container $mod+f
 bindcode $mod+41 fullscreen toggle
 
@@ -245,6 +248,9 @@ input "type:touchpad" {
   dwt enabled
   scroll_factor 0.3
 }
+
+# Hide cursor after 5 seconds
+seat seat0 hide_cursor 5000
 
 # Resizing windows
 bindcode $mod+$ctrl+43 resize shrink width 5 px or 5 ppt
