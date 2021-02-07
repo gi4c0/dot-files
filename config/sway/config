@@ -243,10 +243,13 @@ input "type:keyboard" {
 }
 
 input "type:touchpad" {
+  click_method clickfinger
+  middle_emulation disabled
   tap_button_map lrm
   natural_scroll enabled
   dwt enabled
-  scroll_factor 0.3
+  scroll_factor 0.4
+  pointer_accel -0.15
 }
 
 # Hide cursor after 5 seconds
