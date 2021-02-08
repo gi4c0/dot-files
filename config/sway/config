@@ -63,7 +63,7 @@ floating_modifier $mod
 bindsym $mod+Return exec xkb-switch -s us & i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+q kill
+bindcode $mod+24 kill
 
 # start dmenu (a program launcher) $mod+d
 bindcode $mod+40 exec --no-startup-id xkb-switch -s us & dmenu_run -i -l 20 -z 800 -x 560
@@ -262,7 +262,10 @@ bindcode $mod+$ctrl+45 resize shrink height 5 px or 5 ppt
 bindcode $mod+$ctrl+46 resize grow width 5 px or 5 ppt
 
 # $mod+Shift+p take screenshot (install with sudo apt install flameshot)
-bindcode $mod+Shift+33 exec xkb-switch -s us & passmenu -l 20 -z 800 -x 560
+bindcode $mod+Shift+33 exec passmenu -l 20 -z 800 -x 560
+
+# capture the specified screen area to clipboard    
+bindcode $mod+33 exec grim -g "$(slurp)" - | wl-copy
 
 # Lock screen with fancy effect $mod+Shift+x
 bindcode $mod+Shift+53 exec --no-startup-id xkb-switch -s us & ~/.bin/lock.sh ~/Pictures/Icons/icon-lock.png
