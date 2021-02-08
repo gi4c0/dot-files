@@ -236,7 +236,7 @@ bar {
   # wheel_down_cmd nop
 }
 
-# Keyboard settings
+# Keyboard settingslrm
 input "type:keyboard" {
   xkb_layout us,ru
   xkb_options caps:escape,ctrl:swap_lalt_lctl,grp:toggle
@@ -260,9 +260,6 @@ bindcode $mod+$ctrl+43 resize shrink width 5 px or 5 ppt
 bindcode $mod+$ctrl+44 resize grow height 5 px or 5 ppt
 bindcode $mod+$ctrl+45 resize shrink height 5 px or 5 ppt
 bindcode $mod+$ctrl+46 resize grow width 5 px or 5 ppt
-
-# $mod+p take screenshot (install with sudo apt install flameshot)
-bindcode $mod+33 exec flameshot gui
 
 # $mod+Shift+p take screenshot (install with sudo apt install flameshot)
 bindcode $mod+Shift+33 exec xkb-switch -s us & passmenu -l 20 -z 800 -x 560
@@ -301,8 +298,8 @@ exec --no-startup-id telegram-desktop
 exec --no-startup-id firefox
 exec --no-startup-id slack
 
-exec swaybg -i ~/Pictures/big-sur-mountains-golden-hour-sunset-evening-macos-big-sur-1920x1080-1499.jpg &
-exec wlsunset -l 50.45466 -L 30.5238 &
+exec swaybg -i ~/Pictures/big-sur-mountains-golden-hour-sunset-evening-macos-big-sur-1920x1080-1499.jpg
+exec wlsunset -l 50.45466 -L 30.5238
 exec wl-paste -t text --watch clipman store
 exec kanshi
 

@@ -1,3 +1,6 @@
+# For list of outputs:
+# swaymsg -t get_outputs
+
 profile {
   output eDP-1 mode 1920x1080 position 0,2160
   output HDMI-A-2 mode 1920x1080 position 0,1080
