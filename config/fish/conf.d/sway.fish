@@ -7,6 +7,8 @@ if test -z "$DISPLAY"; and test $TTY1 = "/dev/tty1"
   set -gx PASSWORD_STORE_GENERATED_LENGTH 20
   set -gx MOZ_ENABLE_WAYLAND 1
   set -gx QT_QPA_PLATFORM wayland
+  set -gx _JAVA_AWT_WM_NONREPARENTING 1
+  set -gx PATH "$HOME/.bin:/var/lib/snapd/snap/bin:/snap/bin:$PATH"
 
   # output clip selection to stdout
   set -gx CM_OUTPUT_CLIP 1
