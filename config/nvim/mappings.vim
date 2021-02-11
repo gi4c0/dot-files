@@ -46,3 +46,6 @@ tnoremap <C-g> <C-\><C-n>
 
 " Change first word
 nnoremap cI ^ciw
+
+" Toggle lines wrap
+nnoremap <leader>tw :set nowrap!<cr>
