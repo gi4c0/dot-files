@@ -307,30 +307,28 @@ exec wl-paste -t text --watch clipman store
 exec kanshi
 
 #================ Modes ============================== #
-bindcode $mod+38 mode "$mode_apps"
-set $mode_apps Apps: (e) emacs, (m) mysql-workbench, (p) postman, (b) browser, (f) filemanager, (i) image editor
+set $mode_apps Apps: (p) postman, (b) browser, (f) filemanager, (i) image editor
 
 mode "$mode_apps" {
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+
      # launch postman (p)
      bindcode 33 exec postman, mode "default"
 
      # launch browser (b)
      bindcode 56 exec google-chrome-stable, mode "default"
 
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
-
     # Open pcmanfm (another file manager) (f)
      bindcode 41 exec nautilus, mode "default"
 
-    # Open image editor (another file manager) (f)
+    # Open image editor (i)
      bindcode 31 exec krita, mode "default"
 }
 
-# =============== Jumps =============== #
-# jump to emacs ($super+e)
-bindcode $ctrl+26 [class="Emacs"] focus
+bindcode $mod+38 mode "$mode_apps"
 
+# =============== Jumps =============== #
 # jump to postman ($super+p)
 bindcode $ctrl+33 [class="Postman"] focus
 
@@ -343,6 +341,7 @@ bindcode $ctrl+54 [class="Google-chrome"] focus
 # jump to telegram ($super+t)
 bindcode $ctrl+28 [class="TelegramDesktop"] focus
 
+# jump to slack ($super+s)
 bindcode $ctrl+39 [class="Slack"] focus
 
 # Open ranger
