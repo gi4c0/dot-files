@@ -25,10 +25,10 @@ nnoremap <silent> <leader>ghh :Commits<CR>
 nnoremap <silent> <leader>ghb :BCommits<CR>
 
 " ============ Fzf ===================
-" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-let g:fzf_layout = { 'down': '40%' }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+" let g:fzf_layout = { 'down': '40%' }
 
-let $FZF_DEFAULT_OPTS='--reverse'
+" let $FZF_DEFAULT_OPTS='--reverse'
 
 let g:fzf_preview_window = ['right:50%:hidden', 'ctrl-/']
 

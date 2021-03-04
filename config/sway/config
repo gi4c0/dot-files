@@ -53,8 +53,11 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+1 i3blocks
-bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight + 5"
-bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight - 5" 
+# bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight + 5"
+# bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight - 5"
+
+bindsym --locked XF86MonBrightnessUp exec light -T 1.4
+bindsym --locked XF86MonBrightnessDown exec light -T 0.72
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -261,10 +264,10 @@ bindcode $mod+$ctrl+44 resize grow height 5 px or 5 ppt
 bindcode $mod+$ctrl+45 resize shrink height 5 px or 5 ppt
 bindcode $mod+$ctrl+46 resize grow width 5 px or 5 ppt
 
-# $mod+Shift+p take screenshot (install with sudo apt install flameshot)
+# $mod+Shift+p passmenu
 bindcode $mod+Shift+33 exec passmenu -l 20 -z 800 -x 560
 
-# capture the specified screen area to clipboard    
+# $mod+p capture the specified screen area to clipboard    
 bindcode $mod+33 exec grim -g "$(slurp)" - | wl-copy
 
 # Lock screen with fancy effect $mod+Shift+x
