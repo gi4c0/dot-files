@@ -44,9 +44,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Might cuases lags in terminal
-exec --no-startup-id picom --config ~/.dot-files/config/picom.conf
-
 # Special keys adjust volume (in PulseAudio) and brightness
 set $refresh_i3blocks pkill -RTMIN+1 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && pkill -RTMIN+1 i3blocks
@@ -284,6 +281,10 @@ exec nitrogen --restore
 exec --no-startup-id telegram-desktop
 exec --no-startup-id chromium
 exec --no-startup-id slack
+exec --no-startup-id lxpolkit # authentication agent
+
+# Might cuases lags in terminal
+exec --no-startup-id picom --config ~/.dot-files/config/picom.conf
 
 #================ Modes ============================== #
 bindcode $mod+38 mode "$mode_apps"
