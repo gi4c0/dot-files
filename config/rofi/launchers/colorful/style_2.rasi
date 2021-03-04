@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Iosevka Nerd Font 14";
+	font:							"Iosevka Nerd Font 15";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
@@ -28,7 +28,7 @@ window {
 	border:							0px;
 	border-color:					@ac;
     border-radius:                  12px;
-	width:							25%;
+	width:							30%;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
