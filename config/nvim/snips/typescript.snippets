@@ -103,3 +103,17 @@ endsnippet
 snippet tth "transformer TypeHelper"
 (value: string): $1 => TypeHelper.getType<$1>(value)$0
 endsnippet
+
+snippet it "It test" b
+it(
+  '$1',
+  async (): Promise<void> => {
+    $0
+  },
+  60000
+);
+endsnippet
+
+snippet narr "new Array"
+Array<$1> = new Array<$1>($0);
+endsnippet
