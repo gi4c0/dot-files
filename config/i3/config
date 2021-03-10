@@ -213,8 +213,10 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bar {
   position top
   # status_command i3blocks -c ~/.dot-files/config/i3blocks/i3blocks.conf
-  status_command bumblebee-status -t onedark-powerline \
-      -m memory cpu amixer layout-xkbswitch datetime
+  status_command bumblebee-status \
+      -t onedark-powerline \
+      -m memory cpu amixer battery datetime \
+      -p memory.warning=80 memory.format="{used}/{total}" battery.warning=50
 
   colors {
       background $bg-color
