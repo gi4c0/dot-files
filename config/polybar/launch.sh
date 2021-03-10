@@ -8,7 +8,5 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1 and bar2 on different monitors
 for m in $(polybar --list-monitors | cut -d ":" -f1); do
-    MONITOR=$m polybar --reload base &
+    MONITOR=$m polybar --reload base --config=~/.dot-files/config/polybar/config &
 done
-
-echo "Bars launched..."

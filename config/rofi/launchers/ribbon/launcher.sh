@@ -12,7 +12,7 @@
 # ribbon_left		ribbon_left_round		ribbon_right		ribbon_right_round
 # full_bottom		full_top				full_left			full_right
 
-theme="ribbon_top_round"
+theme="full_top"
 
 dir="$HOME/.config/rofi/launchers/ribbon"
 styles=($(ls -p --hide="colors.rasi" $dir/styles))
@@ -23,6 +23,6 @@ sed -i -e "s/@import .*/@import \"$color\"/g" $dir/styles/colors.rasi
 
 # comment these lines to disable random style
 themes=($(ls -p --hide="launcher.sh" --hide="styles" $dir))
-theme="${themes[$(( $RANDOM % 12 ))]}"
+# theme="${themes[$(( $RANDOM % 12 ))]}"
 
 rofi -no-lazy-grab -show drun -modi drun -theme $dir/"$theme"
