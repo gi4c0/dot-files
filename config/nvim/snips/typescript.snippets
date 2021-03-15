@@ -117,3 +117,9 @@ endsnippet
 snippet narr "new Array"
 Array<$1> = new Array<$1>($0);
 endsnippet
+
+snippet iferr "if error check"
+if ($1 instanceof ErrorModel) {
+  return new ErrorModel<NothingType, NothingType>({ description: $1.description });
+}
+endsnippet

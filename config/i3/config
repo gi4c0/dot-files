@@ -215,8 +215,9 @@ bar {
   # status_command i3blocks -c ~/.dot-files/config/i3blocks/i3blocks.conf
   status_command bumblebee-status \
       -t onedark-powerline \
-      -m memory cpu amixer battery datetime \
-      -p memory.warning=80 memory.format="{used}/{total}" battery.warning=50
+      -m xrandr memory sensors cpu amixer battery spacer pacman datetime spacer \
+      -p memory.warning=80 memory.format="{used}/{total}" battery.warning=50 pacman.sum=true \
+          sensors.show_freq=false
 
   colors {
       background $bg-color
@@ -277,6 +278,9 @@ assign [class="Postman"] → $ws4
 assign [class="Mysql-workbench-bin"] → $ws4
 
 # =============== Auto exec on startup =============== #
+# Transparent background in terminal
+exec --no-startup-id picom --config ~/.dot-files/config/picom.conf
+
 # Wallpaper restore
 exec nitrogen --restore
 exec --no-startup-id telegram-desktop
@@ -284,9 +288,6 @@ exec --no-startup-id google-chrome-stable
 exec --no-startup-id slack
 exec --no-startup-id lxpolkit # authentication agent
 exec --no-startup-id blueman-applet # bluetooth applet
-
-# Might cuases lags in terminal
-exec --no-startup-id picom --config ~/.dot-files/config/picom.conf
 
 #================ Modes ============================== #
 bindcode $mod+38 mode "$mode_apps"
