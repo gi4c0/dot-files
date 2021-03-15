@@ -3,7 +3,7 @@ call has('python3')
 call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}           " Run :call coc#util#install()
   Plug 'kevinhwang91/rnvimr'                                " Ranger
-  " Plug 'sheerun/vim-polyglot'                               " One plugin for all languages
+  Plug 'sheerun/vim-polyglot'                               " One plugin for all languages
   Plug 'rakr/vim-one'                                       " Theme
   Plug 'Th3Whit3Wolf/one-nvim'
   Plug 'tpope/vim-fugitive'                                 " for git
@@ -24,8 +24,12 @@ call plug#begin()
   Plug 'mbbill/undotree'                                    " Kind of git but built in Vim
   Plug 'vimwiki/vimwiki'
   Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' } " Lazy git integration
-  Plug 'nvim-treesitter/nvim-treesitter'
+  " Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
 
 " ----------- Native vim settings -----------
@@ -35,7 +39,6 @@ source $HOME/.dot-files/config/nvim/mappings.vim
 " ===                           PLUGIN SETUP                               === "
 source $HOME/.dot-files/config/nvim/plug-config/coc.vim
 source $HOME/.dot-files/config/nvim/plug-config/ranger.vim
-" source $HOME/.dot-files/config/nvim/plug-config/spelling.vim
 source $HOME/.dot-files/config/nvim/plug-config/markdown.vim
 source $HOME/.dot-files/config/nvim/plug-config/fzf.vim
 source $HOME/.dot-files/config/nvim/plug-config/fugitive.vim
@@ -46,7 +49,8 @@ source $HOME/.dot-files/config/nvim/plug-config/vim-wiki.vim
 source $HOME/.dot-files/config/nvim/plug-config/git-gutter.vim
 source $HOME/.dot-files/config/nvim/plug-config/tabularize.vim
 source $HOME/.dot-files/config/nvim/plug-config/lazygit.vim
-luafile $HOME/.dot-files/config/nvim/plug-config/tree-sitter.lua
+" source $HOME/.dot-files/config/nvim/plug-config/telescope.vim
+" luafile $HOME/.dot-files/config/nvim/plug-config/tree-sitter.lua
 
 " =========== Themes ============"
 " source $HOME/.dot-files/config/nvim/themes/one.vim
