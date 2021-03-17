@@ -3,7 +3,6 @@ call has('python3')
 call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}           " Run :call coc#util#install()
   Plug 'kevinhwang91/rnvimr'                                " Ranger
-  Plug 'sheerun/vim-polyglot'                               " One plugin for all languages
   Plug 'rakr/vim-one'                                       " Theme
   Plug 'Th3Whit3Wolf/one-nvim'
   Plug 'tpope/vim-fugitive'                                 " for git
@@ -25,16 +24,20 @@ call plug#begin()
   Plug 'vimwiki/vimwiki'
   Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' } " Lazy git integration
   " Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'sheerun/vim-polyglot'                               " One plugin for all languages
   Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-fzy-native.nvim'
+  " Plug 'nvim-telescope/telescope.nvim'
+  " Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
 
 " ----------- Native vim settings -----------
 source $HOME/.dot-files/config/nvim/settings.vim
 source $HOME/.dot-files/config/nvim/mappings.vim
+
+" ----------- Scripts -----------------------
+source $HOME/.dot-files/config/nvim/scripts/scripts.vim
 
 " ===                           PLUGIN SETUP                               === "
 source $HOME/.dot-files/config/nvim/plug-config/coc.vim
