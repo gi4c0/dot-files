@@ -20,5 +20,3 @@ let g:rnvimr_layout = { 'relative': 'editor',
 
 " Add a shadow window, value is equal to 100 will disable shadow
 let g:rnvimr_shadow_winblend = 40
-
-let g:rnvimr_ranger_cmd = 'ranger --cmd="set colorscheme snow"'

@@ -7,6 +7,8 @@ let g:coc_global_extensions = [
 " Scrolling in float window
 nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 " Map keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -24,6 +26,9 @@ nmap <silent> <leader>a <Plug>(coc-codeaction-selected)
 
 " Map for rename current word
 nmap <silent> <leader>mrr <Plug>(coc-rename)
+
+" Menu (Coc) Search
+nmap <leader>ms :CocSearch 
 
 " Rename file/imports
 nmap <silent> <leader>mrf :CocCommand workspace.renameCurrentFile<CR>

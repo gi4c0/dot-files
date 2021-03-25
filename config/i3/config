@@ -286,6 +286,8 @@ exec nitrogen --restore
 exec --no-startup-id telegram-desktop
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id slack
+
+# TODO: move to fish.d config
 exec --no-startup-id lxpolkit # authentication agent
 exec --no-startup-id blueman-applet # bluetooth applet
 

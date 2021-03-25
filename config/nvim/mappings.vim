@@ -39,7 +39,8 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nnoremap <C-t> :tabedit<CR>
 
 " Escape from terminal
-tnoremap <C-g> <C-\><C-n>
+" tnoremap <C-g> <C-\><C-n>
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 " Change first word
 nnoremap cI ^ciw
