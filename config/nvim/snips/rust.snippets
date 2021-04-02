@@ -1,3 +1,16 @@
 snippet pln "println!" b
 println!("{}", $0);
 endsnippet
+
+snippet test "test" b
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn $1() {
+        $0
+    }
+}
+endsnippet
+

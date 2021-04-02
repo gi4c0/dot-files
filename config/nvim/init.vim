@@ -28,7 +28,8 @@ call plug#begin()
   Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'caenrique/nvim-toggle-terminal'
+  Plug 'karb94/neoscroll.nvim'
+  Plug 'MattesGroeger/vim-bookmarks'
   " Plug 'nvim-telescope/telescope.nvim'
   " Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
@@ -53,7 +54,7 @@ source $HOME/.dot-files/config/nvim/plug-config/vim-wiki.vim
 source $HOME/.dot-files/config/nvim/plug-config/git-gutter.vim
 source $HOME/.dot-files/config/nvim/plug-config/tabularize.vim
 source $HOME/.dot-files/config/nvim/plug-config/lazygit.vim
-source $HOME/.dot-files/config/nvim/plug-config/terminal.vim
+source $HOME/.dot-files/config/nvim/plug-config/bookmarks.vim
 " source $HOME/.dot-files/config/nvim/plug-config/telescope.vim
 luafile $HOME/.dot-files/config/nvim/plug-config/tree-sitter.lua
 

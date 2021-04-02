@@ -4,6 +4,7 @@
   "tslint.enable": false,
   "cSpell.userWords": [
     "BTRIM",
+    "Cacher",
     "Cascadia",
     "Caskaydia",
     "Cgreen",
@@ -59,6 +60,7 @@
     "rallback",
     "randomstring",
     "rnvimr",
+    "rustc",
     "scrooloose",
     "signup",
     "smallint",

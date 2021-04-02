@@ -10,3 +10,4 @@ project.org
 plugged
 *.bp/
 notes.wiki
+.vim-bookmarks

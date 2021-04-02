@@ -1,8 +1,11 @@
 " Global extension names to install when they aren't installed.
 let g:coc_global_extensions = [
-  \ 'coc-json', 'coc-tsserver', 'coc-tslint-plugin', 'coc-rls',
+  \ 'coc-json', 'coc-tsserver', 'coc-tslint-plugin', 'coc-rls', 'coc-format-json',
   \ 'coc-tslint', 'coc-spell-checker', 'coc-yaml', 'coc-sh', 'coc-fish'
 \]
+
+" Menu -> JSON format
+nnoremap <leader>mj :CocCommand formatJson --indent=2 --quote=" --trailing=false<CR>
 
 " Scrolling in float window
 nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
