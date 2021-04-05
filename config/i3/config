@@ -305,14 +305,17 @@ mode "$mode_apps" {
      bindsym Return mode "default"
      bindsym Escape mode "default"
 
-    # Open pcmanfm (another file manager) (f)
+     # Open pcmanfm (another file manager) (f)
      bindcode 41 exec nautilus, mode "default"
 
-    # Open image editor (another file manager) (f)
+     # Open image editor (another file manager) (f)
      bindcode 31 exec krita, mode "default"
 
-    # Open system monitor ($mod+m)
+     # Open system monitor ($mod+m)
      bindcode 58 exec gnome-system-monitor, mode "default"
+
+     # Open wiki ($super+Shift+w)
+     bindcode 25 exec alacritty -e nvim ~/vimwiki/index.wiki, mode "default"
 }
 
 # =============== Jumps =============== #
