@@ -24,12 +24,13 @@ call plug#begin()
   Plug 'vimwiki/vimwiki'
   Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' } " Lazy git integration
   Plug 'nvim-treesitter/nvim-treesitter'
-  " Plug 'sheerun/vim-polyglot'                               " One plugin for all languages
+  " Plug 'sheerun/vim-polyglot'   " One plugin for all languages
   Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'karb94/neoscroll.nvim'
   Plug 'MattesGroeger/vim-bookmarks'
+  Plug 'junegunn/vim-peekaboo'                              " Plugin for managing registers
   " Plug 'nvim-telescope/telescope.nvim'
   " Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
