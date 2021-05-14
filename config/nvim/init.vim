@@ -30,7 +30,10 @@ call plug#begin()
   Plug 'nvim-lua/plenary.nvim'
   Plug 'karb94/neoscroll.nvim'
   Plug 'MattesGroeger/vim-bookmarks'
-  Plug 'junegunn/vim-peekaboo'                              " Plugin for managing registers
+
+  Plug 'puremourning/vimspector'
+  Plug 'szw/vim-maximizer'
+
   " Plug 'nvim-telescope/telescope.nvim'
   " Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
@@ -56,8 +59,13 @@ source $HOME/.dot-files/config/nvim/plug-config/git-gutter.vim
 source $HOME/.dot-files/config/nvim/plug-config/tabularize.vim
 source $HOME/.dot-files/config/nvim/plug-config/lazygit.vim
 source $HOME/.dot-files/config/nvim/plug-config/bookmarks.vim
+
+source $HOME/.dot-files/config/nvim/plug-config/vim-maximizer.vim
+source $HOME/.dot-files/config/nvim/plug-config/vimspector.vim
+
 " source $HOME/.dot-files/config/nvim/plug-config/telescope.vim
 luafile $HOME/.dot-files/config/nvim/plug-config/tree-sitter.lua
+luafile $HOME/.dot-files/config/nvim/plug-config/neoscroll.lua
 
 " =========== Themes ============"
 " source $HOME/.dot-files/config/nvim/themes/one.vim
