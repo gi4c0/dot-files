@@ -26,16 +26,16 @@ call plug#begin()
   Plug 'nvim-treesitter/nvim-treesitter'
   " Plug 'sheerun/vim-polyglot'   " One plugin for all languages
   Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
   Plug 'karb94/neoscroll.nvim'
   Plug 'MattesGroeger/vim-bookmarks'
 
   Plug 'puremourning/vimspector'
   Plug 'szw/vim-maximizer'
 
-  " Plug 'nvim-telescope/telescope.nvim'
-  " Plug 'nvim-telescope/telescope-fzy-native.nvim'
+  Plug 'nvim-lua/popup.nvim'                                " Required for telescope
+  Plug 'nvim-lua/plenary.nvim'                              " Required for telescope
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
 
 " ----------- Native vim settings -----------
@@ -49,7 +49,7 @@ source $HOME/.dot-files/config/nvim/scripts/scripts.vim
 source $HOME/.dot-files/config/nvim/plug-config/coc.vim
 source $HOME/.dot-files/config/nvim/plug-config/ranger.vim
 source $HOME/.dot-files/config/nvim/plug-config/markdown.vim
-source $HOME/.dot-files/config/nvim/plug-config/fzf.vim
+" source $HOME/.dot-files/config/nvim/plug-config/fzf.vim
 source $HOME/.dot-files/config/nvim/plug-config/fugitive.vim
 source $HOME/.dot-files/config/nvim/plug-config/nerd-commenter.vim
 source $HOME/.dot-files/config/nvim/plug-config/undotree.vim
@@ -63,7 +63,7 @@ source $HOME/.dot-files/config/nvim/plug-config/bookmarks.vim
 source $HOME/.dot-files/config/nvim/plug-config/vim-maximizer.vim
 source $HOME/.dot-files/config/nvim/plug-config/vimspector.vim
 
-" source $HOME/.dot-files/config/nvim/plug-config/telescope.vim
+source $HOME/.dot-files/config/nvim/plug-config/telescope.vim
 luafile $HOME/.dot-files/config/nvim/plug-config/tree-sitter.lua
 luafile $HOME/.dot-files/config/nvim/plug-config/neoscroll.lua
 

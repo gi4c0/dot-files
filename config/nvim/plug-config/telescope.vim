@@ -22,7 +22,7 @@ lua << EOF
   require('telescope').load_extension('fzy_native')
 EOF
 
-nnoremap <C-p> <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>/ <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <C-Space> <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>

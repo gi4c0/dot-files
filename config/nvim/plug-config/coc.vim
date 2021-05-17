@@ -128,4 +128,5 @@ augroup cocGroup
   " Highlight the symbol and its references when holding the cursor.
   " autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocDiagnosticChange call lightline#update()
+  autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 augroup END
