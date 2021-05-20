@@ -49,7 +49,6 @@ source $HOME/.dot-files/config/nvim/scripts/scripts.vim
 source $HOME/.dot-files/config/nvim/plug-config/coc.vim
 source $HOME/.dot-files/config/nvim/plug-config/ranger.vim
 source $HOME/.dot-files/config/nvim/plug-config/markdown.vim
-" source $HOME/.dot-files/config/nvim/plug-config/fzf.vim
 source $HOME/.dot-files/config/nvim/plug-config/fugitive.vim
 source $HOME/.dot-files/config/nvim/plug-config/nerd-commenter.vim
 source $HOME/.dot-files/config/nvim/plug-config/undotree.vim
@@ -63,7 +62,8 @@ source $HOME/.dot-files/config/nvim/plug-config/bookmarks.vim
 source $HOME/.dot-files/config/nvim/plug-config/vim-maximizer.vim
 source $HOME/.dot-files/config/nvim/plug-config/vimspector.vim
 
-source $HOME/.dot-files/config/nvim/plug-config/telescope.vim
+source $HOME/.dot-files/config/nvim/plug-config/fzf.vim
+" source $HOME/.dot-files/config/nvim/plug-config/telescope.vim
 luafile $HOME/.dot-files/config/nvim/plug-config/tree-sitter.lua
 luafile $HOME/.dot-files/config/nvim/plug-config/neoscroll.lua
 

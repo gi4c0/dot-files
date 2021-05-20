@@ -1,0 +1,15 @@
+[alias]
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  type = cat-file -t
+  dump = cat-file -p
+  lg = log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'
+[core]
+	excludesfile = ~/.dot-files/.gitignore_global
+[user]
+	name = alexpan
+	email = lordpan6909@gmail.com
+	username = AlekseyPanch

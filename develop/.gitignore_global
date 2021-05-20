@@ -1,0 +1,13 @@
+node_modules/
+*.swp
+.#*
+.DS_Store
+project.org
+.tern-project
+.env
+#.*
+.vim
+plugged
+*.bp/
+notes.wiki
+.vim-bookmarks
