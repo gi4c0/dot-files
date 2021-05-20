@@ -27,7 +27,6 @@ call plug#begin()
   " Plug 'sheerun/vim-polyglot'   " One plugin for all languages
   Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
   Plug 'karb94/neoscroll.nvim'
-  Plug 'MattesGroeger/vim-bookmarks'
 
   Plug 'puremourning/vimspector'
   Plug 'szw/vim-maximizer'
@@ -36,6 +35,7 @@ call plug#begin()
   Plug 'nvim-lua/plenary.nvim'                              " Required for telescope
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
+  Plug 'mtth/scratch.vim'
 call plug#end()
 
 " ----------- Native vim settings -----------
@@ -57,7 +57,7 @@ source $HOME/.dot-files/config/nvim/plug-config/vim-wiki.vim
 source $HOME/.dot-files/config/nvim/plug-config/git-gutter.vim
 source $HOME/.dot-files/config/nvim/plug-config/tabularize.vim
 source $HOME/.dot-files/config/nvim/plug-config/lazygit.vim
-source $HOME/.dot-files/config/nvim/plug-config/bookmarks.vim
+source $HOME/.dot-files/config/nvim/plug-config/scratch.vim
 
 source $HOME/.dot-files/config/nvim/plug-config/vim-maximizer.vim
 source $HOME/.dot-files/config/nvim/plug-config/vimspector.vim
