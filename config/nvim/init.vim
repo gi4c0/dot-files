@@ -21,9 +21,9 @@ call plug#begin()
   Plug 'christoomey/vim-sort-motion'                        " For sorting with gs
   Plug 'mbbill/undotree'                                    " Kind of git but built in Vim
   Plug 'vimwiki/vimwiki'
-  Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' } " Lazy git integration
+  Plug 'kdheepak/lazygit.nvim'                              " Lazy git integration
   Plug 'nvim-treesitter/nvim-treesitter'
-  " Plug 'sheerun/vim-polyglot'   " One plugin for all languages
+  " Plug 'sheerun/vim-polyglot'                             " One plugin for all languages
   Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
   Plug 'karb94/neoscroll.nvim'
 

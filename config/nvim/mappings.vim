@@ -7,7 +7,6 @@ nnoremap <silent> <M-l>    :vertical resize +8<CR>
 nnoremap <silent> Q :bdelete<cr>
 
 " Save file
-nnoremap <silent> <leader>fs :w<cr>
 nnoremap <silent> <C-s> :w<cr>
 
 " Clear search
