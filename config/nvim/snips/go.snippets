@@ -15,8 +15,14 @@ import (
 )
 endsnippet
 
-snippet iferr "if err != nil" b
-if $1 != nil \{
-	$0
+snippet ifer "if err != nil" b
+if err != nil \{
+	return err
+\}
+endsnippet
+
+snippet ernil "; err != nil"
+err != nil \{
+	return err
 \}
 endsnippet

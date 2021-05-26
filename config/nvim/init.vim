@@ -3,8 +3,7 @@ call has('python3')
 call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}           " Run :call coc#util#install()
   Plug 'kevinhwang91/rnvimr'                                " Ranger
-  Plug 'rakr/vim-one'                                       " Theme
-  Plug 'Th3Whit3Wolf/one-nvim'
+  Plug 'navarasu/onedark.nvim'
   Plug 'tpope/vim-fugitive'                                 " for git
   Plug 'itchyny/lightline.vim'
   Plug 'tpope/vim-unimpaired'                               " Adds shortcuts for fugitive (<[-q>, <[-Q>)
@@ -68,6 +67,5 @@ luafile $HOME/.dot-files/config/nvim/plug-config/tree-sitter.lua
 luafile $HOME/.dot-files/config/nvim/plug-config/neoscroll.lua
 
 " =========== Themes ============"
-" source $HOME/.dot-files/config/nvim/themes/one.vim
-" source $HOME/.dot-files/config/nvim/themes/one-nvim.vim
-source $HOME/.dot-files/config/nvim/themes/nv-code.vim
+source $HOME/.dot-files/config/nvim/themes/one-dark.vim
+" source $HOME/.dot-files/config/nvim/themes/nv-code.vim
