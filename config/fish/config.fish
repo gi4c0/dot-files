@@ -1,6 +1,9 @@
 # fnm
 set -gx EDITOR nvim
 
+# Fixes weird error in nvim
+set -x SHELL /bin/bash
+
 # UNIX Pass: Defualt password length
 set -gx PASSWORD_STORE_GENERATED_LENGTH 20
 
@@ -8,7 +11,7 @@ set -gx PASSWORD_STORE_GENERATED_LENGTH 20
 # set -gx GOROOT "/usr/local/go"
 # set -gx GOPATH "$HOME/go"
 
-set -gx PATH "$HOME/.bin:/var/lib/snapd/snap/bin:/snap/bin:/home/alex/.cargo/bin:$PATH"
+set -gx PATH "$HOME/.bin:/var/lib/snapd/snap/bin:/snap/bin:/home/alex/.cargo/bin:/home/alex/go/bin:$PATH"
 
 # start X at login
 if status --is-login
