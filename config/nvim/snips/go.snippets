@@ -17,8 +17,9 @@ endsnippet
 
 snippet ifer "if err != nil" b
 if err != nil \{
-	return err
+	return ${1:"",} err
 \}
+$0
 endsnippet
 
 snippet ernil "; err != nil"
