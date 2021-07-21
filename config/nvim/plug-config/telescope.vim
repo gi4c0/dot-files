@@ -10,19 +10,32 @@ lua << EOF
         }
       },
 
-      extensions = {
-        fzy_native = {
-          override_generic_sorter = false,
-          override_file_sorter = true,
+    },
+    pickers = {
+      find_files = {
+        previewer = false,
+      },
+      buffers = {
+        -- theme = "dropdown",
+        previewer = false,
+        mappings = {
+          i = {
+            ["<c-d>"] = actions.delete_buffer,
+          },
+          n = {
+            ["<c-d>"] = actions.delete_buffer,
+          }
         }
       }
     }
   }
-
-  require('telescope').load_extension('fzy_native')
 EOF
 
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>/ <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <C-Space> <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>
+
+nnoremap <leader>ghh <cmd>lua require('telescope.builtin').git_commits()<cr>
+nnoremap <leader>gcc <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader>ghb <cmd>lua require('telescope.builtin').git_bcommits()<cr>
