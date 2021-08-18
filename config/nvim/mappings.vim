@@ -39,3 +39,15 @@ nnoremap <C-t> :tabedit<CR>
 
 " Change first word
 nnoremap cI ^ciw
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u

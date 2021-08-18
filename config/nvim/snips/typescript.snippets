@@ -137,3 +137,46 @@ if ($1 instanceof ErrorModel) {
   return HandlerHelper.fail<NothingType>($1.description, HttpStatusEnum.InternalServerError, NOTHING);
 }
 endsnippet
+
+snippet mon "monad type"
+MonadType<${1:NothingType}>$0
+endsnippet
+
+snippet pconst "public constructor"
+public constructor(params: SignatureOfType<$1>) {
+	$0
+}
+endsnippet
+
+snippet tp "type property readonly" b
+/**
+ * $1
+ * @type { $3 }
+ */
+$2: $3;
+endsnippet
+
+snippet tps "type prop string" b
+/**
+ * $1
+ * @type { String }
+ */
+$2: string;
+endsnippet
+
+snippet tpn "type prop number" b
+/**
+ * $1
+ * @type { Number }
+ */
+$2: number;
+endsnippet
+
+snippet tpb "type prop boolean" b
+/**
+ * $1
+ * @type { Boolean }
+ */
+$2: boolean;
+endsnippet
+

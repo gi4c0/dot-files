@@ -17,6 +17,7 @@ lua << EOF
       },
       buffers = {
         -- theme = "dropdown",
+        sort_lastused = true,
         previewer = false,
         mappings = {
           i = {
