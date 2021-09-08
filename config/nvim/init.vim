@@ -18,7 +18,7 @@ call plug#begin()
 
   " Themes related
   Plug 'navarasu/onedark.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'}
   Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
 
   Plug 'puremourning/vimspector'

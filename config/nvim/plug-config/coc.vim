@@ -31,6 +31,9 @@ nmap <silent> <leader>a <Plug>(coc-codeaction-selected)
 " Map for rename current word
 nmap <silent> <leader>mrr <Plug>(coc-rename)
 
+" Restart Coc server
+nmap <silent> <leader>mrs :CocRestart<cr>
+
 " Menu (Coc) Search
 nmap <leader>ms :CocSearch 
 
