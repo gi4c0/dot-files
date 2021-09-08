@@ -1,7 +1,6 @@
 call has('python3')
 
 call plug#begin()
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}           " Run :call coc#util#install()
   Plug 'kevinhwang91/rnvimr'                                " Ranger
   Plug 'tpope/vim-fugitive'                                 " for git
   Plug 'tpope/vim-unimpaired'                               " Adds shortcuts for fugitive (<[-q>, <[-Q>)
@@ -20,6 +19,10 @@ call plug#begin()
   Plug 'navarasu/onedark.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'}
   Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
+
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}           " Run :call coc#util#install()
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-compe'
 
   Plug 'puremourning/vimspector'
   Plug 'szw/vim-maximizer'
@@ -43,7 +46,7 @@ source $HOME/.dot-files/config/nvim/mappings.vim
 source $HOME/.dot-files/config/nvim/scripts/scripts.vim
 
 " ===                           PLUGIN SETUP                               === "
-source $HOME/.dot-files/config/nvim/plug-config/coc.vim
+" source $HOME/.dot-files/config/nvim/plug-config/coc.vim
 source $HOME/.dot-files/config/nvim/plug-config/ranger.vim
 source $HOME/.dot-files/config/nvim/plug-config/markdown.vim
 source $HOME/.dot-files/config/nvim/plug-config/fugitive.vim
@@ -61,6 +64,11 @@ source $HOME/.dot-files/config/nvim/plug-config/vimspector.vim
 source $HOME/.dot-files/config/nvim/plug-config/telescope.vim
 luafile $HOME/.dot-files/config/nvim/plug-config/tree-sitter.lua
 luafile $HOME/.dot-files/config/nvim/plug-config/lualine.lua
+
+" LSP
+source $HOME/.dot-files/config/nvim/plug-config/lsp-config.vim
+luafile $HOME/.dot-files/config/nvim/plug-config/lsp-servers.lua
+luafile $HOME/.dot-files/config/nvim/plug-config/compe-config.lua
 
 " =========== Themes ============"
 source $HOME/.dot-files/config/nvim/themes/one-dark.vim
