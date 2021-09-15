@@ -23,6 +23,13 @@ call plug#begin()
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}           " Run :call coc#util#install()
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils' " npm i -g eslint_d
+  Plug 'glepnir/lspsaga.nvim'
+  Plug 'ray-x/lsp_signature.nvim'
+
+  " Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+  " Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 
   Plug 'puremourning/vimspector'
   Plug 'szw/vim-maximizer'
@@ -69,6 +76,9 @@ luafile $HOME/.dot-files/config/nvim/plug-config/lualine.lua
 source $HOME/.dot-files/config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.dot-files/config/nvim/plug-config/lsp-servers.lua
 luafile $HOME/.dot-files/config/nvim/plug-config/compe-config.lua
+luafile $HOME/.dot-files/config/nvim/plug-config/nvim-lsp-ts-utils.lua
+luafile $HOME/.dot-files/config/nvim/plug-config/lsp-saga.lua
+luafile $HOME/.dot-files/config/nvim/plug-config/lsp-signature.lua
 
 " =========== Themes ============"
 source $HOME/.dot-files/config/nvim/themes/one-dark.vim

@@ -14,9 +14,9 @@ require'lualine'.setup {
         'diagnostics',
         -- table of diagnostic sources, available sources:
         -- nvim_lsp, coc, ale, vim_lsp
-        sources = { 'coc', 'nvim_lsp' },
+        sources = { 'nvim_lsp' },
         -- displays diagnostics from defined severity
-        -- sections = {'error', 'warn', 'info', 'hint'},
+        sections = {'error', 'warn', 'info', 'hint'},
         -- all colors are in format #rrggbb
         -- color_error = nil, -- changes diagnostic's error foreground color
         -- color_warn = nil, -- changes diagnostic's warn foreground color
