@@ -39,7 +39,7 @@ call plug#begin()
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-  Plug 'hoob3rt/lualine.nvim'
+  Plug 'nvim-lualine/lualine.nvim'
   Plug 'kyazdani42/nvim-web-devicons'                       " Required for lualine above
 
   Plug 'mtth/scratch.vim'
