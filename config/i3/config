@@ -215,7 +215,7 @@ bar {
   # status_command i3blocks -c ~/.dot-files/config/i3blocks/i3blocks.conf
   status_command bumblebee-status \
       -t onedark-powerline \
-      -m xrandr memory sensors cpu amixer battery spacer pacman datetime spacer \
+      -m memory sensors cpu amixer battery spacer pacman datetime spacer \
       -p memory.warning=80 memory.format="{used}/{total}" battery.warning=50 pacman.sum=true \
           sensors.show_freq=false
 

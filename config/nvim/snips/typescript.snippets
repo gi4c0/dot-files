@@ -93,7 +93,7 @@ snippet parsconf "parser config" b
  * Config $1
  * @type { ParserConfigModel<$2> }
  */
-private static readonly $3: ParserConfigModel<$2> = new ParserConfigModel<$2>({
+public static readonly $3: ParserConfigModel<$2> = new ParserConfigModel<$2>({
   mappings: ${4:new Array<keyof $2>($0)},
 	validators: {
 
@@ -128,7 +128,7 @@ endsnippet
 
 snippet iferr "if error check"
 if ($1 instanceof ErrorModel) {
-  $0
+  return $0
 }
 endsnippet
 
@@ -136,6 +136,10 @@ snippet hiferr "handler if error check"
 if ($1 instanceof ErrorModel) {
   return HandlerHelper.fail<NothingType>($1.description, HttpStatusEnum.InternalServerError, NOTHING);
 }
+endsnippet
+
+snippet cerr "const err: "
+const err: ErrorModel<$1, $2> = new ErrorModel<$1, $2>({ description: $0 });
 endsnippet
 
 snippet mon "monad type"
@@ -180,3 +184,8 @@ snippet tpb "type prop boolean" b
 $2: boolean;
 endsnippet
 
+snippet et "export type" b
+export type $1Type = Readonly<{
+  $0
+}>;
+endsnippet
