@@ -4,11 +4,18 @@ SETUVAR EDITOR:vim
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_amb:cd\x20/Users/alekseypanchenko/projects/crysberry/amb\x2dbackend/
 SETUVAR _fish_abbr_awb:cd\x20/Users/alekseypanchenko/dev/AlcoWiki/AlcoWikiBackend/
+SETUVAR _fish_abbr_c:clear
+SETUVAR _fish_abbr_d:docker
 SETUVAR _fish_abbr_ff:cd\x20/Users/alekseypanchenko/\x2econfig/fish/functions/
+SETUVAR _fish_abbr_g:go1\x2e18beta2
+SETUVAR _fish_abbr_nrb:npm\x20run\x20build
 SETUVAR _fish_abbr_nrd:npm\x20run\x20debug
+SETUVAR _fish_abbr_nrf:SQS_ACCESS_KEY_ID\x3dAKIAUZNKSRF7WDLN2CGA\x20SQS_SECRET_ACCESS_KEY\x3dYJicEK9YpMaZklMpAseAaluX7AjGTVHOWT/5Ndms\x20AWS_S3_REGION\x3dap\x2dsoutheast\x2d1\x20AWS_SQS_URL\x3dhttps\x3a//sqs\x2eap\x2dsoutheast\x2d1\x2eamazonaws\x2ecom/329459599743/AMB\x2dBetGenius\x2dFeed\x2efifo\x20FEED_MESSAGE_REMOVAL_URL\x3dhttps\x3a//sqs\x2eap\x2dsoutheast\x2d1\x2eamazonaws\x2ecom/329459599743/AMB\x2dBetGenius\x2dFeed\x2efifo\x20STATIC_SECRET\x3dqwerty\x20TYPEORM_HOST\x3dlocalhost\x20TYPEORM_USERNAME\x3dalexpan\x20TYPEORM_PASSWORD\x3d123\x20TYPEORM_DATABASE\x3dalexpan\x20TYPEORM_PORT\x3d5432\x20npm\x20run\x20build\x2dfeed
+SETUVAR _fish_abbr_nri:npm\x20run\x20test\x2dintegration
+SETUVAR _fish_abbr_nru:npm\x20run\x20test\x2dunit
 SETUVAR _fish_abbr_ns:npm\x20start
 SETUVAR _fish_abbr_p:pass
 SETUVAR _fish_abbr_pcav:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/AvailabilityAPI/
@@ -28,7 +35,6 @@ SETUVAR _fish_abbr_pcs:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/St
 SETUVAR _fish_abbr_pcu:cd\x20/Users/alekseypanchenko/projects/connected2Fiber/UserAuthentication/
 SETUVAR _fish_abbr_r:ranger
 SETUVAR _fish_abbr_v:nvim
-SETUVAR _fish_abbr_vim:nvim
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
@@ -58,4 +64,5 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/Users/alekseypanchenko/\x2econfig/nvm/8\x2e15\x2e1/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/bin
+SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_user_paths:/Users/alekseypanchenko/\x2econfig/nvm/8\x2e15\x2e1/bin\x1e/opt/homebrew/bin

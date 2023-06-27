@@ -82,7 +82,7 @@ snippet parsconf "parser config" b
 /**
  * Config $1
  */
-public static readonly $3: ParserConfigModel<$2> = new ParserConfigModel<$2>({
+public static readonly $3: ParserConfigType<$2> = {
   mappings: ${4:new Array<keyof $2>($0)},
 	validators: {
 
@@ -90,7 +90,7 @@ public static readonly $3: ParserConfigModel<$2> = new ParserConfigModel<$2>({
   transformers: {
 
   }
-});
+};
 endsnippet
 
 snippet th "TypeHelper"
