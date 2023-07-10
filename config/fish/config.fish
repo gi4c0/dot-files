@@ -19,3 +19,4 @@ set -gx PATH "$HOME/.bin:/opt/homebrew/opt/node@16/bin:/Users/alekseypanchenko/b
 abbr --add wb cd /Users/alekseypanchenko/projects/crysberry/w-backend
 abbr --add wsw cd /Users/alekseypanchenko/projects/crysberry/w-swagger
 abbr --add wut cd /Users/alekseypanchenko/projects/crysberry/w-utility
+abbr --add cry cd /Users/alekseypanchenko/projects/crysberry
