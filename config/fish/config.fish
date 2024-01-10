@@ -13,7 +13,7 @@ set -Ua fish_user_paths /opt/homebrew/bin
 # set -gx GOROOT "/usr/local/go"
 set -gx GOPATH "$HOME/go"
 
-set -gx PATH "$HOME/.bin:/opt/homebrew/opt/node@16/bin:/Users/alekseypanchenko/bin:/Users/alekseypanchenko/go/bin:/Users/alekseypanchenko/.cargo/bin:$PATH"
+set -gx PATH "$HOME/.bin:/opt/homebrew/opt/node@18/bin:/Users/alekseypanchenko/bin:/Users/alekseypanchenko/go/bin:/Users/alekseypanchenko/.cargo/bin:$PATH"
 
 # Abbreviations
 abbr --add wb cd /Users/alekseypanchenko/projects/crysberry/w-backend
