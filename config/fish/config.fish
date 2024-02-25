@@ -17,6 +17,8 @@ set -gx PATH "$HOME/.bin:/opt/homebrew/opt/node@18/bin:/Users/alekseypanchenko/b
 
 # Abbreviations
 abbr --add wb cd /Users/alekseypanchenko/projects/crysberry/w-backend
-abbr --add wsw cd /Users/alekseypanchenko/projects/crysberry/w-swagger
-abbr --add wut cd /Users/alekseypanchenko/projects/crysberry/w-utility
 abbr --add cry cd /Users/alekseypanchenko/projects/crysberry
+abbr --add ct cargo nextest run
+abbr --add ctn TRACE=1 cargo nextest run --no-capture --
+
+zoxide init --cmd cd fish | source
