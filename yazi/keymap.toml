@@ -1,6 +1,11 @@
 [manager]
-
 prepend_keymap = [
   { on = [ "Z" ],         run = "fzf_dirs",                 desc = "Jump to a directory, or reveal a file using fzf" },
-  { on = ["l"], run  = "plugin --sync smart-enter", desc = "Enter the child directory, or open the file" }
+  { on = ["l"], run  = "plugin --sync smart-enter", desc = "Enter the child directory, or open the file" },
+  { on = ["<Esc>"], run = "close", desc = "Cancel input" }
+]
+
+[input]
+prepend_keymap = [
+  { on = ["<Esc>"], run = "close", desc = "Cancel input" }
 ]
