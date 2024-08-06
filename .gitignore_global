@@ -1,4 +1,5 @@
 node_modules/
+cspell.json
 *.swp
 .#*
 .DS_Store
