@@ -1,4 +1,4 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[mgr]
+[manager]
 ratio          = [ 2, 3, 3 ]
