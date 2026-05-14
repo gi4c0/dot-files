@@ -1,0 +1,180 @@
+snippet imf "import from" b
+import ${2:\{ $0 \}} from '$1';
+endsnippet
+
+snippet imfa "import * as from" b
+import * as $0 from '$1';
+endsnippet
+
+snippet cl "console.log"
+console.log($0);
+endsnippet
+
+snippet doc "ts doc" b
+/**
+ * $0
+ */
+endsnippet
+
+snippet docm "ts doc method" b
+/**
+ * $1
+ */
+endsnippet
+
+snippet ip "interface property readonly" b
+/**
+ * $1
+ */
+readonly $2: $3;
+endsnippet
+
+snippet ips "interface prop string" b
+/**
+ * $1
+ */
+readonly $2: string;
+endsnippet
+
+snippet ipn "interface prop number" b
+/**
+ * $1
+ */
+readonly $2: number;
+endsnippet
+
+snippet ipb "interface prop boolean" b
+/**
+ * $1
+ */
+readonly $2: boolean;
+endsnippet
+
+snippet cp "class property" b
+/**
+ * $1
+ */
+public readonly $3: $2;
+endsnippet
+
+snippet cpn "class property number" b
+/**
+ * $1
+ */
+public readonly $2: number;
+endsnippet
+
+snippet cps "class property string" b
+/**
+ * $1
+ */
+public readonly $2: string;
+endsnippet
+
+snippet cpb "class property boolean" b
+/**
+ * $1
+ */
+public readonly $2: boolean;
+endsnippet
+
+snippet parsconf "parser config" b
+/**
+ * Config $1
+ */
+public static readonly $3: ParserConfigType<$2> = {
+  mappings: ${4:new Array<keyof $2>($0)},
+	validators: {
+
+	},
+  transformers: {
+
+  }
+};
+endsnippet
+
+snippet arr "new Array<>()"
+new Array<$1>($0)
+endsnippet
+
+snippet th "TypeHelper"
+TypeHelper.getType<$1>($0)
+endsnippet
+
+snippet tth "transformer TypeHelper"
+(value: string): $1 => TypeHelper.getType<$1>(value)$0
+endsnippet
+
+snippet it "It test" b
+it(
+  '$1',
+  async (): Promise<void> => {
+    $0
+  },
+  60000
+);
+endsnippet
+
+snippet narr "new Array"
+Array<$1> = new Array<$1>($0);
+endsnippet
+
+snippet ifer "if error check"
+if ($1 instanceof ErrorModel) {
+  return $0
+}
+endsnippet
+
+snippet hiferr "handler if error check"
+if ($1 instanceof ErrorModel) {
+  return HandlerHelper.fail<NothingType>($1.description, HttpStatusEnum.InternalServerError, NOTHING);
+}
+endsnippet
+
+snippet cerr "const err: "
+const err: ErrorModel<$1, $2> = new ErrorModel<$1, $2>({ description: $0 });
+endsnippet
+
+snippet mon "monad type"
+MonadType<${1:NothingType}>$0
+endsnippet
+
+snippet pconst "public constructor"
+public constructor(params: SignatureOfType<$1>) {
+	$0
+}
+endsnippet
+
+snippet tp "type property readonly" b
+/**
+ * $1
+ */
+$2: $3;
+endsnippet
+
+snippet tps "type prop string" b
+/**
+ * $1
+ */
+$2: string;
+endsnippet
+
+snippet tpn "type prop number" b
+/**
+ * $1
+ */
+$2: number;
+endsnippet
+
+snippet tpb "type prop boolean" b
+/**
+ * $1
+ */
+$2: boolean;
+endsnippet
+
+snippet et "export type" b
+export type $1Type = Readonly<{
+  $0
+}>;
+endsnippet

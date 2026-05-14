@@ -1,0 +1,192 @@
+snippet imf "import from" b
+import ${2:\{ $0 \}} from '$1'
+endsnippet
+
+snippet itf "it function" b
+it('$1', async () => {
+	const res = await request.$2($3)
+		${4:.set('authorization', this.${5:borrower}Token)$0}
+	assert(res.status, 200);
+});
+endsnippet
+
+snippet crf "create react function" b
+import React from 'react'
+
+const $1 = () => (
+	$0
+)
+
+export default $1
+endsnippet
+
+snippet ptimp "propt-types import" b
+import PropTypes from 'prop-types'
+endsnippet
+
+snippet ptdef "PropTypes definition" b
+$1.propTypes = \{
+	$0
+\}
+endsnippet
+
+snippet pts "PropTypes string" 
+PropTypes.string${1:.isRequired}
+endsnippet
+
+snippet ptf "PropTypes function" 
+PropTypes.func${1:.isRequired}
+endsnippet
+
+snippet ptb "PropTypes bool" 
+PropTypes.bool${1:.isRequired}
+endsnippet
+
+snippet pto "PropTypes object"
+PropTypes.object${1:.isRequired}
+endsnippet
+
+snippet ptn "propTypes number" 
+PropTypes.number${1:.isRequired}
+endsnippet
+
+snippet rcc "React create class" b
+import React from 'react'
+
+class $1 extends React.Component \{
+  state = \{
+
+  \}
+
+  render () \{
+    return (
+      $0
+    )
+  \}
+\}
+
+export default $1
+endsnippet
+
+snippet tss "this.setState"
+this.setState(\{ $1 \})$0
+endsnippet
+
+snippet cl "console.log()"
+console.log($0)
+endsnippet
+
+snippet tryc "try catch wrapper"
+try \{
+	${VISUAL: inside}$0
+\} catch (err) \{
+	${1:next(err)}
+\}
+endsnippet
+
+snippet nreq "node require"
+const $2 = require('$1')$0
+endsnippet
+
+
+snippet rsok "res.sendStatus(200)" b
+res.sendStatus(200);
+endsnippet
+
+
+
+
+snippet makroute "Define makeen route" b
+router.$1(
+  '$2',
+  async (req, res, next) => \{
+    try \{
+			$0
+    \} catch (err) \{
+      next(err);
+    \}
+  \},
+);
+endsnippet
+
+snippet joio "Joi object"
+Joi.object()${1:.keys(\{$2\})}${3:.required()}$0
+endsnippet
+
+snippet jois "Joi string"
+Joi.string()${1:.required()}$0
+endsnippet
+
+snippet join "Joi number"
+Joi.number()${1:.required()}$0
+endsnippet
+
+snippet joia "Joi array"
+Joi.array()${1:.required()}$0
+endsnippet
+
+
+
+
+
+snippet cbs "comment body string"
+@param {string} $1.body${2:.required}
+endsnippet
+
+snippet cbn "comment body number"
+@param {number} $1.body${2:.required}
+endsnippet
+
+snippet cbo "commnet body object"
+@param {object} $1.body${2:.required}
+endsnippet
+
+snippet cps "comment path string"
+@param {string} $1.path${2:.required}
+endsnippet
+
+snippet cqs "comment query string"
+@param {string} $1.query${2:.required}
+endsnippet
+
+snippet cqo "comment query object"
+@param {object} $1.query${2:.required}
+endsnippet
+
+snippet crdel "comment route GET"
+@route DELETE$1
+endsnippet
+
+snippet crget "comment route GET"
+@route GET$1
+endsnippet
+
+snippet crpost "comment route POST"
+@route POST$1
+endsnippet
+
+snippet crpatch "comment route PATCH"
+@route PATCH$1
+endsnippet
+
+snippet cjwt "comment route PATCH"
+@security jwtToken
+endsnippet
+
+snippet crn "comment return number"
+@returns {number} 200$0
+endsnippet
+
+snippet cro "comment return"
+@returns {object} 200$0
+endsnippet
+
+snippet cra "comment return array"
+@returns {array} 200$0
+endsnippet
+
+snippet cdef "comment defenition"
+/**
+* $0
+*/
+endsnippet
