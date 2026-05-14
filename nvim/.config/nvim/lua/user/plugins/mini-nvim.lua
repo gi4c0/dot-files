@@ -1,7 +1,7 @@
 return {
     'echasnovski/mini.nvim',
     version = false,
-    enabled = true,
+    enabled = false,
     lazy = false,
     config = function ()
         -- require('mini.completion').setup()
