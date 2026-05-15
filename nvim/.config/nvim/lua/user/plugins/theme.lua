@@ -72,7 +72,7 @@ return {
                 -- end,
             })
 
-            -- vim.cmd[[colorscheme tokyonight]]
+            vim.cmd[[colorscheme tokyonight]]
         end
     },
     {
@@ -86,6 +86,7 @@ return {
 
                 integrations = {
                     lualine = {
+                        enabled = false,
                         -- lualine color overrides in the following hierarchy: Catppuccin Flavor -> Mode -> Lualine Section
                         -- The Catppuccin flavor entry can be any Catpuccin flavor or "all" to apply to all flavors
                         -- The flavor entry can be either a table or a function which consumes the current Catppuccin palette, just like custom_highlights and color_overrides
@@ -115,12 +116,12 @@ return {
                         style = 'bordered',
                     },
                     telescope = {
-                        enabled = true,
+                        enabled = false,
                     }
                 }
             }
 
-            vim.cmd.colorscheme "catppuccin-nvim"
+            -- vim.cmd.colorscheme "catppuccin-nvim"
         end
     },
     {
