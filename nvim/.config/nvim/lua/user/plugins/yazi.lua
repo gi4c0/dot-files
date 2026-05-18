@@ -26,5 +26,18 @@ return  {
             cycle_open_buffers = '<tab>',
         },
     },
+
+    config = function(_, opts)
+        require('yazi').setup(opts)
+
+        vim.api.nvim_create_autocmd("TermOpen", {
+            pattern = "*",
+            callback = function()
+                if vim.bo.filetype == "yazi" then
+                    vim.keymap.set("t", "<Esc>", "<Esc>", { buffer = true, nowait = true })
+                end
+            end,
+        })
+    end
 }
 
