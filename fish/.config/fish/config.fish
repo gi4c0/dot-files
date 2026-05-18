@@ -11,6 +11,8 @@ abbr -a c clear
 abbr -a y yazi
 
 abbr -a k kubectl
+abbr -a r yazi
+abbr -a y yazi
 abbr -a kc kubectl config
 abbr -a kcu kubectl config use-context
 abbr -a dev2 kubectl port-forward mysql-stage-0 3307:3306 -n infra-stage
