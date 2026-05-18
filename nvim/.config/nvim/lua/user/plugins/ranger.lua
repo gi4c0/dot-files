@@ -1,6 +1,7 @@
 return {
     'kevinhwang91/rnvimr',
     lazy = false,
+    enabled = false,
     init = function()
         vim.g.rnvimr_enable_ex = true
         vim.g.rnvimr_enable_picker = true

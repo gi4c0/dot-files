@@ -52,5 +52,6 @@ source "$HOME/.cargo/env.fish"
 fish_add_path $HOME/.local/bin
 
 source ~/dev/.env.fish
+set -gx EDITOR nvim
 
 # fish_config theme choose catppuccin-macchiato
