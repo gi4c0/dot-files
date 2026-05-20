@@ -1,3 +1,5 @@
+local diagnostics = require('user.libs.diagnostics-jump')
+
 local options = { noremap = true, silent = true }
 
 -- Shorten function name
@@ -66,3 +68,6 @@ vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv", { desc = 'Move block up', silen
 
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
+
+vim.keymap.set('n', ']d', function() diagnostics.goto_priority_diagnostic('next') end, { silent = true, desc = 'Go to Next error' })
+vim.keymap.set('n', '[d', function() diagnostics.goto_priority_diagnostic('prev') end, { silent = true, desc = 'Go to Prev error' })
