@@ -4,7 +4,10 @@ end
 
 fzf_configure_bindings # Enable fish key bindings
 set --universal nvm_default_version v20.19.4
-nvm use default > /dev/null
+
+if type -q nvm
+    nvm use default > /dev/null
+end
 
 abbr -a v vim
 abbr -a c clear
@@ -47,7 +50,10 @@ set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS \
   --color=separator:#ff9e64 \
   --color=spinner:#ff007c \
 "
-# starship init fish | source
+
+if type -q starship
+  starship init fish | source
+end
 source "$HOME/.cargo/env.fish"
 
 source "$HOME/.cargo/env.fish"
