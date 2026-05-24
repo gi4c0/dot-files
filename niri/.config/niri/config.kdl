@@ -457,8 +457,8 @@ binds {
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     // ...
 
-    Mod+Alt+J  { focus-workspace-down; }
-    Mod+Alt+K  { focus-workspace-up; }
+    Alt+J  { focus-workspace-down; }
+    Alt+K  { focus-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }

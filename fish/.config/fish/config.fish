@@ -1,8 +1,14 @@
+# Get rid of default prompt
+set -g fish_greeting ""
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-fzf_configure_bindings # Enable fish key bindings
+if type -q fzf_configure_bindings
+  fzf_configure_bindings # Enable fish key bindings
+end
+
 set --universal nvm_default_version v20.19.4
 
 if type -q nvm
@@ -59,7 +65,13 @@ source "$HOME/.cargo/env.fish"
 source "$HOME/.cargo/env.fish"
 fish_add_path $HOME/.local/bin
 
-source ~/dev/.env.fish
+if test -f ~/dev/.env.fish
+  source ~/dev/.env.fish
+end
+
 set -gx EDITOR nvim
 
 # fish_config theme choose catppuccin-macchiato
+if test -f /home/linuxbrew/.linuxbrew/bin/brew
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"
+end
