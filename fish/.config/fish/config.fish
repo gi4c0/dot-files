@@ -26,6 +26,7 @@ abbr -a kc kubectl config
 abbr -a kcu kubectl config use-context
 abbr -a dev2 kubectl port-forward mysql-stage-0 3307:3306 -n infra-stage
 abbr -a p pnpm
+abbr -a vim nvim
 abbr -a gw git worktree
 abbr -a fucksecurity NODE_TLS_REJECT_UNAUTHORIZED=0
 abbr -a gpo git push origin 
