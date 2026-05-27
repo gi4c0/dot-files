@@ -1,5 +1,6 @@
 # Get rid of default prompt
 set -g fish_greeting ""
+set -g fish_key_bindings fish_vi_key_bindings
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -61,9 +62,10 @@ set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS \
 if type -q starship
   starship init fish | source
 end
-source "$HOME/.cargo/env.fish"
 
-source "$HOME/.cargo/env.fish"
+if test -f ~/.cargo/env.fish
+  source "$HOME/.cargo/env.fish"
+end
 fish_add_path $HOME/.local/bin
 
 if test -f ~/dev/.env.fish
