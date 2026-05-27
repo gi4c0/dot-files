@@ -1,6 +1,6 @@
 # Get rid of default prompt
 set -g fish_greeting ""
-set -g fish_key_bindings fish_vi_key_bindings
+set -g fish_key_bindings fish_hybrid_key_bindings
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -31,6 +31,7 @@ abbr -a vim nvim
 abbr -a gw git worktree
 abbr -a fucksecurity NODE_TLS_REJECT_UNAUTHORIZED=0
 abbr -a gpo git push origin 
+abbr -a nr sudo nixos-rebuild switch --flake ~/.dot-files/nixos
 
 zoxide init --cmd cd fish | source
 

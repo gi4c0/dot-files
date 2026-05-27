@@ -52,6 +52,29 @@ in
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+    # Modesetting is required.
+    modesetting.enable = true;
+
+    open = true;
+
+    # NVIDIA power management. Experimental, and can cause sleep/suspend to fail.
+    # Enable this if you have graphical corruption issues or application crashes after waking up.
+    powerManagement.enable = false;
+
+    # Fine-grained power management. Turns off GPU when not in use.
+    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.finegrained = false;
+
+    # Enable the Nvidia settings menu,
+    # accessible via `nvidia-settings`.
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   console.useXkbConfig = true;
 
@@ -107,19 +130,24 @@ in
     viAlias = true;
     vimAlias = true;
 
-    configure = {
-      extraPackages = with pkgs; [
-        sqlite # Needed for the C libraries
+    # This patches the Neovim binary to always see the correct 64-bit SQLite
+    package = unstable.neovim-unwrapped.overrideAttrs (old: {
+      backtrace = true;
+      makeWrapperArgs = (old.makeWrapperArgs or []) ++ [
+        "--set" "LIBSQLITE" "${pkgs.sqlite.out}/lib/libsqlite3.so"
       ];
-      # This pulls down nvim-treesitter bundled with every single grammar package pre-compiled
+    });
+
+    configure = {
+      extraPackages = with pkgs; [ sqlite ];
       packages.myPlugins = with pkgs.vimPlugins; {
-        start = [ 
-          nvim-treesitter.withAllGrammars 
-        ];
+        start = [ nvim-treesitter.withAllGrammars ];
       };
 
-      # Optional: You can put any basic Vim configuration here if needed
       customRC = ''
+        lua << EOF
+          vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.so'
+        EOF
         set runtimepath+=~/.config/nvim
         source ~/.config/nvim/init.lua
       '';
@@ -139,7 +167,6 @@ in
     telegram-desktop
     wget
     gedit
-    unstable.neovim
     git
     brave
     bitwarden-desktop
