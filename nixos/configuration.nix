@@ -113,6 +113,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.  
   users.users.alex = {
     isNormalUser = true;
+    shell = pkgs.fish;
     description = "alex";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
@@ -124,6 +125,8 @@ in
   # Install firefox.
   programs.firefox.enable = true;
 
+  programs.fish.enable = true;
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -131,15 +134,10 @@ in
     vimAlias = true;
 
     # This patches the Neovim binary to always see the correct 64-bit SQLite
-    package = unstable.neovim-unwrapped.overrideAttrs (old: {
-      backtrace = true;
-      makeWrapperArgs = (old.makeWrapperArgs or []) ++ [
-        "--set" "LIBSQLITE" "${pkgs.sqlite.out}/lib/libsqlite3.so"
-      ];
-    });
+    package = unstable.neovim-unwrapped;
 
     configure = {
-      extraPackages = with pkgs; [ sqlite ];
+      # extraPackages = with pkgs; [ sqlite ];
       packages.myPlugins = with pkgs.vimPlugins; {
         start = [ nvim-treesitter.withAllGrammars ];
       };
@@ -148,6 +146,7 @@ in
         lua << EOF
           vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.so'
         EOF
+
         set runtimepath+=~/.config/nvim
         source ~/.config/nvim/init.lua
       '';
@@ -160,7 +159,6 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     btop
     kitty
     alacritty
@@ -176,7 +174,6 @@ in
     tmux
     stow
     zoxide
-    fish
     starship
     ripgrep
     lazygit
@@ -186,20 +183,6 @@ in
     rustc
     sqlite
     gcc
-  ];
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    sqlite
-    stdenv.cc.cc
-    zlib
-    fuse3
-    icu
-    nss
-    openssl
-    curl
-    expat
-    # Add any other libraries that plugins complain about here
   ];
 
   fonts.packages = with pkgs; [
