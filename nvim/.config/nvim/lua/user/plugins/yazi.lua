@@ -7,7 +7,7 @@ return  {
         {"<leader>R", ':Yazi cwd<CR>', silent = true, desc = "Open the file manager in nvim's working directory"},
         {
             "<C-f>",
-            function() require('user.libs.snacks-dirs').find_dirs(function(path) vim.cmd('Yazi ' .. path) end) end,
+            function() require('user.libs.snacks-dirs').find_dirs(function(path) vim.cmd('e ' .. path) end) end,
             desc = "Find directories"
         },
     },

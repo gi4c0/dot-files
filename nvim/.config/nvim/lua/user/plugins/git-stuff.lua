@@ -77,6 +77,10 @@ return {
             require('codediff').setup {
                 explorer = {
                     enabled = false
+                },
+                diff = {
+                    cycle_next_hunk = false,             -- Wrap around when navigating hunks (]c/[c): false to stop at first/last
+                    cycle_next_file = false,             -- Wrap around when navigating files (]f/[f): false to stop at first/last
                 }
             }
 
