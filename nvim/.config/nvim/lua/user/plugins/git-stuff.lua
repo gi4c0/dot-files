@@ -153,7 +153,7 @@ return {
         },
 
         keys = {
-            -- {"<leader>gs", ":vertical :Git<CR>", noremap = true, silent = true, desc = "Git status" },
+            {"<leader>gs", ":vertical :Git<CR>", noremap = true, silent = true, desc = "Git status" },
             -- {"<leader>gS", ":vertical :Git<CR><C-w>o", noremap = true, silent = true, desc = "Git status (full screen)" },
             {"<leader>gb", ":Git blame<CR>", noremap = true, silent = true, desc = "Git blame" },
             -- {"<leader>gc", ":Gvsplit :%<left><left>", noremap = true, silent = true, desc = "Show git file on given commit/branch" },
@@ -170,7 +170,7 @@ return {
         },
         config = true,
         keys = {
-            {'<leader>gs', function() vim.cmd 'Neogit' end, desc = 'Neogit', silent = true}
+            {'<leader>gS', function() vim.cmd 'Neogit' end, desc = 'Neogit', silent = true}
         }
     }
 
