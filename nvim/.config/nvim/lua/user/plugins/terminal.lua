@@ -1,32 +1,58 @@
 return {
-    'akinsho/toggleterm.nvim',
-    version = "*",
-    opts = {
-        direction = 'float',
+    'kremovtort/tabterm.nvim',
+    lazy = false,
+    config = {
+        ui = {
+            float = {
+                width = 0.80,
+                height = 0.80,
+            },
+        },
     },
     keys = {
-        {
-            '<leader>tf',
-            function ()
-                local fname = vim.fn.expand('%:t')
-                vim.cmd('TermExec cmd="yarn test ' .. fname .. '"')
-            end,
-            desc = "test file"
-        },
-        -- {'<leader>td', '<cmd>q!<CR>', mode = {'t', 'n'}, desc = "Terminal Delete"},
-        {'<C-t><C-t>', '<cmd>ToggleTerm<CR>', desc = "Terminal toggle", mode = {'n', 't'}},
-        { '<C-t><C-x>',  '<cmd>q!<CR>',  mode = { 't', 'n' } },
-        { '<C-t><C-d>',  '<cmd>q!<CR>',  mode = { 't', 'n' } },
+        {'<C-t><C-t>', function() require('tabterm').toggle() end, desc = "Terminal toggle", mode = {'n', 't'}},
+        { '<C-t><C-d>',  '<cmd>Tabterm delete<CR>',  mode = { 't', 'n' } },
+        { '<C-t><C-c>',  '<cmd>Tabterm shell<CR>',  mode = { 't', 'n' } },
         {
             '<C-t><C-f>',
             function ()
                 local fname = vim.fn.expand('%:t')
-                vim.cmd('TermExec cmd="yarn test ' .. fname .. '"')
+                vim.cmd('Tabterm command yarn test ' .. fname)
             end,
             desc = "wTa fuck"
         },
     }
 }
+
+-- return {
+--     'akinsho/toggleterm.nvim',
+--     version = "*",
+--     opts = {
+--         direction = 'float',
+--     },
+--     keys = {
+--         {
+--             '<leader>tf',
+--             function ()
+--                 local fname = vim.fn.expand('%:t')
+--                 vim.cmd('TermExec cmd="yarn test ' .. fname .. '"')
+--             end,
+--             desc = "test file"
+--         },
+--         -- {'<leader>td', '<cmd>q!<CR>', mode = {'t', 'n'}, desc = "Terminal Delete"},
+--         {'<C-t><C-t>', '<cmd>ToggleTerm<CR>', desc = "Terminal toggle", mode = {'n', 't'}},
+--         { '<C-t><C-x>',  '<cmd>q!<CR>',  mode = { 't', 'n' } },
+--         { '<C-t><C-d>',  '<cmd>q!<CR>',  mode = { 't', 'n' } },
+--         {
+--             '<C-t><C-f>',
+--             function ()
+--                 local fname = vim.fn.expand('%:t')
+--                 vim.cmd('TermExec cmd="yarn test ' .. fname .. '"')
+--             end,
+--             desc = "wTa fuck"
+--         },
+--     }
+-- }
 
 
 -- return {
