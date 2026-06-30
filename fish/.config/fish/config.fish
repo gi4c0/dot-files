@@ -32,6 +32,7 @@ abbr -a gw git worktree
 abbr -a fucksecurity NODE_TLS_REJECT_UNAUTHORIZED=0
 abbr -a gpo git push origin 
 abbr -a nr sudo nixos-rebuild switch --flake ~/.dot-files/nixos
+abbr -a cl claude
 
 zoxide init --cmd cd fish | source
 

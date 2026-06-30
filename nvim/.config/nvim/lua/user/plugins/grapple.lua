@@ -54,8 +54,9 @@ return {
         { "<leader>4", "<cmd>Grapple select index=4<cr>", desc = "Select fourth tag" },
         { "<leader>5", "<cmd>Grapple select index=4<cr>", desc = "Select fourth tag" },
 
-        { "<c-s-n>", "<cmd>Grapple cycle_tags next<cr>", desc = "Go to next tag" },
-        { "<c-s-p>", "<cmd>Grapple cycle_tags prev<cr>", desc = "Go to previous tag" },
+        -- TODO: doesn't work
+        -- { "<c-s-n>", "<cmd>Grapple cycle_tags next<cr>", desc = "Go to next tag" },
+        -- { "<c-s-p>", "<cmd>Grapple cycle_tags prev<cr>", desc = "Go to previous tag" },
     },
 
     config = function (_, opts)
