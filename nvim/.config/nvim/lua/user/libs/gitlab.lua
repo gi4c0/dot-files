@@ -38,6 +38,27 @@ local function async_curl(short_url)
     return coroutine.yield()
 end
 
+--- @param ... string branches to fetch from origin
+local function async_fetch(...)
+    local co = coroutine.running()
+    if not co then
+        error("async_fetch must be called from within a coroutine!")
+    end
+
+    local cmd = { "git", "fetch", "origin", ... }
+
+    vim.system(cmd, { text = true }, function(result)
+        if result.code ~= 0 then
+            coroutine.resume(co, { 'Failed to fetch branches: ' .. (result.stderr or result.stdout) })
+        else
+            coroutine.resume(co, { nil })
+        end
+    end)
+
+    -- Pause execution here until resumed
+    return coroutine.yield()
+end
+
 --- @param url string
 M.show_mr = function(url)
     coroutine.wrap(function()
@@ -75,6 +96,15 @@ M.show_mr = function(url)
 
             --- @type string, string
             local target_branch, source_branch = mr_data.target_branch, mr_data.source_branch
+
+            -- Make sure both branches exist locally before diffing, otherwise
+            -- git can't compute the merge-base.
+            local fetch_response = async_fetch(target_branch, source_branch)
+            local fetch_err = fetch_response[1]
+
+            if fetch_err then
+                error(fetch_err)
+            end
 
             vim.schedule(function()
                 vim.cmd('CodeDiff origin/' .. target_branch .. '...origin/' .. source_branch)
