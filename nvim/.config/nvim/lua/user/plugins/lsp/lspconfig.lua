@@ -5,6 +5,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             servers = {
+                nixd = {},
                 graphql = {},
                 v_analyzer = {},
                 -- tsgo = {},

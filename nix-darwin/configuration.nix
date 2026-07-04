@@ -15,6 +15,14 @@
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.config.allowUnfree = true;
 
   environment.shells = [ pkgs.fish ];
+
+  users.users.alekseypanchenko = {
+    name = "alekseypanchenko";
+    home = "/Users/alekseypanchenko";
+    ignoreShellProgramCheck = true;
+    shell = pkgs.fish;
+  };
 }
