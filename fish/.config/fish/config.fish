@@ -10,6 +10,10 @@ if type -q fzf_configure_bindings
   fzf_configure_bindings # Enable fish key bindings
 end
 
+if type -q zoxide
+  zoxide init --cmd cd fish | source
+end
+
 set --universal nvm_default_version v20.19.4
 
 if type -q nvm
@@ -33,8 +37,7 @@ abbr -a fucksecurity NODE_TLS_REJECT_UNAUTHORIZED=0
 abbr -a gpo git push origin 
 abbr -a nr sudo nixos-rebuild switch --flake ~/.dot-files/nixos
 abbr -a cl claude
-
-zoxide init --cmd cd fish | source
+abbr -a ns sudo darwin-rebuild switch --flake /etc/nix-darwin --impure
 
 # Theme for tokyo night
 set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS \
@@ -79,4 +82,14 @@ set -gx EDITOR nvim
 # fish_config theme choose catppuccin-macchiato
 if test -f /home/linuxbrew/.linuxbrew/bin/brew
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"
+end
+
+# Initialize Nix environment variables on macOS
+if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+    source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+end
+
+# Ensure system applications and nix-darwin wrappers are in the PATH
+if test -e /run/current-system/sw/bin
+    fish_add_path /run/current-system/sw/bin
 end

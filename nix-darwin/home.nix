@@ -10,7 +10,6 @@
   # from environment.systemPackages if you want them isolated to your user.
   home.packages = with pkgs; [
     git
-    kitty
     obsidian
     neovim
     telegram-desktop
@@ -18,11 +17,8 @@
     bitwarden-cli
     # bitwarden-menu
     yazi
-    tmux
     stow
-    zoxide
     # fish
-    starship
     ripgrep
     lazygit
     nodejs
@@ -33,20 +29,43 @@
     nixd
   ];
 
-  # The magic link: point Home Manager to your mutable dotfiles repo
-  home.file = {
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/Users/alekseypanchenko/.dot-files/nvim/.config/nvim";
-    # ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "/Users/alekseypanchenko/.dot-files/kitty";
-    # ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink "/Users/alekseypanchenko/.dot-files/fish/.config/fish/config.fish";
-    # You can add tmux, stow, or any other directory similarly
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      # 1. Inject your existing .tmux.conf contents
+      ${builtins.readFile /Users/alekseypanchenko/.dot-files/.tmux.conf}
+
+      # 2. Append your Nix-managed Fish configuration
+      set -g default-command ${pkgs.fish}/bin/fish
+      set -g default-shell ${pkgs.fish}/bin/fish
+    '';
+  };
+
+  programs.kitty = {
+    enable = true;
+    settings.shell = "/run/current-system/sw/bin/fish";
+    extraConfig = "include ~/.dot-files/kitty/.config/kitty/kitty.conf";
   };
 
    programs.fish = {
      enable = true;
-     interactiveShellInit = ''
-       source ~/.dot-files/fish/.config/fish/config.fish
-    '';
+     interactiveShellInit = "source ~/.dot-files/fish/.config/fish/config.fish";
    };
+
+  home.file = {
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/Users/alekseypanchenko/.dot-files/nvim/.config/nvim";
+    ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "/Users/alekseypanchenko/.dot-files/yazi/.config/yazi";
+  };
 
   # Let Home Manager manage itself
   programs.home-manager.enable = true;
