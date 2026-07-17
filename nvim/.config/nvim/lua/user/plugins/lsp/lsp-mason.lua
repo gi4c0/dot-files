@@ -26,6 +26,7 @@ return {
         'rust_analyzer',
         'gopls',
         'biome',
+        'typos_lsp',
         'jsonls',
         'dockerls',
         'html',

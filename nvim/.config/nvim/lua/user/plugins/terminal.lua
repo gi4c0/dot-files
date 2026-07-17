@@ -11,8 +11,8 @@ return {
     },
     keys = {
         {'<C-t><C-t>', function() require('tabterm').toggle() end, desc = "Terminal toggle", mode = {'n', 't'}},
-        { '<C-t><C-d>',  '<cmd>Tabterm delete<CR>',  mode = { 't', 'n' } },
-        { '<C-t><C-c>',  '<cmd>Tabterm shell<CR>',  mode = { 't', 'n' } },
+        -- { '<C-t><C-d>',  '<cmd>Tabterm delete<CR>',  mode = { 't', 'n' } },
+        { '<C-t>c',  '<cmd>Tabterm shell<CR>',  mode = { 't', 'n' } },
         { '<C-t><C-r>',  '<cmd>Tabterm rename<CR>',  mode = { 't', 'n' } },
         { '<C-t>a',  '<cmd>Tabterm command claude<CR>',  mode = { 't', 'n' } },
         {

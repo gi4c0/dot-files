@@ -1,5 +1,6 @@
 return {
     'mistweaverco/kulala.nvim',
+    enabled = true,
     ft = { 'http', 'rest'},
     -- build = 'brew install jq',
     opts = {

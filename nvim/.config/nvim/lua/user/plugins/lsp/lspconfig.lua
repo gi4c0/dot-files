@@ -5,6 +5,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             servers = {
+                typos_lsp = {},
                 nixd = {},
                 graphql = {},
                 v_analyzer = {},
@@ -52,6 +53,8 @@ return {
         },
         config = function(_, opts)
             vim.diagnostic.config({
+                virtual_text = true,
+                underline = true,
                 signs = {
                     text = {
                         [vim.diagnostic.severity.ERROR] = ' ',
@@ -124,22 +127,11 @@ return {
             'nvimtools/none-ls.nvim',
             cond = vim.env.COC ~= '1',
             dependencies = {
-                { 'davidmh/cspell.nvim' },
                 { 'nvimtools/none-ls-extras.nvim' }
             },
-            config = function()
-                local null_ls = require("null-ls")
-                local cspell = require('cspell')
-
-                null_ls.setup({
-                    sources = {
-                        cspell.diagnostics,
-                        cspell.code_actions,
-                        -- require("none-ls.code_actions.eslint"), -- slows down code actions a lot
-                    },
-                    fallback_severity = vim.diagnostic.severity.WARN
-                })
-            end
+            config = {
+                fallback_severity = vim.diagnostic.severity.WARN
+            }
         },
 
         -- {
