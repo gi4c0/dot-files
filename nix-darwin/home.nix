@@ -12,11 +12,13 @@
     git
     obsidian
     neovim
+    kepubify
     telegram-desktop
     # bitwarden-desktop
     bitwarden-cli
     # bitwarden-menu
     yazi
+    claude-code
     stow
     # fish
     ripgrep
@@ -27,6 +29,8 @@
     sqlite
     gcc
     nixd
+    cspell
+    devenv
   ];
 
   programs.zoxide = {

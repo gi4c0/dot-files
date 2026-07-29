@@ -8,3 +8,5 @@ require "user.setup-plugins"
 require "user.scripts.index"
 
 vim.cmd('source $HOME/.config/nvim/scripts/scripts.vim')
+
+require "user.scripts.set-tmux-var"
