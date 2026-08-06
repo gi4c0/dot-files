@@ -53,8 +53,6 @@ return {
         },
         config = function(_, opts)
             vim.diagnostic.config({
-                virtual_text = true,
-                underline = true,
                 signs = {
                     text = {
                         [vim.diagnostic.severity.ERROR] = ' ',

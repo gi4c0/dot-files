@@ -146,7 +146,7 @@ return {
                 cmd = { "Flog", "Flogsplit", "Floggit" },
                 keys = {
                     {'<leader>gf', ':Flog -path=', noremap = true, silent = true, desc = "Git flog for path" },
-                    {"<leader>gl", ":Flogsplit -path=%<CR>", noremap = true, silent = true, desc = "Git log of current file" },
+                    {"<leader>gl", ":Flogsplit -path=%<CR>", mode = {'n', 'v'}, noremap = true, silent = true, desc = "Git log of current file" },
                     {"<leader>gL", ":Flogsplit<CR>", noremap = true, silent = true, desc = "Git log of repository file" },
                 }
             },
