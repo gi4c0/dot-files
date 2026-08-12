@@ -12,6 +12,7 @@
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   homebrew = {
     enable = true;
@@ -36,4 +37,6 @@
     ignoreShellProgramCheck = true;
     shell = pkgs.fish;
   };
+
+  nix.enable = true;
 }

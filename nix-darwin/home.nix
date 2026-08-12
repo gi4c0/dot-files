@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }:
+let
+  pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
+{
   # Change these if your user or home paths differ
   home.username = "alekseypanchenko";
   home.homeDirectory = "/Users/alekseypanchenko";
@@ -13,7 +17,7 @@
     obsidian
     neovim
     kepubify
-    telegram-desktop
+    pkgs-unstable.telegram-desktop
     # bitwarden-desktop
     bitwarden-cli
     # bitwarden-menu
