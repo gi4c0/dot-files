@@ -64,9 +64,9 @@ set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS \
   --color=spinner:#ff007c \
 "
 
-if type -q starship
-  starship init fish | source
-end
+# if type -q starship
+#   starship init fish | source
+# end
 
 if test -f ~/.cargo/env.fish
   source "$HOME/.cargo/env.fish"
