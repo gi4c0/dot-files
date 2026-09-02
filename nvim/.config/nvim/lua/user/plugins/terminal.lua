@@ -18,7 +18,7 @@ return {
         {
             '<C-t><C-f>',
             function ()
-                local fname = vim.fn.expand('%:t')
+                local fname = vim.fn.expand('%:.')
                 vim.cmd('Tabterm command yarn test ' .. fname)
             end,
             desc = "wTa fuck"

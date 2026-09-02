@@ -2,6 +2,14 @@ return {
     "folke/snacks.nvim",
     priority=1000,
     lazy = false,
+    init = function()
+        -- Remove nvim 0.11 built-in LSP mappings that share the `gr` prefix,
+        -- otherwise `gr` waits for timeoutlen before firing.
+        for _, lhs in ipairs({ "grr", "grn", "gra", "gri", "grt", "grx" }) do
+            pcall(vim.keymap.del, "n", lhs)
+        end
+        pcall(vim.keymap.del, "x", "gra")
+    end,
     ---@type snacks.Config
     opts = {
         -- words = {},
@@ -61,6 +69,7 @@ return {
         { "<leader>fn", function() Snacks.picker.lsp_symbols({ filter = { default = { "Method" } } }) end, desc = "Show functions and methods" },
         { "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "Show LSP Symblos" },
         { "gr", function() Snacks.picker.lsp_references() end, desc = "Go to lsp References" },
+        { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Go to lsp Implementations" },
         { "gt", function() Snacks.picker.lsp_references() end, desc = "Go to Type definitions" },
         { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
         { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
