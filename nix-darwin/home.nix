@@ -67,7 +67,11 @@ in
 
    programs.fish = {
      enable = true;
-     interactiveShellInit = "source ~/.dot-files/fish/.config/fish/config.fish";
+     interactiveShellInit = ''
+        source ~/.dot-files/fish/.config/fish/config.fish
+        fish_add_path /run/current-system/sw/bin
+        fish_add_path /nix/var/nix/profiles/default/bin
+     '';
    };
 
   home.file = {
