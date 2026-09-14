@@ -8,7 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./ugreen.nix
     ];
+
+  # Enable flakes and the new nix CLI.
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -86,6 +90,7 @@
       neovim
       kitty
       opencode
+      stow
       kdePackages.kate
     #  thunderbird
     ];
