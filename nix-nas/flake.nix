@@ -18,8 +18,8 @@
 
       modules = [
         ./configuration.nix
-        # configuration.nix already imports ./hardware-configuration.nix
-        # and ./ugreen.nix.
+        ./modules/ugos-protection.nix
+        ./modules/fan-control.nix
       ];
     };
   };

@@ -8,18 +8,45 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./ugreen.nix
     ];
 
   # Enable flakes and the new nix CLI.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Use the systemd-boot EFI boot loader.
+
+
+  # ============================================================
+  # Boot
+  # ============================================================
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  boot.swraid.enable = true;
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Sync boot files to backup ESP on second NVMe after each update
+  boot.loader.systemd-boot.extraInstallCommands = ''
+    # Sync to backup ESP (Patriot P300 #2)
+    # DEVICE="/dev/disk/by-id/nvme-Patriot_M.2_P300_128GB_P300LCBA2508221720"
+    # BACKUP_PART="''${DEVICE}-part1"
+    # ${pkgs.coreutils}/bin/mkdir -p /boot-backup
+    # ${pkgs.util-linux}/bin/mount "$BACKUP_PART" /boot-backup || true
+    # ${pkgs.rsync}/bin/rsync -a --delete /boot/ /boot-backup/ || true
+    # ${pkgs.util-linux}/bin/umount /boot-backup 2>/dev/null || true
+
+    # Sync to UGOS ESP (BIOS boots from here)
+    UGOS_DEV=$(${pkgs.coreutils}/bin/readlink -f /dev/disk/by-id/nvme-YSO128GTLCW-E3C-2_511250811096003796 2>/dev/null || true)
+    if [ -n "$UGOS_DEV" ]; then
+      ${pkgs.util-linux}/bin/blockdev --setrw "''${UGOS_DEV}" 2>/dev/null || true
+      ${pkgs.util-linux}/bin/blockdev --setrw "''${UGOS_DEV}p1" 2>/dev/null || true
+      ${pkgs.coreutils}/bin/mkdir -p /boot-ugos
+      ${pkgs.util-linux}/bin/mount -o rw "''${UGOS_DEV}p1" /boot-ugos 2>/dev/null || true
+      ${pkgs.rsync}/bin/rsync -a --delete --exclude='EFI/debian' --exclude='boot' /boot/ /boot-ugos/ 2>/dev/null || true
+      ${pkgs.util-linux}/bin/umount /boot-ugos 2>/dev/null || true
+      ${pkgs.util-linux}/bin/blockdev --setro "''${UGOS_DEV}p1" 2>/dev/null || true
+      ${pkgs.util-linux}/bin/blockdev --setro "''${UGOS_DEV}" 2>/dev/null || true
+    fi
+  '';
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -89,6 +116,7 @@
     packages = with pkgs; [
       neovim
       kitty
+      yazi
       opencode
       stow
       kdePackages.kate
