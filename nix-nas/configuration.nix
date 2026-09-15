@@ -48,6 +48,12 @@
     fi
   '';
 
+  fileSystems."/mnt/storage" = {
+    device = "/dev/disk/by-uuid/8baec209-5d57-434b-9390-26b66afee78a";
+    fsType = "btrfs";
+    options = [ "compress=zstd" "noatime" ];
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -131,7 +137,7 @@
     enable = true;
     config.user = {
     	name = "Oleksii Panchenko";
-	email = "alex.pan4@proton.me";
+      email = "alex.pan4@proton.me";
     };
   };
 
