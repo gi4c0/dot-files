@@ -55,6 +55,13 @@
   };
 
   networking.hostName = "nixos"; # Define your hostname.
+
+  # Enable Tailscale service
+  services.tailscale.enable = true;
+
+  # Open UDP port 41641 for optimal peer-to-peer performance
+  networking.firewall.allowedUDPPorts = [ 41641 ];
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -155,6 +162,18 @@
     };
   };
   
+  sops = {
+      defaultSopsFile = /home/nas/.dot-files/nix-nas/secrets.yaml;
+      defaultSopsFormat = "yaml";
+    
+    # Tell sops-nix to use the SSH host key for decryption at boot
+    age.sshKeyPaths = [ "/home/nas/.ssh/id_ed25519" ];
+   
+    secrets.nextcloud_admin_pass = {
+      owner = "nextcloud";
+      group = "nextcloud";
+    };
+  };
 
   programs.git = {
     enable = true;
