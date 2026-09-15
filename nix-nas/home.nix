@@ -15,9 +15,9 @@ in
 
   home.packages = with pkgs; [
     git
+    typos-lsp
     opencode
     obsidian
-    neovim
     kepubify
     pkgs-unstable.telegram-desktop
     bitwarden-cli
@@ -76,8 +76,13 @@ in
   };
 
   home.file = {
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/.dot-files/nvim/.config/nvim";
-    ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "${homeDir}/.dot-files/yazi/.config/yazi";
+    ".config/nvim/after".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dot-files/nvim/.config/nvim/after";
+    ".config/nvim/lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dot-files/nvim/.config/nvim/lua";
+    ".config/nvim/snips".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dot-files/nvim/.config/nvim/snips";
+    ".config/nvim/scripts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dot-files/nvim/.config/nvim/scripts";
+    ".config/nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dot-files/nvim/.config/nvim/init.lua";
+    ".config/nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dot-files/nvim/.config/nvim/lazy-lock.json";
+    ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dot-files/yazi/.config/yazi";
   };
 
   programs.home-manager.enable = true;

@@ -19,6 +19,11 @@ return {
     },
 
     init = function()
+        local is_nixos = vim.fn.filereadable("/etc/nixos/configuration.nix") == 1
+        if is_nixos then
+            return
+        end
+
         local ensureInstalled = {
             "typescript",
             "json",

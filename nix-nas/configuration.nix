@@ -131,6 +131,31 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+
+    configure = {
+      # extraPackages = with pkgs; [ sqlite ];
+      packages.myPlugins = with pkgs.vimPlugins; {
+        start = [ nvim-treesitter.withAllGrammars ];
+      };
+
+      customRC = ''
+        lua << EOF
+          vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.so'
+        EOF
+
+        set runtimepath+=~/.config/nvim
+        source ~/.config/nvim/init.lua
+      '';
+    };
+  };
+  
+
   programs.git = {
     enable = true;
     config.user = {
@@ -193,5 +218,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }
