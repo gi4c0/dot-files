@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 
 let
-  domain = "taila654ac.ts.net";
+  domain = "nixos.taila654ac.ts.net";
 in
 {
   sops = {
     defaultSopsFile = /home/nas/.dot-files/nix-nas/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.sshKeyPaths = [ "/home/nas/.ssh/id_ed25519" ];
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
     secrets.nextcloud_admin_pass = {
       owner = "nextcloud";
@@ -28,7 +28,7 @@ in
   services.nextcloud = {
     enable = true;
     hostName = domain;
-    package = pkgs.nextcloud30;
+    package = pkgs.nextcloud34;
 
     https = true;
     maxUploadSize = "16G";
@@ -36,12 +36,15 @@ in
     database.createLocally = true;
     configureRedis = true;
 
+    settings = {
+        default_phone_region = "PT";
+        overwriteprotocol = "https";
+    };
+
     config = {
       dbtype = "pgsql";
       adminuser = "admin";
       adminpassFile = config.sops.secrets.nextcloud_admin_pass.path;
-      defaultPhoneRegion = "PT";
-      overwriteProtocol = "https";
     };
 
     extraAppsEnable = true;
@@ -89,13 +92,17 @@ in
     after = [ "tailscaled.service" ];
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.tailscale ];
-    script = ''
-      mkdir -p /var/lib/tailscale/certs
-      tailscale cert --cert-file /var/lib/tailscale/certs/${domain}.crt --key-file /var/lib/tailscale/certs/${domain}.key ${domain}
-      chown -R nginx:nginx /var/lib/tailscale/certs
-    '';
     serviceConfig = {
-      Type = "oneshot";
+        Type = "oneshot";
+        ExecStart = "${pkgs.writeShellScript "tailscale-cert-start" ''
+        ${pkgs.tailscale}/bin/tailscale cert \
+            --cert-file=/var/lib/tailscale/certs/${domain}.crt \
+            --key-file=/var/lib/tailscale/certs/${domain}.key \
+            "${domain}"
+        
+        chmod 755 /var/lib/tailscale /var/lib/tailscale/certs
+        chmod 644 /var/lib/tailscale/certs/*
+        ''}";
     };
   };
 

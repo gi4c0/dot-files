@@ -167,7 +167,7 @@
       defaultSopsFormat = "yaml";
     
     # Tell sops-nix to use the SSH host key for decryption at boot
-    age.sshKeyPaths = [ "/home/nas/.ssh/id_ed25519" ];
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
    
     secrets.nextcloud_admin_pass = {
       owner = "nextcloud";

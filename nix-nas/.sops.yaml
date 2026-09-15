@@ -1,5 +1,6 @@
 keys:
-  - &nas_host age1e9avpxx9ttwk3zs6zwtartsf8klzxgywv6727un5nydspxn5cfwsdmwvfh
+  - &nas_host age179nz555jjyzc9f6tsvxcs9tcu6ak0r7u9uwgjujs768g6ea3dscsdet489
+
 
 creation_rules:
   - path_regex: secrets\.yaml$
