@@ -120,14 +120,12 @@
     description = "nas";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      neovim
-      kitty
-      yazi
-      opencode
-      stow
       kdePackages.kate
     #  thunderbird
     ];
+
+    ignoreShellProgramCheck = true;
+    shell = pkgs.fish;
   };
 
   # Install firefox.
@@ -143,6 +141,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  environment.shells = [ pkgs.fish ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
