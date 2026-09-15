@@ -49,7 +49,7 @@
   ];
 
   boot.extraModprobeConfig = ''
-    options it87 force_id=0x8613 ignore_resource_conflict=1
+    options it87 force_id=0x8623 ignore_resource_conflict=1
   '';
 
   boot.kernelModules = [ "it87" ];
@@ -72,7 +72,7 @@
     script = ''
       for attempt in $(seq 1 10); do
         for hwmon in /sys/class/hwmon/hwmon*; do
-          if [ "$(cat $hwmon/name 2>/dev/null)" = "it8613" ]; then
+          if [ "$(cat $hwmon/name 2>/dev/null)" = "it8603" ]; then
             echo 2 > $hwmon/pwm2_enable 2>/dev/null || true
             echo 1 > $hwmon/pwm3_enable 2>/dev/null || true
             echo 50 > $hwmon/pwm3 2>/dev/null || true
