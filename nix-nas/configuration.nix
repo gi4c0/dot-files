@@ -19,33 +19,49 @@
   # Boot
   # ============================================================
   boot.loader.systemd-boot.enable = true;
+  # Keep only the 2 newest generations on the ESP. Each generation is ~66 MB
+  # (initrd + kernel), and the bootable UGOS ESP is only 256 MB, so unlimited
+  # generations would overflow it (the original cause of the stale boot).
+  boot.loader.systemd-boot.configurationLimit = 2;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.swraid.enable = true;
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Sync boot files to backup ESP on second NVMe after each update
+  # Sync boot files to the UGOS ESP (BIOS boots from here), so the latest
+  # generation is always bootable. Fail loudly on any error instead of
+  # silently keeping a stale ESP that boots an old generation without fish/tmux.
   boot.loader.systemd-boot.extraInstallCommands = ''
-    # Sync to backup ESP (Patriot P300 #2)
-    # DEVICE="/dev/disk/by-id/nvme-Patriot_M.2_P300_128GB_P300LCBA2508221720"
-    # BACKUP_PART="''${DEVICE}-part1"
-    # ${pkgs.coreutils}/bin/mkdir -p /boot-backup
-    # ${pkgs.util-linux}/bin/mount "$BACKUP_PART" /boot-backup || true
-    # ${pkgs.rsync}/bin/rsync -a --delete /boot/ /boot-backup/ || true
-    # ${pkgs.util-linux}/bin/umount /boot-backup 2>/dev/null || true
+    set -e
+    UGOS_LABEL="UGOS ESP (nvme-YSO128GTLCW-E3C-2_511250811096003796)"
 
-    # Sync to UGOS ESP (BIOS boots from here)
-    UGOS_DEV=$(${pkgs.coreutils}/bin/readlink -f /dev/disk/by-id/nvme-YSO128GTLCW-E3C-2_511250811096003796 2>/dev/null || true)
-    if [ -n "$UGOS_DEV" ]; then
-      ${pkgs.util-linux}/bin/blockdev --setrw "''${UGOS_DEV}" 2>/dev/null || true
-      ${pkgs.util-linux}/bin/blockdev --setrw "''${UGOS_DEV}p1" 2>/dev/null || true
-      ${pkgs.coreutils}/bin/mkdir -p /boot-ugos
-      ${pkgs.util-linux}/bin/mount -o rw "''${UGOS_DEV}p1" /boot-ugos 2>/dev/null || true
-      ${pkgs.rsync}/bin/rsync -a --delete --exclude='EFI/debian' --exclude='boot' /boot/ /boot-ugos/ 2>/dev/null || true
-      ${pkgs.util-linux}/bin/umount /boot-ugos 2>/dev/null || true
-      ${pkgs.util-linux}/bin/blockdev --setro "''${UGOS_DEV}p1" 2>/dev/null || true
-      ${pkgs.util-linux}/bin/blockdev --setro "''${UGOS_DEV}" 2>/dev/null || true
+    # Ensure no leftover mount is still occupied from a previous failed run
+    ${pkgs.util-linux}/bin/umount /boot-ugos 2>/dev/null || true
+
+    # Sync to the UGOS ESP that the BIOS boots from
+    UGOS_DEV=$(${pkgs.coreutils}/bin/readlink -f /dev/disk/by-id/nvme-YSO128GTLCW-E3C-2_511250811096003796)
+    if [ -z "$UGOS_DEV" ]; then
+      echo "ERROR: $UGOS_LABEL not found; skipping sync" >&2
+      exit 1
     fi
+
+    ${pkgs.util-linux}/bin/blockdev --setrw "$UGOS_DEV"
+    ${pkgs.util-linux}/bin/blockdev --setrw "$UGOS_DEV"p1
+    ${pkgs.coreutils}/bin/mkdir -p /boot-ugos
+    ${pkgs.util-linux}/bin/mount "$UGOS_DEV"p1 /boot-ugos
+    trap '${pkgs.util-linux}/bin/umount /boot-ugos 2>/dev/null || true' EXIT
+    ${pkgs.rsync}/bin/rsync -a --delete --exclude='EFI/debian' --exclude='boot' /boot/ /boot-ugos/
+
+    # Sanity check: newest boot entry must have reached the UGOS ESP
+    NEWEST_BOOT=$(${pkgs.coreutils}/bin/ls /boot/loader/entries | ${pkgs.coreutils}/bin/sort -V | ${pkgs.coreutils}/bin/tail -n1)
+    NEWEST_UGOS=$(${pkgs.coreutils}/bin/ls /boot-ugos/loader/entries | ${pkgs.coreutils}/bin/sort -V | ${pkgs.coreutils}/bin/tail -n1)
+    if [ "$NEWEST_BOOT" != "$NEWEST_UGOS" ]; then
+      echo "ERROR: newest boot entry $NEWEST_BOOT not synced to $UGOS_LABEL (still $NEWEST_UGOS)" >&2
+      exit 1
+    fi
+
+    ${pkgs.util-linux}/bin/blockdev --setro "$UGOS_DEV"p1
+    ${pkgs.util-linux}/bin/blockdev --setro "$UGOS_DEV"
   '';
 
   fileSystems."/mnt/storage" = {

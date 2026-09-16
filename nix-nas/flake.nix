@@ -28,6 +28,7 @@
         ./configuration.nix
         ./apps/nextcloud.nix
         ./apps/immich.nix
+        ./apps/navidrome.nix
         ./modules/ugos-protection.nix
         ./modules/fan-control.nix
         sops-nix.nixosModules.sops
