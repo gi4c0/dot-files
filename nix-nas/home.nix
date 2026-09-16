@@ -70,8 +70,6 @@ in
       if test -f ~/.dot-files/fish/.config/fish/config.fish
         source ~/.dot-files/fish/.config/fish/config.fish
       end
-      fish_add_path /run/current-system/sw/bin
-      fish_add_path /nix/var/nix/profiles/default/bin
     '';
   };
 

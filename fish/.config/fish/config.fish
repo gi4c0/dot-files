@@ -88,8 +88,3 @@ end
 if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
     source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
 end
-
-# Ensure system applications and nix-darwin wrappers are in the PATH
-if test -e /run/current-system/sw/bin
-    fish_add_path /run/current-system/sw/bin
-end

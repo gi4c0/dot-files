@@ -27,6 +27,7 @@
       modules = [
         ./configuration.nix
         ./apps/nextcloud.nix
+        ./apps/immich.nix
         ./modules/ugos-protection.nix
         ./modules/fan-control.nix
         sops-nix.nixosModules.sops
