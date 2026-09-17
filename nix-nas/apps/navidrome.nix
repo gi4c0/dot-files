@@ -9,28 +9,25 @@
 let
   domain = "nixos.taila654ac.ts.net";
   navidromePort = 4533;
+  navidromeBackendPort = 4534;
 in
 {
   # Navidrome music server
   services.navidrome = {
     enable = true;
-    musicFolder = "/mnt/storage/music";
-    dataFolder = "/var/lib/navidrome";
-
-    address = "127.0.0.1";
-    port = navidromePort;
     openFirewall = false;
 
-    enableScanWatcher = true;
-    baseUrl = "https://${domain}:${toString navidromePort}";
-
-    # settings = { } -> configure the rest from the web UI
+    settings = {
+      Address = "127.0.0.1";
+      Port = navidromeBackendPort;
+      MusicFolder = "/mnt/storage/music";
+      DataFolder = "/var/lib/navidrome";
+      BaseURL = "https://${domain}:${toString navidromePort}";
+      ScanWatcher = true;
+      EnableInsightsCollector = false;
+    };
+    # Anything not set here can be configured from the web UI.
   };
-
-  # Ensure the music directory exists with correct ownership
-  systemd.tmpfiles.rules = [
-    "d /mnt/storage/music 0755 navidrome navidrome -"
-  ];
 
   # Reverse proxy on a separate TLS port, reusing the Tailscale certificate
   services.nginx.virtualHosts."navidrome" = {
@@ -49,9 +46,8 @@ in
     sslCertificateKey = "/var/lib/tailscale/certs/${domain}.key";
 
     locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString navidromePort}";
+      proxyPass = "http://127.0.0.1:${toString navidromeBackendPort}";
       proxyWebsockets = true;
-      recommendedProxySettings = true;
     };
   };
 }

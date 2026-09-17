@@ -16,6 +16,7 @@ in
   home.packages = with pkgs; [
     git
     typos-lsp
+    bitwarden-desktop
     opencode
     obsidian
     kepubify
