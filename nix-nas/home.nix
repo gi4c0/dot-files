@@ -17,6 +17,7 @@ in
     git
     typos-lsp
     bitwarden-desktop
+    pkgs-unstable.immich-go
     opencode
     obsidian
     kepubify
@@ -50,8 +51,7 @@ in
   programs.tmux = {
     enable = true;
     extraConfig = ''
-      # Inject existing .tmux.conf contents using dynamic homeDir
-      ${builtins.readFile (homeDir + "/.dot-files/.tmux.conf")}
+      ${builtins.readFile ../.tmux.conf}
 
       # Nix-managed Fish configuration
       set -g default-command ${pkgs.fish}/bin/fish

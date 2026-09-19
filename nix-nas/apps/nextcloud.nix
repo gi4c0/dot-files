@@ -4,17 +4,6 @@ let
   domain = "nixos.taila654ac.ts.net";
 in
 {
-  sops = {
-    defaultSopsFile = /home/nas/.dot-files/nix-nas/secrets.yaml;
-    defaultSopsFormat = "yaml";
-    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-
-    secrets.nextcloud_admin_pass = {
-      owner = "nextcloud";
-      group = "nextcloud";
-    };
-  };
-
   # Enable Hardware Acceleration (Intel QuickSync)
   hardware.graphics = {
     enable = true;
