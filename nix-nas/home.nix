@@ -51,7 +51,7 @@ in
   programs.tmux = {
     enable = true;
     extraConfig = ''
-      ${builtins.readFile ../.tmux.conf}
+      ${builtins.readFile ../tmux/.tmux.conf.nix}
 
       # Nix-managed Fish configuration
       set -g default-command ${pkgs.fish}/bin/fish
