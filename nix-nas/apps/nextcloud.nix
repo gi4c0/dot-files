@@ -2,6 +2,9 @@
 
 let
   domain = "nixos.taila654ac.ts.net";
+  # Plain-HTTP port for LAN clients (e-ink readers) that can't reach the
+  # Tailscale domain.
+  nextcloudLanPort = 8087;
 in
 {
   # Enable Hardware Acceleration (Intel QuickSync)
@@ -74,6 +77,32 @@ in
       sslCertificateKey = "/var/lib/tailscale/certs/${domain}.key";
     };
   };
+
+  # LAN WebDAV entry point: forwards to the HTTPS vhost above so Nextcloud
+  # always sees its canonical domain.
+  services.nginx.virtualHosts."nextcloud-lan" = {
+    listen = [
+      {
+        addr = "0.0.0.0";
+        port = nextcloudLanPort;
+        ssl = false;
+      }
+    ];
+
+    locations."/" = {
+      proxyPass = "https://127.0.0.1:443";
+      proxyWebsockets = true;
+      extraConfig = ''
+        proxy_set_header Host ${domain};
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_ssl_server_name on;
+        proxy_ssl_name ${domain};
+        client_max_body_size 16G;
+      '';
+    };
+  };
+
+  networking.firewall.allowedTCPPorts = [ nextcloudLanPort ];
 
   # Systemd service to auto-fetch & renew Tailscale TLS certificates
   systemd.services.tailscale-cert = {
