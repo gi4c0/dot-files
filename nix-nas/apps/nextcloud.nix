@@ -92,9 +92,16 @@ in
     locations."/" = {
       proxyPass = "https://127.0.0.1:443";
       proxyWebsockets = true;
+      # Must be off: the module appends the recommended-headers include
+      # *after* extraConfig, whose `proxy_set_header Host $host` would
+      # duplicate/override ours and make nginx upstream answer 400.
+      recommendedProxySettings = false;
       extraConfig = ''
         proxy_set_header Host ${domain};
         proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Host ${domain};
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_ssl_server_name on;
         proxy_ssl_name ${domain};
         client_max_body_size 16G;
