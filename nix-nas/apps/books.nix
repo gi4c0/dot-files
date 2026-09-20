@@ -46,10 +46,13 @@ in
       Type = "oneshot";
       User = "calibre-web";
       Group = "calibre-web";
+      StateDirectory = "calibre-web";
     };
+    environment.HOME = "/var/lib/calibre-web";
     script = ''
       if [ ! -f ${bookLibrary}/metadata.db ]; then
-        ${config.services.calibre-web.calibrePackage}/bin/calibredb restore_database --really-do-it ${bookLibrary}
+        ${config.services.calibre-web.calibrePackage}/bin/calibredb restore_database \
+          --with-library ${bookLibrary} --really-do-it
       fi
     '';
   };
