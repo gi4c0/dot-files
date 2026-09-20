@@ -51,8 +51,11 @@ in
     environment.HOME = "/var/lib/calibre-web";
     script = ''
       if [ ! -f ${bookLibrary}/metadata.db ]; then
-        ${config.services.calibre-web.calibrePackage}/bin/calibredb restore_database \
-          --with-library ${bookLibrary} --really-do-it
+        # calibredb restore_database is broken on calibre 9.x for empty
+        # libraries (it unconditionally copies a non-existent .calnotes
+        # dir), so create the library the same way the calibre GUI does.
+        ${config.services.calibre-web.calibrePackage}/bin/calibre-debug -c \
+          "from calibre.db.backend import DB; DB('${bookLibrary}', read_only=False)"
       fi
     '';
   };
