@@ -38,6 +38,7 @@ abbr -a gpo git push origin
 abbr -a nr sudo nixos-rebuild switch --flake ~/.dot-files/nixos
 abbr -a cl claude
 abbr -a ns sudo darwin-rebuild switch --flake /etc/nix-darwin --impure
+abbr -a nas ssh nas@100.65.209.113 -t "tmux new -A -s mac"
 
 # Theme for tokyo night
 set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS \
