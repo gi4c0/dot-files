@@ -12,6 +12,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use the nixpkgs default kernel; latest is too new for the NVIDIA stable driver.
@@ -113,6 +114,16 @@
         source ~/.config/nvim/init.lua
       '';
     };
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   hardware.nvidia = {
