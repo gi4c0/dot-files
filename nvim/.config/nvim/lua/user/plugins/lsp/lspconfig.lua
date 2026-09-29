@@ -5,7 +5,11 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             servers = {
-                typos_lsp = {},
+                -- mason's build is dynamically linked and won't run on nixos,
+                -- use the nix-installed binary there, mason elsewhere
+                typos_lsp = require("user.libs.platform").is_nixos
+                    and { cmd = { require("user.libs.platform").nix_bin("typos-lsp") or "typos-lsp" } }
+                    or {},
                 nixd = {},
                 graphql = {},
                 v_analyzer = {},

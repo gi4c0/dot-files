@@ -8,6 +8,7 @@ return {
     {"WhoIsSethDaniel/mason-tool-installer.nvim"},
   },
   config = function()
+    local platform = require("user.libs.platform")
     require("mason").setup({
       ui = {
         icons = {
@@ -18,25 +19,30 @@ return {
       },
     })
 
+    local servers = {
+      'eslint',
+      'vtsls',
+      'lua_ls',
+      'rust_analyzer',
+      'gopls',
+      'biome',
+      -- 'typos_lsp', -- broken on nixos (dynamic linking), managed via nix there
+      'jsonls',
+      'dockerls',
+      'html',
+      'cssls',
+      'html',
+      'tailwindcss',
+      'emmet_ls',
+      'pyright',
+      'graphql'
+    }
+    if not platform.is_nixos then
+      table.insert(servers, 'typos_lsp')
+    end
+
     require("mason-lspconfig").setup({
-      ensure_installed = {
-        'eslint',
-        'vtsls',
-        'lua_ls',
-        'rust_analyzer',
-        'gopls',
-        'biome',
-        'typos_lsp',
-        'jsonls',
-        'dockerls',
-        'html',
-        'cssls',
-        'html',
-        'tailwindcss',
-        'emmet_ls',
-        'pyright',
-        'graphql'
-      },
+      ensure_installed = servers,
 
       automatic_installation = true, -- not the same as ensure_installed
     })
