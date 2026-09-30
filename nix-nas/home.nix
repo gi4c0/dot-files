@@ -28,6 +28,7 @@ in
     stow
     ripgrep
     lazygit
+    rtorrent
     nodejs
     unzip
     go
