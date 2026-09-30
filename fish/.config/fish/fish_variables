@@ -1,0 +1,3 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR nvm_default_version:v20\x2e19\x2e4

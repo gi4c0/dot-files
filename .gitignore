@@ -1,3 +1,13 @@
 config/nvim/plugged/
 config/jesseduffield/
 CLAUDE.md
+
+# fisher-owned plugin files (reinstalled via `fisher update` from fish_plugins)
+fish/.config/fish/functions/_fzf*
+fish/.config/fish/functions/fzf*
+fish/.config/fish/functions/fisher.fish
+fish/.config/fish/completions/
+
+# fish-generated default prompt copies
+fish/.config/fish/functions/fish_prompt.fish
+fish/.config/fish/functions/fish_right_prompt.fish
