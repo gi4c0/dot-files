@@ -34,6 +34,7 @@
         ./apps/immich.nix
         ./apps/navidrome.nix
         ./apps/books.nix
+        ./apps/jellyfin.nix
         ./modules/ugos-protection.nix
         ./modules/fan-control.nix
         kosync.nixosModules.x86_64-linux.default
