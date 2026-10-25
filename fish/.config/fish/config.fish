@@ -88,3 +88,4 @@ end
 if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
     source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
 end
+export PATH="$HOME/.local/bin:$PATH"

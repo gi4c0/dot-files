@@ -1,3 +1,4 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR fish_user_paths:/Users/alekseypanchenko/\x2elocal/bin
 SETUVAR nvm_default_version:v20\x2e19\x2e4
