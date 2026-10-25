@@ -13,7 +13,7 @@
     kosync.inputs.nixpkgs.follows = "nixpkgs";
 
     # Telegram music download bot (services.music-bot)
-    music-bot.url = "github:gi4c0/music_bot";
+    music-bot.url = "git+ssh://git@github.com/gi4c0/music_bot?ref=master";
     music-bot.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
