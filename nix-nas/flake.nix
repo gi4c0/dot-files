@@ -12,6 +12,10 @@
     kosync.url = "git+https://codeberg.org/cmooon/kosync";
     kosync.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Telegram music download bot (services.music-bot)
+    music-bot.url = "github:gi4c0/music_bot";
+    music-bot.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,9 +40,11 @@
         ./apps/books.nix
         ./apps/jellyfin.nix
         ./apps/teslamate.nix
+        ./apps/music-bot.nix
         ./modules/ugos-protection.nix
         ./modules/fan-control.nix
         kosync.nixosModules.x86_64-linux.default
+        inputs.music-bot.nixosModules.default
         sops-nix.nixosModules.sops
         home-manager.nixosModules.home-manager
         {
