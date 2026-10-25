@@ -41,6 +41,7 @@
         ./apps/jellyfin.nix
         ./apps/teslamate.nix
         ./apps/music-bot.nix
+        ./apps/rtorrent.nix
         ./modules/ugos-protection.nix
         ./modules/fan-control.nix
         kosync.nixosModules.x86_64-linux.default
