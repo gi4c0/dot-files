@@ -16,10 +16,6 @@ end
 
 set --universal nvm_default_version v20.19.4
 
-if type -q nvm
-    nvm use default > /dev/null
-end
-
 abbr -a v vim
 abbr -a c clear
 abbr -a y yazi

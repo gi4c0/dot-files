@@ -11,3 +11,4 @@ fish/.config/fish/completions/
 # fish-generated default prompt copies
 fish/.config/fish/functions/fish_prompt.fish
 fish/.config/fish/functions/fish_right_prompt.fish
+.scratch/

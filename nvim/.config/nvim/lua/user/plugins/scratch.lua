@@ -2,9 +2,10 @@ return {
     "reybits/scratch.nvim",
     lazy = true,
     keys = {
-        { "<leader>Bs", "<cmd>ScratchToggle<cr>", desc = "Toggle Scratch Buffer" },
-        { "<leader>Bi", "<cmd>ScratchIssues<cr>", desc = "Toggle Scratch Issues" },
-        { "<leader>Bt", "<cmd>ScratchTask<cr>", desc = "New Scratch Task" },
+        { "<leader>bs", "<cmd>ScratchToggle<cr>", desc = "Toggle Scratch Buffer" },
+        { "<leader>bS", "<cmd>ScratchIssues<cr>", desc = "Toggle Scratch Task List" },
+        { "<leader>bl", "<cmd>ScratchIssues<cr>", desc = "Toggle Scratch Task List" },
+        { "<leader>bt", "<cmd>ScratchTask<cr>", desc = "New Scratch Task" },
     },
     cmd = {
         "ScratchToggle",
