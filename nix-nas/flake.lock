@@ -142,7 +142,8 @@
         "music-bot": "music-bot",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "spend-tracker": "spend-tracker"
       }
     },
     "sops-nix": {
@@ -163,6 +164,29 @@
         "owner": "Mic92",
         "repo": "sops-nix",
         "type": "github"
+      }
+    },
+    "spend-tracker": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "backend",
+        "lastModified": 1793572309,
+        "narHash": "sha256-tNBb8nTkgU7aaj19p7vUB9dH7nu/IS15X/VU6YjXsOs=",
+        "ref": "main",
+        "rev": "e316c324c0e9fef570edc65288bf7708f8a51786",
+        "revCount": 8,
+        "type": "git",
+        "url": "ssh://git@github.com/gi4c0/family_app"
+      },
+      "original": {
+        "dir": "backend",
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/gi4c0/family_app"
       }
     },
     "systems": {
