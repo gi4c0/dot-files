@@ -61,6 +61,27 @@
         "url": "https://codeberg.org/cmooon/kosync"
       }
     },
+    "music-bot": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792958950,
+        "narHash": "sha256-S0zb8yQsUfkU0vBLWLX8rX4JqoGf7Nsekidhv8yWVl8=",
+        "ref": "master",
+        "rev": "bb5c691c96890d13fa437b989f7a85c5c838cac4",
+        "revCount": 6,
+        "type": "git",
+        "url": "ssh://git@github.com/gi4c0/music_bot"
+      },
+      "original": {
+        "ref": "master",
+        "type": "git",
+        "url": "ssh://git@github.com/gi4c0/music_bot"
+      }
+    },
     "nix-gleam": {
       "inputs": {
         "nixpkgs": [
@@ -118,6 +139,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "kosync": "kosync",
+        "music-bot": "music-bot",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "sops-nix": "sops-nix"
