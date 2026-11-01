@@ -16,6 +16,10 @@
     music-bot.url = "git+ssh://git@github.com/gi4c0/music_bot?ref=master";
     music-bot.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Spend Tracker sync backend (services.spend-tracker)
+    spend-tracker.url = "git+ssh://git@github.com/gi4c0/family_app?ref=main&dir=backend";
+    spend-tracker.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,10 +46,12 @@
         ./apps/teslamate.nix
         ./apps/music-bot.nix
         ./apps/rtorrent.nix
+        ./apps/spend-tracker.nix
         ./modules/ugos-protection.nix
         ./modules/fan-control.nix
         kosync.nixosModules.x86_64-linux.default
         inputs.music-bot.nixosModules.default
+        inputs.spend-tracker.nixosModules.default
         sops-nix.nixosModules.sops
         home-manager.nixosModules.home-manager
         {
