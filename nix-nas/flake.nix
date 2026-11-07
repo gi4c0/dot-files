@@ -20,6 +20,10 @@
     spend-tracker.url = "git+ssh://git@github.com/gi4c0/family_app?ref=main&dir=backend";
     spend-tracker.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Client photo gallery (services.photo-gallery + frontend package)
+    photo-gallery.url = "git+ssh://git@github.com/gi4c0/photo-gallery?ref=main";
+    photo-gallery.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,11 +51,13 @@
         ./apps/music-bot.nix
         ./apps/rtorrent.nix
         ./apps/spend-tracker.nix
+        ./apps/photo-gallery.nix
         ./modules/ugos-protection.nix
         ./modules/fan-control.nix
         kosync.nixosModules.x86_64-linux.default
         inputs.music-bot.nixosModules.default
         inputs.spend-tracker.nixosModules.default
+        inputs.photo-gallery.nixosModules.default
         sops-nix.nixosModules.sops
         home-manager.nixosModules.home-manager
         {
