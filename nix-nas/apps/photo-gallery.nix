@@ -19,7 +19,7 @@ let
   # Plain-HTTP nginx site for cloudflared, bound to loopback only.
   photoGalleryTunnelPort = 4543;
   publicDomain = "kerrygallery.panchenkos.com";
-  tunnelId = "73a4b555-bd26-4bd2-801e-babc555583dd";
+  tunnelId = "5d607d03-d696-4a42-836b-44c82a5fc737";
   frontend = inputs.photo-gallery.packages.${pkgs.stdenv.hostPlatform.system}.frontend;
 
   # Shared by both nginx sites.
