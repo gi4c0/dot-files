@@ -196,11 +196,11 @@
       },
       "locked": {
         "dir": "backend",
-        "lastModified": 1793744167,
-        "narHash": "sha256-hM9K8KmVWpHEo4+93NMBG7p1VCnPf63phI9CU7UsGkI=",
+        "lastModified": 1794085075,
+        "narHash": "sha256-ikoQ1qqATS2lpWpRbk4+zcNf3RYDRQKhh0UfQ02qjD8=",
         "ref": "main",
-        "rev": "7083ca64825b8d7941a3c802ddc86b1de12de76a",
-        "revCount": 14,
+        "rev": "3182bc3c122e4f71a1a0611547451a06ef9923bf",
+        "revCount": 19,
         "type": "git",
         "url": "ssh://git@github.com/gi4c0/family_app"
       },
