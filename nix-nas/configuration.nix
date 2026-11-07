@@ -154,6 +154,16 @@
     };
   };
 
+  # sops CLI for editing secrets.yaml. The file is encrypted to the host key's age form
+  # (ssh-to-age), the same key sops-nix uses, so convert it and run as root:
+  #   sudo env SOPS_AGE_KEY_CMD="ssh-to-age -private-key -i /etc/ssh/ssh_host_ed25519_key" sops secrets.yaml
+  # SOPS_AGE_SSH_PRIVATE_KEY_FILE does not work here: it only matches ssh-ed25519 recipients.
+  # Never pass secret values as arguments (sops set): sudo logs the full command line to the journal.
+  environment.systemPackages = [
+    pkgs.sops
+    pkgs.ssh-to-age
+  ];
+
   programs.git = {
     enable = true;
     config.user = {
