@@ -142,11 +142,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794081834,
-        "narHash": "sha256-G/P0W7JE9vquDmgDR9vhZwIvVSkxewQfR7hO59f4oQc=",
+        "lastModified": 1794089864,
+        "narHash": "sha256-z9YmClxc64Fgg7jXsBjoQtymddMffSI7W7qnZhC1HV8=",
         "ref": "main",
-        "rev": "fa39064a3db3071c0d4b6c3e5a39be1d9dc85c06",
-        "revCount": 11,
+        "rev": "425bbbad5773de6092a9d6a861d4908b306ad9d9",
+        "revCount": 12,
         "type": "git",
         "url": "ssh://git@github.com/gi4c0/photo-gallery"
       },
