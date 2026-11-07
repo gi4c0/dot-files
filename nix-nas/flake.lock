@@ -135,6 +135,27 @@
         "type": "github"
       }
     },
+    "photo-gallery": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794053391,
+        "narHash": "sha256-wwZWBs9TuL10+c6CRNrSIlD2pN2h91fAYtdHbqfJeMI=",
+        "ref": "main",
+        "rev": "67a840192baa65a688c5a2c37ff882bac08d71fe",
+        "revCount": 9,
+        "type": "git",
+        "url": "ssh://git@github.com/gi4c0/photo-gallery"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/gi4c0/photo-gallery"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -142,6 +163,7 @@
         "music-bot": "music-bot",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "photo-gallery": "photo-gallery",
         "sops-nix": "sops-nix",
         "spend-tracker": "spend-tracker"
       }
