@@ -91,7 +91,7 @@ in
     tunnels.${tunnelId} = {
       credentialsFile = config.sops.secrets."cloudflared_nas".path;
       ingress.${publicDomain} = "http://127.0.0.1:${toString photoGalleryTunnelPort}";
-      # Only the gallery is public; any other hostname on this tunnel gets 404.
+      # Public hostnames: this gallery and spend-tracker.nix; any other gets 404.
       default = "http_status:404";
     };
   };
